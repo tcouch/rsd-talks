@@ -17,9 +17,9 @@ def download(url,thumbsize):
 
 def carousel(data,thumbsize=150,height=768,width=1024):
     composite=Image.new('RGBA',(1024,768),(255,255,255,0))  
-    images={
-        name : download(data[name],thumbsize) for name in data
-    }
+    images=dict(
+        [[name, download(data[name],thumbsize)] for name in data]
+    )
     for index, name in enumerate(images):
         location=(
             int(width* (1+math.cos(2*math.pi*index/len(images))/2)/2-thumbsize/2),
