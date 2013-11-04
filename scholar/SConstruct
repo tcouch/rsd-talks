@@ -15,9 +15,7 @@ pandoc_slides=Builder(action='pandoc -t revealjs -s -V theme=night'+
 def assetpath(node):
     return os.path.join('reveal','assets',
         os.path.basename(os.path.splitext(env.GetBuildPath(node))[0])+'.png')
-# The next step uses the module from https://github.com/jamespjh/jamespjh-wsd/
-# Install via python setup.py, then put a ~/.wsd/config.yml with 
-# key: YOURWSDKEY
+
 python_figure_builder=Builder(action='python $SOURCE $TARGET',
     suffix='.png',
     src_suffix='.py')
