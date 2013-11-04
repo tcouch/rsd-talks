@@ -4,6 +4,8 @@ import yaml
 import subprocess
 import shutil
 import carousel
+import sys
+
 
 pandoc_slides=Builder(action='pandoc -t revealjs -s -V theme=night'+
     ' --css=night.css'+
@@ -16,7 +18,7 @@ def assetpath(node):
     return os.path.join('reveal','assets',
         os.path.basename(os.path.splitext(env.GetBuildPath(node))[0])+'.png')
 
-python_figure_builder=Builder(action='python $SOURCE $TARGET',
+python_figure_builder=Builder(action=' python $SOURCE $TARGET',
     suffix='.png',
     src_suffix='.py')
     
@@ -65,8 +67,11 @@ env.Append(BUILDERS={'Browse':browse_builder})
 env.Append(BUILDERS={'Carousel':carousel_builder}) 
  
 env.Append(BUILDERS={'PandocSlides':pandoc_slides})
-lecture=env.PandocSlides('reveal/index.html','lecture.md')
 
+env['ENV']["PYTHONPATH"]=sys.path
+
+lecture=env.PandocSlides('reveal/index.html','lecture.md')
+have_webkit2png=False
 for source in Glob('assets/*.py'):
     png=env.PY(assetpath(source),source)
     Depends(lecture,png)
@@ -79,9 +84,11 @@ for source in Glob('assets/*.sh'):
 for source in Glob('assets/*.wget'):
     results=env.Wget(assetpath(source),source)
     Depends(lecture,results)
-for source in Glob('assets/*.browse'):
-    results=env.Browse(assetpath(source),source)
-    Depends(lecture,results)  
+if have_webkit2png:
+    for source in Glob('assets/*.browse'):
+        results=env.Browse(assetpath(source),source)
+        Depends(lecture,results)
+
 for source in Glob('assets/*.carousel'):
     results=env.Carousel(assetpath(source),source)
     Depends(lecture,results)
