@@ -419,7 +419,7 @@ Automated Deployment
 
 ![](assets/capistrano.png) Fabric/Capistrano
 
-[This talk!](http://github.com/UCL/talks)
+[This talk!](http://github.com/UCL/rsd-talks)
 
 This talk's SConscript
 ----------------------
@@ -487,7 +487,7 @@ class scholar ($level) {
       provider => 'git',
       require  => [ Package["git"], File["$service_home/.ssh/id_rsa"], ],
       source   => "git@github.com:UCL/rsd-talks.git",
-      revision => $branch,  
+      revision => $level,  
     }
 
     package {["python-matplotlib","pygtk2"]:
