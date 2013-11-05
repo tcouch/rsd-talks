@@ -72,6 +72,7 @@ env['ENV']["PYTHONPATH"]=sys.path
 
 lecture=env.PandocSlides('reveal/index.html','lecture.md')
 have_webkit2png=False
+have_PIL=False
 for source in Glob('assets/*.py'):
     png=env.PY(assetpath(source),source)
     Depends(lecture,png)
@@ -88,8 +89,8 @@ if have_webkit2png:
     for source in Glob('assets/*.browse'):
         results=env.Browse(assetpath(source),source)
         Depends(lecture,results)
-
-for source in Glob('assets/*.carousel'):
-    results=env.Carousel(assetpath(source),source)
-    Depends(lecture,results)
+if have_PIL:
+    for source in Glob('assets/*.carousel'):
+        results=env.Carousel(assetpath(source),source)
+        Depends(lecture,results)
        
