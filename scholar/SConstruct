@@ -2,4 +2,7 @@ import rsdpandoc.builders
 import rsdpandoc.globbers
         
 env=Environment(tools=['default',rsdpandoc.builders.add_builders])
-rsdpandoc.globbers.standard_layout('lecture.md',env)
+#env["HavePIL"]=True
+#env["HaveWSD"]=True
+#env["HaveWebKit"]=True
+rsdpandoc.globbers.reveal_layout('lecture.md',env)
