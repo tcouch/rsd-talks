@@ -1,6 +1,21 @@
 % The Craftsperson And The Scholar
 % James Hetherington
 
+James Hetherington
+------------------
+
+* PhD, Theoretical Physics
+    * High-Energy Physics, Cavendish Laboratory
+* Post-doc, systems biology, UCL CoMPLEx
+    * Glucose homeostasis
+* The MathWorks
+    * Senior Developer, Model Management Group
+* Senior Scientific Innovator, AMEE UK Ltd
+    * Environmental impact modeling
+* Scientific Programmer, UCL CCS
+    * Brain blood flow CFD
+* Leader and Founder, UCL Research Software Development
+
 The State of Research Software
 ================================
 
@@ -33,7 +48,10 @@ HPCWare
 * Get a 5% improvement in performance
 * On a particular architecture
 * Publish a scaling graph
-* Readability driven downwards
+* Selection against:
+      * Readability
+      * Maintainability
+      * Adaptability
 
 ConsultantWare
 --------
@@ -68,20 +86,17 @@ Research Software Developers
     * Institutional memory
     * Continuity, stability, maintainance
 
-James Hetherington
-------------------
+Why it works
+------------
 
-* PhD, Theoretical Physics
-    * High-Energy Physics, Cavendish Laboratory
-* Post-doc, systems biology, UCL CoMPLEx
-    * Glucose homeostasis
-* The MathWorks
-    * Senior Developer, Model Management Group
-* Senior Scientific Innovator, AMEE UK Ltd
-    * Environmental impact modeling
-* Scientific Programmer, UCL CCS
-    * Brain blood flow CFD
-* Leader and Founder, UCL Research Software Development                            
+* People *want* to be RSEs
+* We need a name, and some status
+* There isn't a shortage of talent
+* But the research system needs to
+    * Promote and preserve its soft benefits better
+    * Measure and incentivise correctly
+    * Integrate RSEs within HEIs
+    * Support institutional innovation
 
 UCL Research Software Development
 =================================
@@ -116,9 +131,8 @@ UCL Staffing
 * 3 Permanent Roles
 * Team Leader : James Hetherington
 * Two Research Software Developers
-  * Mayeul D’Avezac
-  * Jens Nielsen
-* Additional research-grant funded roles   
+* Additional research-grant funded roles
+* Two so far
 
 Call for projects
 -----------------------------
@@ -127,7 +141,7 @@ Call for projects
 * Every quarter
 * Half FTE for term 
 * Worth £8k
-* Four projects so far
+* Eight projects so far
 
 Paid Projects
 =============
@@ -136,11 +150,11 @@ Paid Projects
 -------------
 
 * Via research grants
-    * Submitted £300k
-* Or day rate (£264 per day)
+* Or existing college money
 * Displaces free calls
     * Until recruit
-* Secured roughly £80k
+* Submitted £0.5M
+* Secured £130k
 
 Some sample projects
 ====================
