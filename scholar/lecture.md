@@ -29,6 +29,7 @@ Sensible In, Reasonable Out.
 PhDWare
 -------
 
+* Don't look if anyone's done it before
 * Code till it works
 * Generate a figure
 * Throw it away
@@ -251,8 +252,10 @@ Priorities
 
 * Readability
 * Reliability
+* Deployability
 * Sustainability
 * Replicability
+* Usability
 * Performance
 
 **In that Order**
