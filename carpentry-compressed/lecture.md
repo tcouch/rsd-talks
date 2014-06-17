@@ -143,9 +143,9 @@ create_graphs results_28_02_13_1_53b6_98d2
 Program or Be Programmed
 ------------------------
 
-* Repetition Leads to Boredom
-* Boredom Leads To Horrifying Mistakes
-* Horrifying Mistakes to God-I-Wish-I-Was-Still-Bored
+* Repetition leads to Boredom
+* Boredom leads to Horrifying Mistakes
+* Horrifying Mistakes lead to God-I-Wish-I-Was-Still-Bored
 
 Automation for reproducibility
 ------------------------------
