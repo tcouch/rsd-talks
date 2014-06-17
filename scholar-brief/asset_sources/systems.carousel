@@ -1,0 +1,12 @@
+data:
+  RedHat: http://tierra.aslab.upm.es/~adolfo/modelica-1.5.0/redhat-logo.jpeg
+  Ubuntu: http://logonoid.com/images/ubuntu-logo.png
+  Mint: http://upload.wikimedia.org/wikipedia/commons/3/3f/Logo_Linux_Mint.png
+  OSX: http://toastytech.com/guis/osx15logo.png
+  "Mountain Lion": http://betanews.com/wp-content/uploads/2012/02/mountain-lion-hero1.jpeg
+  "Windows 8": http://betanews.com/wp-content/uploads/2012/02/Windows-8-logo-300x300.jpg
+  Windows: http://powerofmobile.com/wp-content/uploads/2012/10/windows-logo.png
+thumbsize: 150
+height: 1024
+width: 768
+

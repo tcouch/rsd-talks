@@ -1,0 +1,8 @@
+digraph Governance  {
+graph [bgcolor = "transparent"]
+edge [color = "green"]
+node [fontcolor = "white", color="green", fontname="courier", shape="rectangle"]
+ "Research IT\n Governance Group" -> "RSD Group" -> "RSD Resource Allocation Group" 
+ "RSD Resource Allocation Group" -> Team [style="dashed" ];
+ "Information Services\n Division"  -> "Research IT Services\n Department" ->  "Research Computing\n Group" -> Team;
+} 
