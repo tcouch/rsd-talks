@@ -2,6 +2,8 @@ import rsdpandoc.builders
 import rsdpandoc.globbers
 
 env=Environment(tools=['default',rsdpandoc.builders.add_builders])
+import matplotlib
+matplotlib.use('Agg')
 env["HavePIL"]=False
 env["HaveWSD"]=False
 env["HaveWebKit"]=False
