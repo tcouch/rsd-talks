@@ -6,7 +6,7 @@ import matplotlib
 matplotlib.use('Agg')
 env["HavePIL"]=True
 env["HaveWSD"]=True
-env["HaveWebKit"]=True
+env["HaveWebKit"]=False
 rsdpandoc.globbers.reveal_layout('scholar/lecture.md',env,"reveal/scholar","scholar/asset_sources")
 rsdpandoc.globbers.reveal_layout('version_control/lecture.md',env,"reveal/version_control","version_control/figures")
 rsdpandoc.globbers.reveal_layout('fabric/lecture.md',env,"reveal/fabric")
