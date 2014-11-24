@@ -154,8 +154,7 @@ Paid Projects
 * Or existing college money
 * Displaces free calls
     * Until recruit
-* Submitted £0.5M
-* Secured £130k
+* Secured > £400k
 
 Some sample projects
 ====================
