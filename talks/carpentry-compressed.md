@@ -1,5 +1,7 @@
-% Software Carpentry: Compressed Edition
-% James Hetherington
+---
+title: "Software Carpentry: Compressed Edition"
+author: James Hetherington
+---
 
 The State of Research Software
 ================================

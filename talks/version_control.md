@@ -1,5 +1,7 @@
-% Practical Version Control and Issue Tracking
-% James Hetherington
+---
+title: Practical Version Control and Issue Tracking
+author: James Hetherington
+---
 
 Practical Version Control and Issue Tracking
 ============================================
