@@ -1,17 +1,24 @@
-.md|yamlargs|jinja|pandoc:
+.md|yamlargs|hd|jinja|resub|pandoc:
     - inputs
+    - slidelink.md
+    - except: [slidelink]
+    - hd:
+        header: slidelink.md
+    - resub:
+        expressions:
+          - ['assets/','{{root}}/assets/']
     - pandoc:
         args: --default-image-extension=png
 
 
 ".md|jinja|pandoc|-reveal|resub|h":
     - inputs
-    - except:
-        index.md
+    - except: [index, slidelink]
     - resub:
         expressions:
+          - ['assets/','{{root}}/assets/']
           - ['{{root}}','']
-    - output-name: "slides/{baserootname}.html"
+    - output-name: "{baserootname}-reveal.html"
     - pandoc:
         args: -t revealjs -V theme=night
             --css=http://lab.hakim.se/reveal-js/css/theme/night.css
