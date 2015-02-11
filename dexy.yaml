@@ -1,13 +1,13 @@
 .md|yamlargs|hd|jinja|resub|pandoc:
     - inputs
     - slidelink.md
+    - apply-ws-to-content: True
     - except: [slidelink]
     - hd:
         header: slidelink.md
     - resub:
         expressions:
           - ['assets/','{{root}}/assets/']
-          - ['{{root}}','']
     - pandoc:
         args: --default-image-extension=png
 

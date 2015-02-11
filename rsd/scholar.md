@@ -446,8 +446,8 @@ This talk's Dexyfile
     - pandoc:
         args: -t revealjs -V theme=night
             --css=http://lab.hakim.se/reveal-js/css/theme/night.css
-            --css={{root}}/css/ucl_reveal.css
-            --css={{root}}/css/slidetheme.css
+            --css=/css/ucl_reveal.css
+            --css=/css/slidetheme.css
             --default-image-extension=png
             --highlight-style=zenburn
             --mathjax
