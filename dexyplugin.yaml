@@ -1,0 +1,9 @@
+reporter:supplementary:
+    supplementary-location: ../indigo-dexy
+    site_title: 'Research Software Development Talks and Presentations'
+    crumbs:
+        - [ISD, 'http://ucl.ac.uk/isd']
+        - [RITS, 'http://www.ucl.ac.uk/isd/staff/research_services/']
+        - ['Software Development', 'http://www.ucl.ac.uk/isd/staff/research_services/research-software']
+    include_leftnav: True
+    default: True

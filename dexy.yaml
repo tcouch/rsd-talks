@@ -1,0 +1,64 @@
+.md|yamlargs|hd|jinja|resub|pandoc:
+    - inputs
+    - slidelink.md
+    - except: [slidelink]
+    - hd:
+        header: slidelink.md
+    - resub:
+        expressions:
+          - ['assets/','{{root}}/assets/']
+          - ['{{root}}','']
+    - pandoc:
+        args: --default-image-extension=png
+
+
+".md|jinja|pandoc|-reveal|resub|h":
+    - inputs
+    - except: [index, slidelink]
+    - resub:
+        expressions:
+          - ['assets/','{{root}}/assets/']
+          - ['{{root}}','']
+    - output-name: "{baserootname}-reveal.html"
+    - pandoc:
+        args: -t revealjs -V theme=night
+            --css=http://lab.hakim.se/reveal-js/css/theme/night.css
+            --css={{root}}/css/ucl_reveal.css
+            --css={{root}}/css/slidetheme.css
+            --default-image-extension=png
+            --highlight-style=zenburn
+            --mathjax
+            -V revealjs-url=http://lab.hakim.se/reveal-js
+
+assets:
+    - .css
+    - .png
+    - .svg
+    - .jpg
+    - .pdf
+    - .ipynb
+    - .js
+
+sequence_charts:
+    - .wsd|wsd:
+        - wsd:
+            style: napkin
+
+uml:
+    - .yuml|yuml
+
+graphs:
+    - .dot|dot:
+        - assets
+
+    - .nto|graphviz:
+        - assets
+        - graphviz:
+            args: -Kneato
+
+inputs:
+    - assets
+    - sequence_charts
+    - graphs
+    - uml
+
