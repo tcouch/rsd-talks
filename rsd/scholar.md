@@ -418,7 +418,9 @@ Program or Be Programmed
 
 * Repetition Leads to Boredom
 * Boredom Leads To Horrifying Mistakes
-* Horrifying Mistakes to God-I-Wish-I-Was-Still-Bored
+* Horrifying Mistakes Leads to God-I-Wish-I-Was-Still-Bored
+
+-- Will Larson
 
 Automation is Reproducibility
 -----------------------------
@@ -527,8 +529,8 @@ Software Carpentry
 * Unit testing
 * Databases
 
-> ``I found the command line intimidating at first, but after a while it felt
-> like I was inside my computer.''
+> I found the command line intimidating at first, but after a while it felt
+> like I was inside my computer.
 
 -- A student at a UCL software carpentry event
 
