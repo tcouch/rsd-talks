@@ -71,15 +71,15 @@ The Craftsperson And The Scholar
            
 ![](assets/scholar.jpg)
 
-Research Software Developers
+Research Software Engineers
 ----------------------------
 
 ![](assets/RSD_Venn.png)
 
-Research Software Developers
+Research Software Engineers
 ----------------------------
 
-* Not researchers
+* Not (primarily) researchers
     * No personal research agenda
 * Facilitative, supportive, and collaborative
     * Deep engagement with research groups
@@ -132,19 +132,18 @@ UCL Staffing
 ------------
 
 * 3 Permanent Roles
-* Team Leader : James Hetherington
-* Two Research Software Developers
+* Three grant-funded Research Software Developers
 * Additional research-grant funded roles
 * Two so far
 
 Call for projects
 -----------------------------
 
-* Judged by executive
+* Judged by academic panel
 * Every quarter
 * Half FTE for term 
 * Worth £8k
-* Eight projects so far
+* Ten projects so far
 
 Paid Projects
 =============
@@ -156,10 +155,10 @@ Paid Projects
 * Or existing college money
 * Displaces free calls
     * Until recruit
-* Submitted £0.5M
-* Secured £130k
+* Secured £400k (Roughly 33% success rate)
+* Total income to UCL £2M
 
-Some sample projects
+Sample free projects
 ====================
 
 Low-Template DNA
@@ -254,13 +253,20 @@ Priorities
 
 * Readability
 * Reliability
+* Performance
+
+**In that Order**
+
+Priorities
+----------
+
+* Readability
+* Reliability
 * Deployability
 * Sustainability
 * Replicability
 * Usability
 * Performance
-
-**In that Order**
 
 Sources of Software Culture
 ===========================
@@ -271,24 +277,6 @@ Sources of Software Culture
 * Enterprise software
 * Web software
 * Research Software
-
-The Agile Manifesto
---------------------
-
-We are uncovering better ways of developing
-software by doing it and helping others do it.
-
-Through this work we have come to value:
-
-* Individuals and interactions over processes and tools
-* Working software over comprehensive documentation
-* Customer collaboration over contract negotiation
-* Responding to change over following a plan
-
-That is, while there is value in the items on
-the right, we value the items on the left more.
-
-Kent Beck et. al. 2001
 
 Agile Processes
 ---------------
@@ -440,98 +428,47 @@ Automated Deployment
 
 [This talk!](http://github.com/UCL/rsd-talks)
 
-This talk's SConscript
-----------------------
+This talk's Dexyfile
+--------------------
 
-``` python
-pandoc_slides=Builder(action='pandoc -t revealjs -s -V theme=night'+
-    ' --css=night.css'+
-    ' --css=slidetheme.css'+
-    ' --mathjax '+
-    ' -V revealjs-url=http://lab.hakim.se/reveal-js/'+
-    ' $SOURCES -o $TARGET')
+``` yaml
 
-...    
-dot_figure_builder=Builder(action='dot -Tpng $SOURCE -o $TARGET',
-    suffix='.png',
-    src_suffix='.dot')
-    
-shell_figure_builder=Builder(action='bash $SOURCE $TARGET',
-    suffix='.png',
-    src_suffix='.sh') 
-    
-carousel_builder=Builder(action=carousel.carousel_action, 
-    suffix=".png",src_suffix=".carousel")   
-                             
-def wget_each_url(target,source,env):
-    data=yaml.load(open(source[0].path))
-    for target,source in zip(target,data.values()):
-        content=urllib.urlopen(source)
-        result=open(target.path,'w')
-        result.write(content.read())
-        result.close()
+".md|jinja|pandoc|-reveal|resub|h":
+    - inputs
+    - except: [index, slidelink]
+    - output-name: "{baserootname}-reveal.html"
+    - pandoc:
+        args: -t revealjs -V theme=night
+            --css=http://lab.hakim.se/reveal-js/css/theme/night.css
+            --css={{root}}/css/ucl_reveal.css
+            --css={{root}}/css/slidetheme.css
+            --default-image-extension=png
+            --highlight-style=zenburn
+            --mathjax
+            -V revealjs-url=http://lab.hakim.se/reveal-js
 
-def yaml_emitter(target,source,env):
-    data=yaml.load(open(source[0].path))
-    targets=[os.path.join('reveal','assets',fname) for fname in data.keys()]
-    return targets, source
+assets:
+    - .css
+    - .png
+    - .js
+
+sequence_charts:
+    - .wsd|wsd:
+        - wsd:
+            style: napkin
+
+uml:
+    - .yuml|yuml
+
+graphs:
+    - .dot|dot:
+        - assets
 ```
 
-This Talk's SConscript
----------------------
+This Talk On Jenkins
+--------------------
 
-``` Python
-
-wget_builder=Builder(action=wget_each_url,
-    emitter=yaml_emitter)
-...
-lecture=env.PandocSlides('reveal/index.html','lecture.md')
-...
-for source in Glob('assets/*.wget'):
-    results=env.Wget(assetpath(source),source)
-    Depends(lecture,results)
-...
-for source in Glob('assets/*.carousel'):
-    results=env.Carousel(assetpath(source),source)
-    Depends(lecture,results)
-```
-
-This talk's puppet manifest
----------------------------
-
-``` puppet
-class scholar ($level) {
-    vcsrepo {"/opt/gitrepos/talks":
-      ensure => 'latest',
-      provider => 'git',
-      require  => [ Package["git"], File["$service_home/.ssh/id_rsa"], ],
-      source   => "git@github.com:UCL/rsd-talks.git",
-      revision => $level,  
-    }
-
-    package {["python-matplotlib","pygtk2"]:
-    }
-
-    package {['matplotlib-venn']:
-        provider => 'pip'
-    }
-
-    #Run Pandoc via scons to produce the Reveal.js presentations
-
-    exec { "build-scholar":
-      command => "/usr/bin/scons",
-      cwd => "/opt/gitrepos/talks/scholar",
-      require => [Exec["install-pandoc"],Package["scons"],Vcsrepo["/opt/gitrepos/talks"]]
-    }
-
-    # Copy the C++ course directory into the web folder
-    file {"/data/apache/htdocs/talks/scholar":
-      source => "/opt/gitrepos/talks/scholar/reveal",
-      recurse => true,
-      require => Exec["build-scholar"]
-    }
-}
-```
+![](assets/jenkins_talk.png)
 
 Training
 ========
@@ -566,7 +503,13 @@ Software Carpentry
 > ``I found the command line intimidating at first, but after a while it felt
 > like I was inside my computer.''
 
--- A student at the UCL software carpentry event
+-- A student at a UCL software carpentry event
+
+A syllabus for research computing
+---------------------------------
+
+* [Research Software Engineering With Python](http://development.rc.ucl.ac.uk/training/engineering)
+* [Research Computing with C++](http://development.rc.ucl.ac.uk/training/rcwithcpp)
 
 Coda
 ====
@@ -577,10 +520,12 @@ Acknowledgements
 * Clare Gryce, Gavin McLachlan, Mike Cope, Rex Knight
 * Anthony Finkelstein, Richard Catlow, David Price, John Shawe-Taylor, Simon Arridge, Peter Coveney
 * Timo Betcke, Michail Stamatakis, David Balding, Miguel Bernabeu, Remis Lape, David Colquhoun
+* Eleanor Robson, Jason McEwen, David Holder, Sebastien Ourselin
 * Mayeul D'Avezac, Jens Nielsen, Bruno Silva, Owain Kenway, Ian Kirker, Brian Alston
-* Dirk Gorissen, Simon Baxter, Ilian Todorov
-* Neil Chue Hong, Kenji Takeda, David de Roure
-* Andrew Smith, Ben Waugh, Greg Wilson
+* Dirk Gorissen, Simon Baxter, Ilian Todorov, Rob Haines
+* Neil Chue Hong, Simon Hettrick, Kenji Takeda, David de Roure
+* Ana Nelson, Kohsuke Kawaguchi
+* Andrew Smith, Ben Waugh, Matt Clarkson
 * Greg Wilson
 
 Contact
