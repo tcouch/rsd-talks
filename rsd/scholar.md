@@ -131,10 +131,8 @@ Domain
 UCL Staffing
 ------------
 
-* 3 Permanent Roles
+* 3 Permanent Roles (Central IT funding)
 * Three grant-funded Research Software Developers
-* Additional research-grant funded roles
-* Two so far
 
 Call for projects
 -----------------------------
@@ -156,7 +154,7 @@ Paid Projects
 * Displaces free calls
     * Until recruit
 * Secured £400k (Roughly 33% success rate)
-* Total income to UCL £2M
+* Total income to UCL ~£2M
 
 Sample free projects
 ====================
@@ -201,11 +199,6 @@ Performance Improvements in likeLTD
 DCProgs
 =======
 
-DCProgs
--------
-
-![](assets/colquhoun.jpg)
-
 Old State of the Code
 -----------------
 
@@ -242,7 +235,7 @@ Robustness
 Robustness
 ----------
 
-* ~95% to 100%.
+* From ~95% to 100%.
 * Voxelisation in the loop
 
 Priorities
@@ -395,6 +388,19 @@ Cross-platform Testing
 ---------------------------------
 
 ![](assets/systems.png)
+
+Example Paid Projects
+=====================
+
+ORACC
+-----
+
+![](assets/oracc.jpg)
+
+Purify
+------
+
+![](assets/ska.png)
 
 Automation
 ==========
