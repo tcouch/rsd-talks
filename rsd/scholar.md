@@ -93,11 +93,12 @@ Why it works
 ------------
 
 * People *want* to be RSEs
+* We have been hiding as:
+    * RAs who program too much
+    * HPC or research group sysadmins
 * We need a name, and some status
-* There isn't a shortage of talent
-* But the research system needs to
-    * Promote and preserve its soft benefits better
-    * Measure and incentivise correctly
+* The research system needs to
+    * Measure and incentivise RSEs correctly
     * Integrate RSEs within HEIs
     * Support institutional innovation
 
@@ -109,8 +110,8 @@ Governance
 
 ![](assets/governance.png)
 
-The Board
------
+Governance
+----------
 
 ![](assets/governface.png)   
 
@@ -135,7 +136,7 @@ UCL Staffing
 * Three grant-funded Research Software Developers
 
 Call for projects
------------------------------
+-----------------
 
 * Judged by academic panel
 * Every quarter
@@ -154,7 +155,7 @@ Paid Projects
 * Displaces free calls
     * Until recruit
 * Secured £400k (Roughly 33% success rate)
-* Total income to UCL ~£2M
+* Total income to UCL ~£1.5M
 
 Sample free projects
 ====================
@@ -303,6 +304,7 @@ Infrastructure
 * Code Review
 * Code sharing
 * Continuous Integration
+* DevOps
 
 Code Management Infrastructure
 ==============================
@@ -313,32 +315,17 @@ Github
 ![](assets/github_intro.png)
 
 Issue Tracking
-------------------------------
+--------------
 
 ![](assets/issues.png)
 
-Code Differences
-------------------------------
-
-![](assets/edits.png)
-
-Comment on Code
-------------------------------
-
-![](assets/comment.png)
-
-Bug Discussion
-------------------------------
-
-![](assets/issue.png)
-
 Pull Requests
-------------------------------
+-------------
 
 ![](assets/pull.png)
 
 Social Coding
-------------------------------
+-------------
 
 ![](assets/social.png)
 
@@ -373,19 +360,19 @@ Levels of Testing
 > * Regression testing: Does my code work the same as yesterday
 > * Functional testing: Does my code match an analytic solution
 > * Unit testing: Does this subroutine work as expected
-  
+
 Continuous Testing Infrastructure
 ---------------------------------
 
 ![](assets/jenkins-logo.png)
 
 Jenkins
----------------------------------
+-------
 
 ![](assets/jenkins-front.png)
 
 Cross-platform Testing
----------------------------------
+----------------------
 
 ![](assets/systems.png)
 
@@ -402,6 +389,16 @@ Purify
 
 ![](assets/ska.png)
 
+Zacros
+------
+
+![](assets/zacros.png)
+
+* Started as free project
+* Continued using local funds
+* Won ARCHER eCSE
+* First commercial sale January 2015
+
 Automation
 ==========
 
@@ -411,7 +408,7 @@ How Things Should Be
 ``` Bash
 fetch_dataset 53b6
 run_model dataset_53b6
-Examine_results results_28_02_13_1_53b6_98d2
+examine_results results_28_02_13_1_53b6_98d2
 archive_results latest
 create_graphs results_28_02_13_1_53b6_98d2
 ```
@@ -423,16 +420,12 @@ Program or Be Programmed
 * Boredom Leads To Horrifying Mistakes
 * Horrifying Mistakes to God-I-Wish-I-Was-Still-Bored
 
-Automated Deployment
---------------------
+Automation is Reproducibility
+-----------------------------
 
-![](assets/puppet.png) Puppet/Chef
-
-![](assets/scons.png) Rake/Scons/CMake
-
-![](assets/capistrano.png) Fabric/Capistrano
-
-[This talk!](http://github.com/UCL/rsd-talks)
+* Computational research can be *more* reproducible than other methodologies
+* Currently it is less; how often do we replicate computational experiments?
+* Automated research is Auditable Research
 
 This talk's Dexyfile
 --------------------
@@ -474,7 +467,35 @@ graphs:
 This Talk On Jenkins
 --------------------
 
-![](assets/jenkins_talk.png)
+``` yaml
+jobs:
+  - 'talks-publisher':
+     repo: UCL/rsd-talks
+     directory: output-site
+     exec:
+        dexy setup
+        python deploy.py
+        dexy
+```
+
+Publishing from Jenkins with Puppet
+-----------------------------------
+
+``` puppet
+define jenkins_config::web_publish (
+  $job="${title}-publisher",
+  $from="output",
+  $to=$title,
+  ) {
+
+  file {"${name}_${job}_${from}":
+    path => "/etc/httpd/conf.d/${name}.conf",
+    content => template('jenkins_config/web_publish.erb'),
+      owner   => 'apache',
+      notify  => Service['httpd']
+  }
+}
+```
 
 Training
 ========
