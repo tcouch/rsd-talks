@@ -300,11 +300,11 @@ Coda
 Contact
 -------
 
-![](http://development.rc.ucl.ac.uk/talks/scholar/assets/twitter.png) @uclrcsoftdev @jamespjh @uclrits
+![](assets/twitter.png) @uclrcsoftdev @jamespjh @uclrits
 
-![](http://development.rc.ucl.ac.uk/talks/scholar/assets/rss.png) blogs.ucl.ac.uk/research-software-development
+![](assets/rss.png) blogs.ucl.ac.uk/research-software-development
 
-![](http://development.rc.ucl.ac.uk/talks/scholar/assets/email.png) j.hetherington@ucl.ac.uk
+![](assets/email.png) j.hetherington@ucl.ac.uk
 
 And [sign up](https://www.mailinglists.ucl.ac.uk/mailman/listinfo/research-programming)
 to be notified of the date of the next bootcamp.
