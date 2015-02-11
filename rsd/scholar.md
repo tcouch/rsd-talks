@@ -203,15 +203,15 @@ DCProgs
 Old State of the Code
 -----------------
 
+* Very old-style Fortran
 * Hasn't compiled since 2006
 * Underpins Nature-published research
-* Reimplemented in C++ and Python
-* Use linear algebra and root finding libraries
 
 New State
 ---------
 
-* Reimplemented in Modern C++ and Python
+* Reimplemented in C++ and Python
+* Use linear algebra and root finding libraries
 * Just as performant as the Fortran
 
 HemeLB Setup Tool
