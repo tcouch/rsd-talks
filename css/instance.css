@@ -7,9 +7,21 @@
 }
 
 
-.reveal section#contact img {
+article img {
+  width: 80%
+}
+
+img[src="/assets/twitter.png"], img[src="/assets/rss.png"], img[src="/assets/email.png"] {
 	max-width: 50px;
 	vertical-align: middle;
+}
+
+img[src="/assets/twitter.png"] {
+  background-color: blue;
+}
+
+img[src="/assets/governance.png"] {
+  background-color: black;
 }
 
 .reveal section#automated-deployment img {
