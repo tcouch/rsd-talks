@@ -28,6 +28,20 @@ pandoc lecture.md -o lecture.html
 ```
 
 \blockend
+\blockbegin{Result}
+
+* Write once in Markdown, with all figures and text version controlled
+* Get pdf book, website, online slides, and IPython Notebook!
+* Push to git, 5 mins later, updated lecture online
+
+\blockend
+\blockbegin{Implications}
+
+* Version control $\rightarrow$ collaboration
+* Multi-format $\rightarrow$ gradually flipped classroom
+* Autodeployment $\rightarrow$ live mistake correction
+
+\blockend
 \columnend
 \columnbegin
 \blockbegin{Jenkins}
@@ -48,12 +62,17 @@ job-template:
 ```
 
 \blockend
-\blockbegin{Result}
-
-* Write once in Markdown, with all figures and text version controlled
-* Get pdf book, website, online slides, and IPython Notebook!
-* Push to git, 5 mins later, updated lecture online
+\blockbegin{YUML}
+``` yuml
+[Model]<>-*>[Boid]
+```
+\includegraphics{aggregation.png}
+\blockend
+\blockbegin{Try it!}
+See our lecture notes at
+http://bit.ly/rcnotes
 
 \blockend
 \columnend
 \columnsend
+
