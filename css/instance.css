@@ -25,6 +25,12 @@ img[src*="/assets/governance.png"] {
   background-color: black;
 }
 
+img[src*="/assets/zacrosESCE/archer_intelO3_threds_scaling.png"],
+img[src*="/assets/zacrosESCE/archer_intelO3_lattice_event_scaling.png"],
+img[src*="/assets/zacrosESCE/archer_intelO3_lattice_scaling.png"] {
+    max-width: 60%;
+}
+
 .reveal section#automated-deployment img {
 	max-width: 100px;
 	vertical-align: middle;
@@ -33,4 +39,8 @@ img[src*="/assets/governance.png"] {
 
 #slidelink {
   float: right
+}
+
+.reveal ul {
+    margin: 0 1em 0 2em;
 }
