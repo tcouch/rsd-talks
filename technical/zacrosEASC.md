@@ -1,6 +1,6 @@
 ---
-title: "Zacros Software Package Development:"
-subtitle: Archer ESCE progress
+title: "Zacros"
+subtitle: "Software Package Development: Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis"
 author: Jens H Nielsen, James Hetherington & Michail Stamatakis
 bibliography: "../bibliography/rsdt.bib"
 ---
@@ -12,23 +12,35 @@ Zacros:
 -------
 
 * Kinetic Monte Carlo (KMC) simulation of surface chemistry.
-* Graph theoretical approach.
-* Reactions selected based on propensities.
-* Surface energy expressed in cluster expansions.
-Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis
+* Graph theoretical formulation.
+* Reaction given as graphs, identified as sub graphs of the lattice.
+* Possible Reactions get a time assigned based on:
+    - Propensities
+    - A random number
+
+![Example of typical reaction pattern](assets/zacrosESCE/reactionCOOCO2.svg)
+
+Surface energy
+--------------
+
+To calculate rates, the surface energy is needed:
+
+* Surface energy is given as an expansion in cluster 
+* Number and size of patterns is important for performance
+
+![Example of cluster expansions](assets/zacrosESCE/clusterexpansion.svg)
 
 Pseudo code
 -----------
 
-* A reaction is selected based on:
-    - Its propensities
-    - A random number
-* All adsorbates, clusters and reactions involving the reactants are removed
-* Add product adsorbates to lattice
-* Find new energy clusters
-* Find all processes that need update
-* Update rates of existing processes
-* Add new processes
+* Select reaction with the lowest time.
+* Remove adsorbates from lattice. 
+* Remove `Clusters and reactions involving the reactants.
+* Add product adsorbates. 
+* Find new energy clusters.
+* Find existing processes that need update.
+* Update rates of existing processes.
+* Add new processes.
 
 Previous work: OpenMP
 =====================
@@ -47,16 +59,13 @@ See [@nielsen_parallel_2013]
 Scaled performance of OpenMP
 ----------------------------
 
-![](assets/zacrosESCE/archer_intelO3_threds_scaling.png)
+![NO oxidation model with 4 different cluster expansions](assets/zacrosESCE/archer_intelO3_threds_scaling.png)
 
-* Describe simulation here
 
 Computational time per event
 ----------------------------
 
-![](assets/zacrosESCE/archer_intelO3_lattice_event_scaling.png)
-
-* Time per KMC event is independent of lattice size
+![Time per KMC event is independent of lattice size.](assets/zacrosESCE/archer_intelO3_lattice_event_scaling.png)
 
 Computational time per KMC second
 ---------------------------------
@@ -65,7 +74,7 @@ Computational time per KMC second
 
 * But number of events per simulated second is not.
 * 12 figure expansion at 7056 lattice points (12 threads):
-    - $> 10^4$ sec. per simulated sec.
+    - $> 10^4$ seconds per simulated second.
 
 Limitations
 -----------
@@ -148,41 +157,42 @@ In Zacros
 ---------
 
 
-* Future possible reactions have a wait time associated with them.
+* Future reactions have a wait time associated with them.
 * Wait time is random but determined by reaction rates.
+* Reaction with the lowest wait time is performed.
 * Reaction happen at $T_{local} + T_{wait}$ not at $T_{local}$
-    - Need to know state of neighbours at $T_{local} + T_{wait}$
+* Need to know state of neighbours at $T_{local} + T_{wait}$
 
 
-Zacros
-------
-
+In Zacros
+---------
 
 * Can't just change the condition to smallest among $T_{local} + T_{wait}$
     - The reactions that $T_{wait}$ on neighbours represent have not happened:
     - In fact they may never happen.
     - Reactions on neighbours neighbour may change possible reaction on neighbouring domain.
+* From a chemical perspective. Diffusion processes may propagate infinitely fast across the lattice.
+
+Alternative strategies
+----------------------
+
+An alternative proposed by Jefferson [@jefferson_virtual_1985] 
+
+* Each node propagates its reactions without synchronization
+* Stores a list of anti reactions to performed reactions
+* When a reaction is performed messages are sent to relevant neighbours
+* If conflicts arise neighbours will rollback sending anti messages to their neighbours. 
+* The "slowest" node determine a virtual time horizon (Global time)
+* Some similarity to Software transactional memory (STM)
+
+Other strategies
+----------------
+
+* Martinez et. al. [@martinez_synchronous_2008] have implemented an approximate algorithm
+* Modify the Lubachevsky algorithm to ensure synchronization.
+    - Unclear how invasive and if feasible.
 
 
-Leftover
---------
-
-
-
-[@martinez_synchronous_2008]
-and
-[@jefferson_virtual_1985]
-
-Various published methods
-
-Unit Testing
-============
-
-Testing
--------
-
-
-tearte
 
 Bibliography
 ============
