@@ -193,6 +193,7 @@ Other strategies
 ----------------
 
 * Martinez et. al. [@martinez_synchronous_2008] have implemented an approximate algorithm
+    - Null events are inserted to allow synchronous execution
 * Modify the Lubachevsky algorithm to ensure synchronization
     - Unclear how invasive and if feasible
 
