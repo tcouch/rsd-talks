@@ -109,16 +109,16 @@ Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis
 Spatial parallelization
 -----------------------
 
-* Lattice is distributed over nodes in a 2D grid.
-* Well defined split of reactions.
-    - Reactions managed by node with 1. molecule of the elementary pattern.
+* Lattice is distributed over nodes in a 2D grid
+* Well defined split of reactions
+    - Reactions managed by node with 1. molecule of the elementary pattern
 * Halo layers are needed for:
     - Other reactants
     - Products
     - Energetic clusters
 * Changes to halos in neighbouring nodes modifies:
-    - Viable reactions on other nodes.
-    - Rates of reactions on other nodes.
+    - Viable reactions on other nodes
+    - Rates of reactions on other nodes
 
 
 Project plan:
