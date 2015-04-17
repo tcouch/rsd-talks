@@ -7,6 +7,9 @@ h1.subtitle { font-size: 1.5em; }
 	background-color: rgb(143, 153, 62);
 }
 
+.references p {
+    font-size: 70% !important;
+}
 
 article img {
   width: 80%
