@@ -23,7 +23,7 @@ For more info visit: zacros.org
 Reaction patterns
 -----------------
 
-* Possible Reactions get a time assigned based on:
+* Possible reactions get a time assigned based on:
     - kinetic rate constants (Propensities)
     - A random number
 
@@ -47,21 +47,29 @@ To calculate rates, the surface energy is needed:
 Pseudo code
 -----------
 
-* Select reaction with the lowest time
+* Select most imminent process
 * Remove adsorbates from lattice
-* Remove clusters and reactions involving the reactants
+* Remove clusters with reactants
+* Remove reactions involving the reactants
 * Add product adsorbates
 * Find new energy clusters
 * Find existing processes that need update
 * Update rates of existing processes
-* Add new processes.
+* Add new processes
+
+Technical
+---------
+
+* Fortran 95/2003 code
+* Originally fully serial
+* Two performance issues with serial code identified
 
 
 Cluster Expansion
 -----------------
 
 
-* Long range interactions requires large cluster expansions.
+* Long range interactions requires large cluster expansions
 * Larger cluster expansions =>  More processes to update
 * This is the first performance issue
 
@@ -81,7 +89,7 @@ Large lattice for accurate simulations
 * The second performance issue
 
 
-Speed-up Updates:
+Reaction updates:
 =========================
 
 OpenMP:
@@ -143,7 +151,7 @@ MPI based parallelization
 Original plan:
 --------------
 
-To implement algorithm proposed by Lubachevsky
+Implement algorithm proposed by Lubachevsky
 
 * Algorithm is developed for Ising spin model
 * Each domain keeps track of a local time
@@ -156,7 +164,7 @@ Lubachevsky. 1988. J. Comp. Phys. 75 (1): 103
 Algorithm
 ---------
 
-* Perform reaction if time is smallest among neighbours
+* Perform spin flip if time is smallest among neighbours
 * Select a site and either:
     - Perform spin flip
     - Perform null event
@@ -236,7 +244,7 @@ Alternative strategies
     - Sending anti messages to their neighbours
     - With further potential roll-back
 * The "slowest" node determine a virtual time horizon (Global time)
-    - No roll-back beyond this is needed 
+    - No roll-backs beyond this the are needed 
 
 
 Conclusion
