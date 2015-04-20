@@ -21,17 +21,18 @@ Zacros:
 
 ![Example of simple reaction pattern](assets/zacrosESCE/reactionCOOCO2.svg)
 
-More details in [@stamatakis_graph-theoretical_2011] and [@nielsen_parallel_2013]
+See Stamatakis and Vlachos. 2011. J. Chem. Phys. 134(21): 214115
+and
+Nielsen et. al. 2013. J. Chem. Phys. 139(22): 224706
+
 
 Surface energy
 --------------
 
 To calculate rates, the surface energy is needed:
 
-* Surface energy is given as an expansion in cluster
-* Number and size of patterns are important
-    - For performance
-    - Accuracy of simulation
+* Surface energy is given as a cluster expansion
+* I.e. an expansion in simple surface patterns 
 
 ![Example of cluster expansions](assets/zacrosESCE/clusterexpansion.svg)
 
@@ -47,19 +48,44 @@ Pseudo code
 * Update rates of existing processes
 * Add new processes.
 
-Previous work: OpenMP
-=====================
 
-UCL research software development free project
-----------------------------------------------
+Cluster Expansion
+-----------------
 
-* Usually the bottleneck is "Update rates of existing processes"
+
+* Long range interactions requires large cluster expansions.
+* Larger cluster expansions =>  More processes to update
+* This is the first performance issue
+
+
+![Interaction length affected by reaction](assets/zacrosESCE/clusterlayout.svg)
+
+
+Lattice size
+------------
+
+Large lattice for accurate simulations
+
+* Update time is independent of lattice size
+* But reaction rate is not
+* KMC time / CPU time depends linearly on the number of sites
+* Large lattices are time consuming to simulate
+* The second performance issue
+
+
+Speed-up Updates:
+=========================
+
+OpenMP:
+-------
+
+* Profiling shows bottleneck in update rates ...
 * Many processes are affected
     - Especially for large cluster expansion
 * Do loop of independent processes to update
 * OpenMP parallization of this loop
 
-See [@nielsen_parallel_2013]
+See Nielsen et. al. 2013. J. Chem. Phys. 139(22): 224706
 
 Scaled performance of OpenMP
 ----------------------------
@@ -86,51 +112,38 @@ Limitations
 
 Decent speed up for large cluster expansions but:
 
-* OpenMP only so limited to one node
-* No real scope for additional parallelization here
+* OpenMP limited to one computational node
 * Simulations are still too slow for large lattices and clusters
 
-MPI Parallelization over lattice
+Solution: MPI Parallelization over lattice
 
 
-Archer embedded CEC
-===================
+Spatial Parallelization
+=======================
 
-Zacros Software Package Development:
-------------------------------------
+MPI based parallelization
+-------------------------
 
-Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis
-
-* 1 year Archer embedded CES project
-* Started September 2014
-* Distributed memory parallization of Zacros
-
-
-Spatial parallelization
------------------------
-
-* Lattice is distributed over nodes in a 2D grid
-* Well defined split of reactions
-    - Reactions managed by node with 1. molecule of the elementary pattern
-* Halo layers are needed for:
-    - Other reactants
+* Reactions on individual domains
+* Halo for
+    - Reactants
     - Products
     - Energetic clusters
-* Changes to halos in neighbouring nodes modifies:
-    - Viable reactions on other nodes
-    - Rates of reactions on other nodes
 
+![](assets/zacrosESCE/grid.svg)
 
-Project plan:
--------------
+Original plan:
+--------------
 
-To implement the algorithm proposed in [@lubachevsky_efficient_1988]
+To implement algorithm proposed by Lubachevsky
 
 * Algorithm is developed for Ising spin model
 * Each domain keeps track of a local time
 * Global time is min(localTimes)
-* Updates on a MPI domain is allowed if:
+* Updates in a MPI domain is allowed if:
     - Local time is smaller than all neighbours
+
+Lubachevsky. 1988. J. Comp. Phys. 75 (1): 103
 
 Algorithm
 ---------
@@ -138,66 +151,84 @@ Algorithm
 * Perform reaction if time is smallest among neighbours
 * Select a site and either:
     - Perform spin flip
-    - Perform no reaction
+    - Perform null event
 * Advance local time by a random interval
 * Repeat
 
 
-Note that time advancement is independent of the reaction
+Time advancement is independent of whether a spin is flipped
 
-Rates affect the probability of no flips happening
-
-Consistency
------------
-
-Consistent with serial simulation because:
-
-* Neighbour's state cannot have changed between it's local time and the local time of the domain with the lowest local time
-* Otherwise a spin flip violating the initial condition should have happened
+Energetics affect the relative probability of null events
 
 
+Algorithm in Zacros
+-------------------
 
-In Zacros
----------
+Same principle:
+
+* If local time < neighbours time:
+    - Advance local time
+    - Perform reaction
+    - Send halo and new local time
+* Else:
+    - Wait to receive halo and time
+
+
+Issues in Zacros
+----------------
 
 
 * Future reactions have a wait time associated with them
 * Wait time is random but determined by reaction rates
-* Reaction with the lowest wait time is performed
-* Reaction happen at $T_{local} + T_{wait}$ not at $T_{local}$
-* Need to know state of neighbours at $T_{local} + T_{wait}$
+* Most imminent reaction is performed
+* Reaction happen after wait time
+* Wait time can differ by several orders of magnitude
+
+Example
+-------
+Assume that we have 3 MPI nodes in a 1D array
+
+Both $P_1$ and $P_3$ are free to perform reactions
+
+![](assets/zacrosESCE/timeline1.svg)
+
+
+Example
+-------
+Assume that we have 3 MPI nodes in a 1D array
+
+Conflict $\textrm{P}_1$  should not have performed a reaction
+
+![](assets/zacrosESCE/timeline2.svg)
 
 
 In Zacros
 ---------
 
-* Can't just change the condition to smallest among $T_{local} + T_{wait}$
+* Can't change the condition to smallest among $T_{local} + T_{wait}$
     - The reactions that $T_{wait}$ on neighbours represent have not happened:
     - In fact they may never happen
-    - Reactions on neighbours neighbour may change possible reaction on neighbouring domain.
-* From a chemical perspective. Diffusion processes may propagate infinitely fast across the lattice
+    - Reactions may propagate across domains
 
 Alternative strategies
 ----------------------
 
-An alternative proposed by Jefferson [@jefferson_virtual_1985] 
+An alternative proposed by Jefferson
 
 * Each node propagates its reactions without synchronization
 * Stores a list of anti reactions to performed reactions
 * When a reaction is performed messages are sent to relevant neighbours
-* If conflicts arise neighbours will rollback sending anti messages to their neighbours
+
+Jefferson. 1985. ACM Trans. Program. Lang. Syst. 7 (3): 404
+
+Alternative strategies
+----------------------
+
+* If conflicts arise neighbours will roll-back 
+    - Sending anti messages to their neighbours
+    - With further potential roll-back
 * The "slowest" node determine a virtual time horizon (Global time)
-* Some similarity to Software transactional memory (STM)
-
-Other strategies
-----------------
-
-* Martinez et. al. [@martinez_synchronous_2008] have implemented an approximate algorithm
-    - Null events are inserted to allow synchronous execution
-* Modify the Lubachevsky algorithm to ensure synchronization
-    - Unclear how invasive and if feasible
-
-
+    - No roll-back beyond this is needed 
 
 Bibliography
 ============
