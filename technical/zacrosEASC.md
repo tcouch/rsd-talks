@@ -1,7 +1,7 @@
 ---
 title: "Zacros"
 subtitle: "Software Package Development: Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis"
-author: Jens H Nielsen, James Hetherington & Michail Stamatakis
+author: Jens H Nielsen, Mayeul D'Avezac, James Hetherington & Michail Stamatakis
 bibliography: "../bibliography/rsdt.bib"
 ---
 
@@ -11,10 +11,18 @@ Introduction to Zacros
 Zacros:
 -------
 
+![](assets/zacrosESCE/ZacrosLogo.svg)
+
 * Kinetic Monte Carlo (KMC) simulation of surface chemistry
-* Graph theoretical formulation
-    - Reaction given as graphs
-    - identified as sub graphs of the lattice
+* Graph theoretical framework
+    - Handle complex surface patterns
+
+For more info visit: zacros.org 
+
+
+Reaction patterns
+-----------------
+
 * Possible Reactions get a time assigned based on:
     - kinetic rate constants (Propensities)
     - A random number
@@ -202,8 +210,8 @@ Conflict $\textrm{P}_1$  should not have performed a reaction
 ![](assets/zacrosESCE/timeline2.svg)
 
 
-In Zacros
----------
+In summary
+----------
 
 * Can't change the condition to smallest among $T_{local} + T_{wait}$
     - The reactions that $T_{wait}$ on neighbours represent have not happened:
@@ -230,10 +238,17 @@ Alternative strategies
 * The "slowest" node determine a virtual time horizon (Global time)
     - No roll-back beyond this is needed 
 
-Bibliography
-============
 
-Bibliography
-------------
+Conclusion
+==========
 
-Publications
+
+Conclusion
+----------
+
+
+* Good performance improvement for long range interactions
+* Spatial parallelization is on-going work
+    - Change of algorithm
+
+
