@@ -1,0 +1,9 @@
+contact: http://www.ucl.ac.uk/research-it-services/partner-with-us
+
+title: UCL Research Programming Talks
+includeleftnav: True
+short: Programming Talks
+
+markdown: redcarpet
+redcarpet:
+  extensions: ["strikethrough"]

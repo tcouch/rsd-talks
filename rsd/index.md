@@ -1,9 +1,9 @@
 ---
-title: Research Software Development in UCL 
+title: Talks about Research Software Development in UCL 
 author: James Hetherington, Jens Nielsen, Mayeul d'Avezac, Gary Macindoe, Raquel Alegre, and Sinan Shi
+layout: default
+short: RSD Talks
 ---
-
-Talks about UCL Research Software Development.
 
 Abstracts
 =========
@@ -14,8 +14,8 @@ The Craftsperson and the Scholar
 The production and maintainance of software is an important part of
 research in many fields. Yet code is often lost at the end of projects,
 and unusable by anyone other than the researcher who created it.
-In this presentation, Dr James Hetherington, founding leader of the
-UCL Research Software Development Team, will discuss the relationship
+In this presentation, Dr James Hetherington, founding head of the
+UCL Research Software Development Group, will discuss the relationship
 of software engineering best practice to the construction and
 maintenance of research code, and the effort to find a place in UK HEIs
 for Research Software Engineers. He will provide some practical tips on
@@ -31,8 +31,8 @@ Centre for Computational Science), engineering
 (The MathWorks, makers of MATLAB) and environmental sciences 
 (AMEE, an environmental impact modelling startup). 
 
-As founder of UCL’s Research Software Development Team,
-he has built the group through grant income over two and a half years 
+As founder of UCL’s Research Software Development Group,
+he has built the group through grant income since 2012 
 to a team of 6, and helped create effective research software in fields from ancient
 Babylonian archeology to radio astronomy and from modelling the future
 of UK housing stock to brain blood flow modelling. As chair of the UK

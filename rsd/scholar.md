@@ -1,6 +1,8 @@
 ---
 title: The Craftsperson And The Scholar
 author: James Hetherington
+layout: default
+slidelink: True
 ---
 
 James Hetherington
@@ -74,7 +76,7 @@ The Craftsperson And The Scholar
 Research Software Engineers
 ----------------------------
 
-![](assets/RSD_Venn.png)
+![](generated/RSD_Venn.png)
 
 Research Software Engineers
 ----------------------------
@@ -108,12 +110,7 @@ UCL Research Software Development
 Governance
 ----------
 
-![](assets/governance.png)
-
-Governance
-----------
-
-![](assets/governface.png)   
+![](generated/governance.png)
 
 Activities
 ----------

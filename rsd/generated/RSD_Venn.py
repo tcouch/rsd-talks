@@ -1,6 +1,5 @@
 import sys
 import matplotlib
-matplotlib.use("Cairo")
 from matplotlib import pyplot as plt
 from matplotlib_venn import venn2
 
