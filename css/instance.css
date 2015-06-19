@@ -1,3 +1,4 @@
+h1.subtitle { font-size: 1.5em; }
 #performance-improvements-in-likeltd-1 img {
 	max-width: 400px;
 }
@@ -6,6 +7,9 @@
 	background-color: rgb(143, 153, 62);
 }
 
+.references p {
+    font-size: 70% !important;
+}
 
 article img {
   width: 80%
@@ -24,6 +28,12 @@ img[src*="/assets/governance.png"] {
   background-color: black;
 }
 
+img[src*="/assets/zacrosESCE/archer_intelO3_threds_scaling.png"],
+img[src*="/assets/zacrosESCE/archer_intelO3_lattice_event_scaling.png"],
+img[src*="/assets/zacrosESCE/archer_intelO3_lattice_scaling.png"] {
+    max-width: 60%;
+}
+
 .reveal section#automated-deployment img {
 	max-width: 100px;
 	vertical-align: middle;
@@ -32,4 +42,8 @@ img[src*="/assets/governance.png"] {
 
 #slidelink {
   float: right
+}
+
+.reveal ul {
+    margin: 0 1em 0 2em;
 }
