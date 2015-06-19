@@ -3,6 +3,8 @@ title: "Zacros"
 subtitle: "Software Package Development: Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis"
 author: Jens H Nielsen, Mayeul D'Avezac, James Hetherington & Michail Stamatakis
 bibliography: "../bibliography/rsdt.bib"
+layout: default
+slidelink: True
 ---
 
 Introduction to Zacros

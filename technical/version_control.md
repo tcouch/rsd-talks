@@ -1,6 +1,8 @@
 ---
 title: Practical Version Control and Issue Tracking
 author: James Hetherington
+layout: default
+slidelink: True
 ---
 
 Practical Version Control and Issue Tracking

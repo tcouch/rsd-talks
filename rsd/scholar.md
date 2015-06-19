@@ -557,11 +557,11 @@ Acknowledgements
 Contact
 -------
  
-![](assets/twitter.png) \@uclrcsoftdev \@jamespjh
+![](../assets/twitter.png) \@uclrcsoftdev \@jamespjh
 
-![](assets/rss.png) blogs.ucl.ac.uk/research-software-development
+![](../assets/rss.png) blogs.ucl.ac.uk/research-software-development
 
-![](assets/email.png) j.hetherington@ucl.ac.uk
+![](../assets/email.png) j.hetherington@ucl.ac.uk
 
 Why you should have one
 -----------------------

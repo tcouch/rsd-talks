@@ -1,0 +1,26 @@
+#performance-improvements-in-likeltd-1 img {
+	max-width: 400px;
+}
+
+.reveal section#robustness img {
+	background-color: rgb(143, 153, 62);
+}
+
+
+article img {
+  width: 80%
+}
+
+img[src*="assets/twitter.png"], img[src*="assets/rss.png"], img[src*="assets/email.png"] {
+	max-width: 50px;
+	vertical-align: middle;
+}
+
+img[src*="assets/twitter.png"] {
+  background-color: blue;
+}
+
+img[src*="governance.png"] {
+  background-color: black;
+}
+

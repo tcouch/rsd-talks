@@ -3,6 +3,8 @@ title: Using fabric to deploy to HPC
 author: James Hetherington and Derek Groen
 institution: University College London
 date: 19 November 2013
+layout: default
+slidelink: True
 ---
 
 Repetition

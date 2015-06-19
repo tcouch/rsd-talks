@@ -35,13 +35,20 @@ indigo: indigo-jekyll-remaster Makefile
 	cp -r indigo-jekyll-remaster/indigo/favicon* .
 	touch indigo
 
-_site: rsd/scholar-reveal.html rsd/generated/RSD_Venn.png rsd/generated/governance.png indigo
+_site: rsd/scholar-reveal.html rsd/scholar-brief-reveal.html technical/fabric-reveal.html \
+	     technical/carpentry-compressed-reveal.html technical/zacrosEASC-reveal.html \
+			 technical/version_control-reveal.html rsd/generated/RSD_Venn.png rsd/generated/governance.png indigo
 	jekyll build	
 
 clean:
 	rm -f rsd/generated/governance.png
 	rm -f rsd/generated/RSD_Venn.png
 	rm -f rsd/scholar-reveal.html
+	rm -f rsd/scholar-brief-reveal.html
+	rm -f rsd/fabric-reveal.html
+	rm -f rsd/carpentry-compressed-reveal.html
+	rm -f rsd/version_control-reveal.html
+	rm -f rsd/zacrosEASC-reveal.html
 	rm -rf _site
 	rm -rf images js css _includes _layouts favicon* remaster.zip indigo-jekyll-remaster
 

@@ -1,6 +1,8 @@
 ---
 title: "Software Carpentry: Compressed Edition"
 author: James Hetherington
+layout: default
+slidelink: True
 ---
 
 The State of Research Software
@@ -300,11 +302,11 @@ Coda
 Contact
 -------
 
-![](assets/twitter.png) @uclrcsoftdev @jamespjh @uclrits
+![](../assets/twitter.png) @uclrcsoftdev @jamespjh @uclrits
 
-![](assets/rss.png) blogs.ucl.ac.uk/research-software-development
+![](../assets/rss.png) blogs.ucl.ac.uk/research-software-development
 
-![](assets/email.png) j.hetherington@ucl.ac.uk
+![](../assets/email.png) j.hetherington@ucl.ac.uk
 
 And [sign up](https://www.mailinglists.ucl.ac.uk/mailman/listinfo/research-programming)
 to be notified of the date of the next bootcamp.
