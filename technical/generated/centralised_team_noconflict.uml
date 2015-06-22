@@ -1,37 +1,30 @@
 participant Sue
 participant Server
 participant Jim
-state over Server: 1
-parallel{
+note over Server: 1
+
 Server->Jim : Checkout
-note right of Jim: svn checkout http://ucl.ac.uk/ourcode
-}
-parallel{
+note right: svn checkout http://ucl.ac.uk/ourcode
+
 Server->Sue: Checkout
-note left of Sue: svn co http://ucl.ac.uk/ourcode
-}
-parallel{
-state over Jim: work
-note right of Jim: nano jimfile.py
-}
-parallel{
+note left: svn co http://ucl.ac.uk/ourcode
+
+note over Jim: nano jimfile.py
+
 Jim->Server: Commit
-note right of Jim: svn commit
-}
-state over Server: 2
-parallel {
-note left of Sue: svn update
+note right: svn commit
+
+note over Server: 2
+
 Server->Sue: Update
-}
-parallel{
-note left of Sue
+note left: svn update
+
+note over of Sue
 	cat jimfile.py
 	notepad++ suefile.py
 end note
-state over Sue: work
-}
-parallel{
-note left of Sue: svn commit
+
 Sue->Server: Commit
-}
-state over Server: 3
+note left: svn commit
+
+note over Server: 3
