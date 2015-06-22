@@ -17,6 +17,9 @@ default: _site
 %.png: %.dot Makefile
 	dot $< -T png -o $@
 
+%.png: %.uml Makefile
+	plantuml -p < $< > $@
+
 remaster.zip: Makefile
 	rm -f remaster.zip
 	wget https://github.com/UCL-RITS/indigo-jekyll/archive/remaster.zip
@@ -37,12 +40,20 @@ indigo: indigo-jekyll-remaster Makefile
 
 _site: rsd/scholar-reveal.html rsd/scholar-brief-reveal.html technical/fabric-reveal.html \
 	     technical/carpentry-compressed-reveal.html technical/zacrosEASC-reveal.html \
-			 technical/version_control-reveal.html rsd/generated/RSD_Venn.png rsd/generated/governance.png indigo
+			 technical/version_control-reveal.html rsd/generated/RSD_Venn.png rsd/generated/governance.png indigo \
+			 technical/generated/centralised_solo.png \
+			 technical/generated/centralised_team.png \
+			 technical/generated/centralised_team_noconflict.png \
+			 technical/generated/distributed_concepts.png \
+			 technical/generated/distributed_shared_conflicted.png \
+			 technical/generated/distributed_shared_noconflict.png \
+			 technical/generated/distributed_solo.png \
+			 technical/generated/distributed_solo_publishing.png
 	jekyll build	
 
 clean:
-	rm -f rsd/generated/governance.png
-	rm -f rsd/generated/RSD_Venn.png
+	rm -f rsd/generated/*.png
+	rm -f technical/generated/*.png
 	rm -f rsd/scholar-reveal.html
 	rm -f rsd/scholar-brief-reveal.html
 	rm -f rsd/fabric-reveal.html
