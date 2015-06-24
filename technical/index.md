@@ -1,5 +1,6 @@
 ---
-title: Technical talks 
+title: Technical talks
+layout: default
 ---
 
 Talks about tools and techniques that we think are interesting or important.
@@ -7,7 +8,7 @@ Talks about tools and techniques that we think are interesting or important.
 Software Carpentry: Compressed Edition
 --------------------------------------
 
-This talk is an introduction to [Software Carpentry][http://swcarpentry.org], a training course on
+This talk is an introduction to [Software Carpentry](http://swcarpentry.org), a training course on
 programming skills for researchers. The full syllabus takes two days, and is run regularly in UCL.
 This talk provides a brief, one-hour introduction to the material, as a taster, to encourage people to
 attend the full event.
