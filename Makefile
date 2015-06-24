@@ -14,6 +14,9 @@ default: _site
 %.png: %.py Makefile
 	python $< $@
 
+%.png: %.nto Makefile
+	neato $< -T png -o $@
+
 %.png: %.dot Makefile
 	dot $< -T png -o $@
 
@@ -48,18 +51,20 @@ _site: rsd/scholar-reveal.html rsd/scholar-brief-reveal.html technical/fabric-re
 			 technical/generated/distributed_shared_conflicted.png \
 			 technical/generated/distributed_shared_noconflict.png \
 			 technical/generated/distributed_solo.png \
-			 technical/generated/distributed_solo_publishing.png
+			 technical/generated/distributed_solo_publishing.png \
+			 technical/generated/branching.png \
+			 technical/generated/centralised.png \
+			 technical/generated/distributed_practice.png \
+			 technical/generated/distributed_principle.png \
+			 technical/generated/revisions.png
 	jekyll build	
 
 clean:
 	rm -f rsd/generated/*.png
 	rm -f technical/generated/*.png
-	rm -f rsd/scholar-reveal.html
-	rm -f rsd/scholar-brief-reveal.html
-	rm -f rsd/fabric-reveal.html
-	rm -f rsd/carpentry-compressed-reveal.html
-	rm -f rsd/version_control-reveal.html
-	rm -f rsd/zacrosEASC-reveal.html
+	rm -f rsd/*.html
+	rm -f technical/*.html
+	rm -f index.html
 	rm -rf _site
 	rm -rf images js css _includes _layouts favicon* remaster.zip indigo-jekyll-remaster
 

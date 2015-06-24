@@ -6,4 +6,4 @@ short: Programming Talks
 
 markdown: redcarpet
 redcarpet:
-  extensions: ["strikethrough"]
+  extensions: ["strikethrough","tables"]

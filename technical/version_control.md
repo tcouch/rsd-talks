@@ -32,27 +32,31 @@ Realise mistake
 
 Mistake is undone
 
-What is version control? (Team version)
----------------------------------------
+What is version control?
+--------------------------
 
-Sue                 James
------------------- ------
-Create some code    
-`my_vcs commit`     
-                    Join the team
-                    `my_vcs checkout`
-                    do some programming
-                    `my_vcs commit`
-`my_vcs update`		more programming
-Do some programming
-					`my_vcs commit`
-`my_vcs commit`
-Oh Noes! Error!
-`my_vcs update`
-`my_vcs merge`
-`my_vcs commit`
-					`my_vcs commit`
-					Error again...
+Sue                | James
+------------------ |--------------------
+`my_vcs commit`    |...
+ ...               | `my_vcs checkout`
+ ...               | do some programming
+ ...               | `my_vcs commit`
+`my_vcs update`    |more programming
+Do some programming|...
+...                |`my_vcs commit`
+`my_vcs commit`    |...
+Oh Noes! Error!    |...
+
+Resolving conflicts
+---------------------
+
+`my_vcs commit`    |...
+Oh Noes! Error!    |...
+`my_vcs update`    |...
+`my_vcs merge`     |...
+`my_vcs commit`    |...
+ ...               |`my_vcs commit`
+ ...               |Error again...
 
 Centralised Version Control
 ===========================
@@ -72,24 +76,25 @@ Centralised VCS concepts
 Centralised VCS diagram
 -----------------------
 
-![A centralised server with three clients](assets/centralised)
+![A centralised server with three clients](generated/centralised.png)
                     
 Centralised VCS solo workflow
 ----------------------------------------
-![Solo workflow for SVN](assets/centralised_solo)
+![Solo workflow for SVN](generated/centralised_solo.png)
 
 Centralised VCS team workflow
 ----------------------------------------
-![Team workflow for SVN](assets/centralised_team_noconflict)
+![Team workflow for SVN](generated/centralised_team_noconflict.png)
 
 Centralised VCS conflicted workflow
 ----------------------------------------
-![Conflicted workflow for SVN](assets/centralised_team)
+![Conflicted workflow for SVN](generated/centralised_team.png)
 
 Resolving conflicts
 -------------------
 
 On update, you get a prompt like:
+
 ``` Bash
 svn update
 > Conflict discovered in ’sharedfile.py'. 
@@ -97,6 +102,7 @@ svn update
 ```
 
 If you choose `(e)` the conflicted file will look something like:
+
 ``` Diff
 Whatever was in the file before the conflicted bit
 <<<<<<< .mine
@@ -130,6 +136,7 @@ svn status
 ```
 
 Get rid of changes to a file:
+
 ```
 svn revert myfile.py
 ```
@@ -140,34 +147,34 @@ Distributed Version Control
 Distributed versus centralised
 ------------------------------
 
-Centralised                      Distributed
-------------------               --------------
-Server has history               Every user has full history
-Your computer has one snapshot   Many local branches
-To access history, need internet History always available
-You commit to remote server      Users synchronise histories
-cvs, subversion(svn)             git, mercurial (hg), bazaar (bzr)
+Centralised                      |Distributed
+------------------               |--------------
+Server has history               |Every user has full history
+Your computer has one snapshot   |Many local branches
+To access history, need internet |History always available
+You commit to remote server      |Users synchronise histories
+cvs, subversion(svn)             |git, mercurial (hg), bazaar (bzr)
 
 Distributed VCS in principle
 ----------------------------
 
-![How distributed VCS works in principle](assets/distributed_principle)
+![How distributed VCS works in principle](generated/distributed_principle.png)
 
 Distributed VCS in practice
 ----------------------------
 
-![How distributed VCS works in practice](assets/distributed_practice)
+![How distributed VCS works in practice](generated/distributed_practice.png)
 
 Pragmatic Distributed VCS
 -------------------------
 
-Subversion                     Git
------------------------------- ---------------
-`svn checkout <URL>`           `git clone <URL>`
-`svn commit`				   `git commit -a; git push`
-`svn up`					   `git pull`
-`svn status`                   `git status`
-`svn diff`                     `git diff`
+Subversion                    | Git
+------------------------------| ---------------
+`svn checkout <URL>`          | `git clone <URL>`
+`svn commit`				          |`git commit -a; git push`
+`svn up`					            |`git pull`
+`svn status`                  |`git status`
+`svn diff`                    |`git diff`
 
 Why Go Distributed?
 ------------------
@@ -200,7 +207,7 @@ Distributed VCS concepts
 A revision graph
 ----------------
 
-![Revisions form a graph](assets/revisions)
+![Revisions form a graph](generated/revisions.png)
 
 Distributed VCS concepts (2)
 ----------------------------
@@ -220,7 +227,7 @@ The Levels of Git
 ----------------
 
 ![The relationship between the staging area, working directory, and
-repositories in git.](assets/distributed_concepts)
+repositories in git.](generated/distributed_concepts.png)
 
 Using Git
 =========
@@ -228,22 +235,22 @@ Using Git
 Distributed VCS Solo Workflow
 -----------------------------
 
-![Working alone with git](assets/distributed_solo)
+![Working alone with git](generated/distributed_solo.png)
 
 Distributed VCS With Publishing
 -------------------------------
 
-![Publishing with git](assets/distributed_solo_publishing)
+![Publishing with git](generated/distributed_solo_publishing.png)
 
 Distributed VCS in teams without conflicts
 ------------------------------------------
 
-![Teamworking in git](assets/distributed_shared_noconflict)
+![Teamworking in git](generated/distributed_shared_noconflict.png)
 
 Distributed VCS in teams with conflicts
 ------------------------------------------
 
-![Teamworking in git with conflicts](assets/distributed_shared_conflicted)
+![Teamworking in git with conflicts](generated/distributed_shared_conflicted.png)
 
 Working with multiple remotes
 -----------------------------
@@ -264,7 +271,7 @@ Branches
 Working with branches
 ---------------------
 
-![Using branches](assets/branching)
+![Using branches](generated/branching.png)
 
 Working with branches in git
 ----------------------------
