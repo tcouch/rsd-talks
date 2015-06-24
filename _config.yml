@@ -5,7 +5,7 @@ includeleftnav: True
 short: Programming Talks
 
 crumbs:
-  - {link: research-programming, text: Research Programming Hub}
+  - {link: 'http://research-programming.ucl.ac.uk', text: Research Programming Hub}
 
 markdown: redcarpet
 redcarpet:
