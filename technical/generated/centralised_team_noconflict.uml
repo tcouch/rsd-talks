@@ -19,7 +19,7 @@ note over Server: 2
 Server->Sue: Update
 note left: svn update
 
-note over of Sue
+note over Sue
 	cat jimfile.py
 	notepad++ suefile.py
 end note

@@ -1,54 +1,47 @@
-participant "Jim's repo"
-participant "Jim's index"
+participant "Jim's repo" as R
+participant "Jim's index" as I
 participant Jim
-parallel{
-state over Jim: work
+
 note right of Jim: vim myfile1.py
-}
-parallel{
+
 note right of Jim: git init
-Jim->Jim's index: create
-Jim's index->Jim's repo: create
-}
-parallel{
-Jim->Jim's index: add
-note right of Jim: git add .
-}
-parallel{
-note right of Jim: git commit
-Jim's index->Jim's repo: Commit
-}
-parallel{
-note right of Jim:
-	vim myfile2.py
-	vim myfile1.py
+create I
+Jim->I: add
+
+create R
+Jim->R: add
+
+note right: git add .
+
+I->R: Commit
+note right: git commit
+
+note over R: a1c3
+
+note right of Jim
+  vim myfile2.py
+  vim myfile1.py
 end note
-state over Jim: work
-state over "Jim's repo": a1c3
-}
-parallel{
-Jim->Jim's index: Add
-note right of Jim: git add myfile2.py
-}
-parallel{
-Jim's index->Jim's repo: Commit
-note right of Jim: git commit
-note left of "Jim's repo": 
+
+Jim->I: Add
+note right: git add myfile2.py
+
+I->R: Commit
+note right: git commit
+
+note over R: acb2
+
+note left of R
 	Only changes to file2 
 	get into commit
 end note
-}
-parallel{
-state over Jim: work
+
 note right of Jim
 	vim myfile2.py
 	vim myfile1.py
 end note
-state over "Jim's repo": acb2
-}
-parallel{
+
 note right of Jim: git commit -a
-Jim->Jim's index: add
-Jim's index->Jim's repo: commit
-note left of "Jim's repo": All changes get in
-}
+Jim->I: add
+I->R: commit
+note left of R: All changes get in

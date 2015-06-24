@@ -4,63 +4,48 @@ participant Origin as O
 participant "Sue's repo" as Sr
 participant Sue as S
 
-parallel{
-state over J: work
-state over S: work
-}
+note over J: work
+note over S: work
 
-parallel{
-note left of J: git commit -a
 J -> Jr: commit
-S -> Sr: commit
-note right of S: git commit -a
-}
+note left: git commit -a
 
-parallel{
+S -> Sr: commit
+note right: git commit -a
+
 Sr->O: push
-note right of S: git push
-}
-parallel{
+note right: git push
+
 note left of J
 	git push
 	Error: ! [rejected]
 end note
 Jr-->O: failed push
-}
-parallel{
+
 O->Jr: pull
 Jr->J: pull
-note left of J: git pull
-}         
- 
-parallel{
-state over J: resolve conflicts
+note left: git pull
+
+note over J: resolve conflicts
 note left of J: vim conflictedfile.py
-state over S: work
-}
+note over S: work
 
-parallel{
-note left of J: git commit -a
-note right of S: git commit -a
 S->Sr: commit
+note right: git commit -a
+
 J->Jr: commit
-}
-parallel{
-state over J: work
-state over S: work 
-}
+note left: git commit -a
 
-parallel{
+note over J: work
+note over S: work 
+
 Jr->O: push
-S->Sr: commit
-note left of J
-	git push
-end note
-note right of S: git commit -a
-}
+note left: git push
 
-parallel{
-note right of S: git pull
+S->Sr: commit
+note right: git commit -a
+
 O->Sr: pull
 Sr->S: pull
-}
+note right: git pull
+

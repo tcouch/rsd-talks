@@ -4,71 +4,57 @@ participant Origin as O
 participant "Sue's repo" as Sr
 participant Sue as S
 
-parallel{
-state over J: work
-note left of J
-test
-end note
-}
 
-parallel{
-note left of J
-	git init
-	git add mycode
-	git commit
-end note
+note over J: work
+
+create Jr
 J->Jr: init
-}
+note left: git init
 
-parallel{
-note left of J
-	git remote add 
-	--track master origin
-	git@github.com:ucl/foo.git
-end note 
-O-->Jr: track
-}
-parallel{
-	Jr->O: push
-	note left of J: git push
-}
+note left of J: git add mycode
 
-parallel{
-note right of S: git clone git@github.com:ucl/foo.git
-O->Sr: clone
-Sr->S: clone
-}
-state over S: work
-parallel{
-note right of S: git commit -a
-S->Sr: commit
-}
-parallel{
-Sr->O: push
-note right of S: git push
-}
-parallel{
-O->Jr: fetch
-note left of J: git fetch
-}
-parallel{
-Jr->J: merge
-note left of J: git merge
-}
-state over J: work
-parallel{
-note left of J: git commit -a
 J->Jr: commit
-}
-parallel{
-note left of J: git push
+note left: git commit
+
+note left of J: git remote add origin	git@github.com:ucl/foo.git
+
+Jr->O: git push -u origin master
+note left: git push
+
+create Sr
+O->Sr: clone
+
+create S
+Sr->S: clone
+note right: git clone git@github.com:ucl/foo.git
+
+note over S: work
+
+S->Sr: commit
+note right: git commit -a
+
+Sr->O: push
+note right: git push
+
+O->Jr: fetch
+note left: git fetch
+
+Jr->J: merge
+note left: git merge
+
+note over J: work
+
+J->Jr: commit
+note left: git commit -a
+
 Jr->O: push
-}
-parallel{
+note left: git push
+
+
 O->Sr: pull
 Sr->S: pull
-note right of S: git pull
-}
+note right: git pull
+
 
 
 
