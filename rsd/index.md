@@ -7,7 +7,7 @@ short: RSD Talks
 
 This page brings together talks about the activities of the 
 Research Software Development Group, in [UCL Research IT Services](http://ucl.ac.uk/rits).
-This is one of the affiliate groups for the ucl Research Programming Hub.
+This is an affiliate group of the ucl [Research Programming Hub](http://research-programming.ucl.ac.uk).
 
 Abstracts
 =========
