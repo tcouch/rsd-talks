@@ -4,6 +4,9 @@ title: UCL Research Programming Talks
 includeleftnav: True
 short: Programming Talks
 
+crumbs:
+  - {link: research-programming, text: Research Programming Hub}
+
 markdown: redcarpet
 redcarpet:
   extensions: ["strikethrough","tables"]

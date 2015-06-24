@@ -1,5 +1,5 @@
 ---
-title: "Zacros"
+title: "Zacros ARCHER eCSE Project"
 subtitle: "Software Package Development: Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis"
 author: Jens H Nielsen, Mayeul D'Avezac, James Hetherington & Michail Stamatakis
 bibliography: "../bibliography/rsdt.bib"

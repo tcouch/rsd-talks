@@ -41,8 +41,8 @@ indigo: indigo-jekyll-remaster Makefile
 	cp -r indigo-jekyll-remaster/indigo/favicon* .
 	touch indigo
 
-_site: rsd/scholar-reveal.html rsd/scholar-brief-reveal.html technical/fabric-reveal.html \
-	     technical/carpentry-compressed-reveal.html technical/zacrosEASC-reveal.html \
+_site: rsd/scholar-reveal.html technical/fabric-reveal.html \
+	     technical/carpentry-compressed-reveal.html rsd/zacrosEASC-reveal.html \
 			 technical/version_control-reveal.html rsd/generated/RSD_Venn.png rsd/generated/governance.png indigo \
 			 technical/generated/centralised_solo.png \
 			 technical/generated/centralised_team.png \

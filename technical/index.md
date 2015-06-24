@@ -1,6 +1,5 @@
 ---
 title: Technical talks 
-author: James Hetherington and Derek Groen
 ---
 
 Talks about tools and techniques that we think are interesting or important.
