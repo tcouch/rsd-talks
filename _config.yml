@@ -5,8 +5,7 @@ includeleftnav: True
 short: Programming Talks
 
 crumbs:
-  - {link: 'http://www.ucl.ac.uk/rits', text: Research IT Services Hub}
-  - {link: 'http://www.ucl.ac.uk/research-it-services/our-work/research-software-development', text: Research Software Development}
+  - {link: 'http://research-programming.ucl.ac.uk/rits', text: Research Programming Hub }
 
 markdown: redcarpet
 redcarpet:

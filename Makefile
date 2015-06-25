@@ -20,8 +20,8 @@ default: _site
 %.png: %.dot Makefile
 	dot $< -T png -o $@
 
-%.png: %.uml Makefile
-	plantuml -p < $< > $@
+%.png: %.uml Makefile plantuml.jar
+	java -Djavax.awt.headless=true -jar plantuml.jar -p < $< > $@
 
 remaster.zip: Makefile
 	rm -f remaster.zip
@@ -59,12 +59,16 @@ _site: rsd/scholar-reveal.html technical/fabric-reveal.html \
 			 technical/generated/revisions.png
 	jekyll build	
 
+plantuml.jar:
+	wget http://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O plantuml.jar
+
 clean:
 	rm -f rsd/generated/*.png
 	rm -f technical/generated/*.png
 	rm -f rsd/*.html
 	rm -f technical/*.html
 	rm -f index.html
+	rm -f plantuml.jar
 	rm -rf _site
 	rm -rf images js css _includes _layouts favicon* remaster.zip indigo-jekyll-remaster
 
