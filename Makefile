@@ -21,7 +21,7 @@ default: _site
 	dot $< -T png -o $@
 
 %.png: %.uml Makefile plantuml.jar
-	java -Djavax.awt.headless=true -jar plantuml.jar -p < $< > $@
+	java -Djava.awt.headless=true -jar plantuml.jar -p < $< > $@
 
 remaster.zip: Makefile
 	rm -f remaster.zip
