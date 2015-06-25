@@ -7,7 +7,7 @@ short: Programming Talks
 crumbs:
   - {link: 'http://research-programming.ucl.ac.uk/rits', text: Research Programming Hub }
 
-baseurl: talks
+baseurl: /talks
 
 markdown: redcarpet
 redcarpet:
