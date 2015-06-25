@@ -5,7 +5,7 @@ includeleftnav: True
 short: Programming Talks
 
 crumbs:
-  - {link: 'http://research-programming.ucl.ac.uk/rits', text: Research Programming Hub }
+  - {link: 'http://research-programming.ucl.ac.uk/', text: Research Programming Hub }
 
 baseurl: /talks
 
