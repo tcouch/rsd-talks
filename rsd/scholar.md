@@ -449,6 +449,8 @@ jobs:
      exec: make
 ```
 
+This talk on [GitHub](https://github.com/UCL/rsd-talks): https://github.com/UCL/rsd-talks
+
 Publishing from Jenkins with Puppet
 -----------------------------------
 
