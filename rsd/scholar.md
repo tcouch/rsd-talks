@@ -18,7 +18,7 @@ James Hetherington
     * Environmental impact modeling
 * Scientific Programmer, UCL CCS
     * Brain blood flow CFD
-* Leader and Founder, UCL Research Software Development
+* Head of Research Software Development, UCL
 
 The State of Research Software
 ================================
@@ -81,9 +81,10 @@ Research Software Engineers
 Research Software Engineers
 ----------------------------
 
-* Not (primarily) researchers
+* Not independent researchers
     * No personal research agenda
 * Facilitative, supportive, and collaborative
+    * Part of the academic community
     * Deep engagement with research groups
     * Understand, study, and be part of group research activities
     * Can read and understand the papers
@@ -142,16 +143,13 @@ Call for projects
 * Ten projects so far
 
 Paid Projects
-=============
-
-Paid Projects
 -------------
 
 * Via research grants
 * Or existing college money
 * Displaces free calls
     * Until recruit
-* Secured £400k (Roughly 33% success rate)
+* Secured £0.5M (Roughly 33% success rate)
 * Total income to UCL ~£1.5M
 
 Sample free projects
@@ -235,6 +233,26 @@ Robustness
 
 * From ~95% to 100%.
 * Voxelisation in the loop
+
+ORACC
+-----
+
+![](assets/oracc.jpg)
+
+Purify
+------
+
+![](assets/ska.png)
+
+Zacros
+------
+
+![](assets/zacros.png)
+
+* Started as free project
+* Continued using local funds
+* Won ARCHER eCSE
+* First commercial sale January 2015
 
 Priorities
 ==========
@@ -373,29 +391,6 @@ Cross-platform Testing
 
 ![](assets/systems.png)
 
-Example Paid Projects
-=====================
-
-ORACC
------
-
-![](assets/oracc.jpg)
-
-Purify
-------
-
-![](assets/ska.png)
-
-Zacros
-------
-
-![](assets/zacros.png)
-
-* Started as free project
-* Continued using local funds
-* Won ARCHER eCSE
-* First commercial sale January 2015
-
 Automation
 ==========
 
@@ -426,41 +421,21 @@ Automation is Reproducibility
 * Currently it is less; how often do we replicate computational experiments?
 * Automated research is Auditable Research
 
-This talk's Dexyfile
+This talk's Makefile
 --------------------
 
-``` yaml
+``` make
+%-reveal.html: %.md
+	$(PANDOC) $(PANDOCARGS) $< -o $@
 
-".md|jinja|pandoc|-reveal|resub|h":
-    - inputs
-    - except: [index, slidelink]
-    - output-name: "{baserootname}-reveal.html"
-    - pandoc:
-        args: -t revealjs -V theme=night
-            --css=http://lab.hakim.se/reveal-js/css/theme/night.css
-            --css=/css/ucl_reveal.css
-            --css=/css/slidetheme.css
-            --default-image-extension=png
-            --highlight-style=zenburn
-            --mathjax
-            -V revealjs-url=http://lab.hakim.se/reveal-js
+%.png: %.py
+	python $< $@
 
-assets:
-    - .css
-    - .png
-    - .js
+%.png: %.nto
+	neato $< -T png -o $@
 
-sequence_charts:
-    - .wsd|wsd:
-        - wsd:
-            style: napkin
-
-uml:
-    - .yuml|yuml
-
-graphs:
-    - .dot|dot:
-        - assets
+%.png: %.dot
+	dot $< -T png -o $@
 ```
 
 This Talk On Jenkins
@@ -471,10 +446,7 @@ jobs:
   - 'talks-publisher':
      repo: UCL/rsd-talks
      directory: output-site
-     exec:
-        dexy setup
-        python deploy.py
-        dexy
+     exec: make
 ```
 
 Publishing from Jenkins with Puppet
@@ -547,7 +519,7 @@ Acknowledgements
 * Anthony Finkelstein, Richard Catlow, David Price, John Shawe-Taylor, Simon Arridge, Peter Coveney
 * Timo Betcke, Michail Stamatakis, David Balding, Miguel Bernabeu, Remis Lape, David Colquhoun
 * Eleanor Robson, Jason McEwen, David Holder, Sebastien Ourselin
-* Mayeul D'Avezac, Jens Nielsen, Bruno Silva, Owain Kenway, Ian Kirker, Brian Alston
+* Mayeul D'Avezac, Jens Nielsen, Gary Macindoe, Raquel Alegre, Sinan Shi, Tom Pollard
 * Dirk Gorissen, Simon Baxter, Ilian Todorov, Rob Haines
 * Neil Chue Hong, Simon Hettrick, Kenji Takeda, David de Roure
 * Ana Nelson, Kohsuke Kawaguchi
@@ -568,12 +540,12 @@ Why you should have one
 
 * More and more research uses software
 * General programmers can't understand research
-* Postdocs and PhD students don't make reliable code
+* Postdocs and PhD students don't have time to make reliable code
 
 Why you should be one
 ---------------------
 
-* Understand research
+* Write papers
 * Make code
 
 Why you should be one
