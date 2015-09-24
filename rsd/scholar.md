@@ -70,7 +70,7 @@ Research Software Developers
 
 The Craftsperson And The Scholar
 ----------------------------
-           
+
 ![](assets/scholar.jpg)
 
 Research Software Engineers
@@ -137,7 +137,7 @@ Call for projects
 
 * Judged by academic panel
 * Every quarter
-* Half FTE for term 
+* Half FTE for term
 * Worth £8k
 * Ten projects so far
 
@@ -163,7 +163,7 @@ Low-Template DNA
 Whodunnit code: low-template DNA
 --------------------------------
 
-![](assets/whodunnitdna.jpg) 
+![](assets/whodunnitdna.jpg)
 
 Whodunnit code: low-template DNA
 -----------------------
@@ -183,7 +183,7 @@ Structural work on likeLTD
 
 Performance Improvements in likeLTD
 -------------------------------------------
-  
+
 * 4 times from moving to C
 * 8 times from parallelisation
 * 10 times from change of optimisation algorithm
@@ -335,7 +335,7 @@ You don't need to test if:
 > * Your programs always work correctly, or
 > * You don't care if they're correct or not, so long
     as their output looks plausible, and
-> * You like being inefficient: 
+> * You like being inefficient:
     the more you invest in quality, the less total time
     it takes to build working software
 
@@ -556,12 +556,12 @@ Acknowledgements
 
 Contact
 -------
- 
-![](../assets/twitter.png) \@uclrcsoftdev \@jamespjh
 
-![](../assets/rss.png) blogs.ucl.ac.uk/research-software-development
+![](assets/twitter.png) \@uclrcsoftdev \@jamespjh
 
-![](../assets/email.png) j.hetherington@ucl.ac.uk
+![](assets/rss.png) blogs.ucl.ac.uk/research-software-development
+
+![](assets/email.png) j.hetherington@ucl.ac.uk
 
 Why you should have one
 -----------------------
