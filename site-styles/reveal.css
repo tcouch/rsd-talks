@@ -17,3 +17,12 @@
         vertical-align: middle;
         background-color: rgb(143, 153, 62);
 }
+
+img[src*="assets/twitter.png"], img[src*="assets/rss.png"], img[src*="assets/email.png"] {
+	max-width: 50px;
+	vertical-align: middle;
+}
+
+img[src*="assets/twitter.png"] {
+  background-color: blue;
+}

@@ -1,6 +1,6 @@
 PANDOC=pandoc
 
-ROOT=""
+ROOT="/talks/"
 
 PANDOCARGS=-t revealjs -s -V theme=night --css=http://lab.hakim.se/reveal-js/css/theme/night.css \
 					 --css=$(ROOT)/css/ucl_reveal.css --css=$(ROOT)/site-styles/reveal.css \
@@ -57,7 +57,7 @@ _site: rsd/scholar-reveal.html technical/fabric-reveal.html \
 			 technical/generated/distributed_practice.png \
 			 technical/generated/distributed_principle.png \
 			 technical/generated/revisions.png
-	jekyll build	
+	jekyll build
 
 plantuml.jar:
 	wget http://sourceforge.net/projects/plantuml/files/plantuml.jar/download -O plantuml.jar
@@ -71,4 +71,3 @@ clean:
 	rm -f plantuml.jar
 	rm -rf _site
 	rm -rf images js css _includes _layouts favicon* remaster.zip indigo-jekyll-remaster
-
