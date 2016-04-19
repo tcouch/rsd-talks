@@ -56,7 +56,8 @@ _site: rsd/scholar-reveal.html technical/fabric-reveal.html \
 			 technical/generated/centralised.png \
 			 technical/generated/distributed_practice.png \
 			 technical/generated/distributed_principle.png \
-			 technical/generated/revisions.png
+			 technical/generated/revisions.png \
+			 rsd/dashboard_announce-reveal.html
 	jekyll build
 
 plantuml.jar:
