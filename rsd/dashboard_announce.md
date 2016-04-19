@@ -13,7 +13,7 @@ Software is a first class research output
 UCL does a great job of promoting its traditional research outputs
 -------------------------------------------------------------
 
-[http://discovery.ucl.ac.uk][http://discovery.ucl.ac.uk]
+[http://discovery.ucl.ac.uk](http://discovery.ucl.ac.uk)
 
 UCL researchers make loads of awesome software
 ----------------------------------------------
