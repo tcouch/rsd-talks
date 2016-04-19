@@ -42,5 +42,14 @@ software metadata to the service.
 
 It won't show up on IRIS yet.
 
-We have an army of students (well, two) trained and ready to help you uploaded
-and write down all the bugs you find.
+But wait...
+-----------
+
+We have an army of students (well, two) trained and ready to sit by you
+while you upload data write down all the bugs you find.
+
+So we'd prefer it if you didn't independently add stuff just yet: please
+get in touch with [Stephen Ball](mailto:cceasba@ucl.ac.uk) if you want to try out
+the site.
+
+(Though we won't stop you.)
