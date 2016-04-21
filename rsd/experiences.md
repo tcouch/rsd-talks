@@ -15,6 +15,7 @@ The UCL Research Software Group
 * Helped UCL win over 1.5M in research income
 * Grown through grant funding from just me to a team of 8
 * Works with researchers from archaeology to astrophysics
+* Part of [UCL RITS](https://www.ucl.ac.uk/research-it-services)
 
 Readable, reliable, and reproducible
 ---------------------------------
@@ -25,69 +26,130 @@ We help make code:
 * Be usable by someone other than the PhD student who wrote it
 * Have a standard of correctness better than "the graph looks about right"
 
-Good, huh?
+Low-Template DNA
+================
+
+Whodunnit code: low-template DNA
+--------------------------------
+
+![](assets/whodunnitdna.jpg)
+
+Whodunnit code: low-template DNA
+-----------------------
+
+* Low-template DNA
+* Relative likelihood of defence and prosecution hypotheses
+* Optimise over relative degree of contribution from various individuals
+
+Structural work on likeLTD
+--------------------------------------------
+
+* Broken down into functions
+* Separate objective function from simulated annealing optimiser
+* Look at using different optimiser libraries
+* Documentation added
+* Ready for publication to CRAN
+
+Performance Improvements in likeLTD
+-------------------------------------------
+
+* 4 times from moving to C
+* 8 times from parallelisation
+* 10 times from change of optimisation algorithm
+* 300 times total
+
+DCProgs
+=======
+
+Old State of the Code
+-----------------
+
+* Very old-style Fortran
+* Hasn't compiled since 2006
+* Underpins Nature-published research
+
+New State
+---------
+
+* Reimplemented in C++ and Python
+* Use linear algebra and root finding libraries
+* Just as performant as the Fortran
+
+HemeLB Setup Tool
+=================
+
+HemeLB Setup Tool
+-----------------
+
+![](assets/tubes.png)
+
+Voxelisation
+------------
+
+![](assets/blockgrid.jpg)
+
+
+Robustness
 ----------
+
+![](assets/cgal.png)
+
+Robustness
+----------
+
+* From ~95% to 100%.
+* Voxelisation in the loop
+
+Good, huh?
+==========
 
 Well, it hasn't always been pretty.
 
-In this talk, I'll try to indicate some tips and tricks learned while
+I'll try to indicate some tips and tricks learned while
 creating a generalist science-as-a-service software group.
 
 Some of these we got right. Some are things I wish I'd
 known at the beginning.
 
+
 Sell performance, deliver reproducibility
 -----------------------------------------
 
-![Heath Robinson](http://farm7.staticflickr.com/6144/6202830241_f16833fbaf_z.jpg)
+![Source: [Secret Leeds](http://www.secretleeds.com/viewtopic.php?t=5498&start=30)](http://farm7.staticflickr.com/6144/6202830241_f16833fbaf_z.jpg)
 
 Use appropriate technology
 --------------------------
 
-![Windmill](http://africawindmill.org/wp-content/uploads/2013/03/DSC01549-Copy-2-.jpg)
+![Source: [African Windmill Project](http://africawindmill.org)](http://africawindmill.org/wp-content/uploads/2013/03/DSC01549-Copy-2-.jpg)
 
 Look beyond the usual
 ---------------------
 
-![ORACC](https://www.ucl.ac.uk/research-it-services/about/research-software-development/carousel/ORACC.jpg)
+![Source: [ORACC](http://oracc.museum.upenn.edu) ](https://www.ucl.ac.uk/research-it-services/about/research-software-development/carousel/ORACC.jpg)
 
 Recruit flexibly, and nurture
 -----------------------------
 
-![Atwood](http://image.slidesharecdn.com/aguidetohiringforyourstartup-04-150428173222-conversion-gate01/95/a-guide-to-hiring-for-your-startup-53-638.jpg?cb=1430954147)
+![Smart and Gets Things Done ](http://www.software.ac.uk/sites/default/files/images/content/ScholarAndCraftsman.jpg)
 
 Organisational Judo
 -------------------
 
-![Weight](https://scontent.cdninstagram.com/hphotos-xfp1/t51.2885-15/s320x320/e15/10954254_848450445193608_1268926421_n.jpg)
+![Source: Unknown](https://scontent.cdninstagram.com/hphotos-xfp1/t51.2885-15/s320x320/e15/10954254_848450445193608_1268926421_n.jpg)
 
 Transcend the academic hierarchy
 --------------------------------
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/p85xwZ_OLX0" frameborder="0" allowfullscreen></iframe>
 
-Sources note:
----------------
-
-Image Sources:
-
-* [Secret Leeds](http://www.secretleeds.com/viewtopic.php?t=5498&start=30)
-* [A guide to hiring for your startup](http://www.slideshare.net/brikis98/a-guide-to-hiring-for-your-startup)
-* [Africa Windmill](http://africawindmill.org)
-* [The IT Crowd](http://www.channel4.com/programmes/the-it-crowd)
-* [ORACC](http://oracc.museum.upenn.edu)
-
-I've been unable to find the source of the "use his own weight against him"
-cartoon found on pinterest -- if you recognise the cartoonist please get in touch so I can give attribution.
-
 Copyright
 ---------
-
-Source note: the images in this talk are not copied. They are embedded or "transcluded".
-
-* [Transclusion](https://en.wikipedia.org/wiki/Transclusion)
-* [Transclusion and copyright](http://www.create.ac.uk/blog/2014/11/28/eu-ruling-embedding-does-not-equal-copyright-infringement/)
 
 The sourcecode of this talk is available under a CC-BY license:
 
 * [https://github.com/UCL/rsd-talks/tree/master][https://github.com/UCL/rsd-talks/tree/master]
+
+The images in this talk are not copied. They are embedded or "transcluded".
+
+* [Transclusion](https://en.wikipedia.org/wiki/Transclusion)
+* [Transclusion and copyright](http://www.create.ac.uk/blog/2014/11/28/eu-ruling-embedding-does-not-equal-copyright-infringement/)
