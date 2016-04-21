@@ -26,8 +26,8 @@ We help make code:
 * Be usable by someone other than the PhD student who wrote it
 * Have a standard of correctness better than "the graph looks about right"
 
-Low-Template DNA
-================
+Clean code makes performance possible
+=====================================
 
 Whodunnit code: low-template DNA
 --------------------------------
@@ -58,25 +58,32 @@ Performance Improvements in likeLTD
 * 10 times from change of optimisation algorithm
 * 300 times total
 
-DCProgs
-=======
+Engineering helps legacy code live
+==================================
 
 Old State of the Code
 -----------------
 
-* Very old-style Fortran
+* Venerable Fortran
 * Hasn't compiled since 2006
 * Underpins Nature-published research
 
-New State
+The response
 ---------
 
+* Old code as a "test Oracle"
 * Reimplemented in C++ and Python
 * Use linear algebra and root finding libraries
-* Just as performant as the Fortran
+* Not slower
 
-HemeLB Setup Tool
-=================
+Current work
+------------
+
+* ARCHER parallelisation
+* MCMC inferential algorithm
+
+Reliability unlocks science
+===========================
 
 HemeLB Setup Tool
 -----------------
@@ -87,12 +94,6 @@ Voxelisation
 ------------
 
 ![](assets/blockgrid.jpg)
-
-
-Robustness
-----------
-
-![](assets/cgal.png)
 
 Robustness
 ----------
@@ -150,7 +151,7 @@ Copyright
 
 The sourcecode of this talk is available under a CC-BY license:
 
-* [https://github.com/UCL/rsd-talks/tree/master][https://github.com/UCL/rsd-talks/tree/master]
+* [https://github.com/UCL/rsd-talks/tree/master](https://github.com/UCL/rsd-talks/tree/master)
 
 The images in this talk are not copied. They are embedded or "transcluded".
 
