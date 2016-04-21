@@ -1,12 +1,12 @@
 ---
-title: Experiences in creating a Research Software Engineering Group
+title: Computational Science as a Service
 author: James Hetherington
 layout: default
 slidelink: True
 ---
 
-Experiences in creating a Research Software Engineering Group
-=============================================================
+Experiences from UCL
+====================
 
 The UCL Research Software Group
 -------------------------------
@@ -137,8 +137,8 @@ Organisational Judo
 
 ![Source: Unknown](https://scontent.cdninstagram.com/hphotos-xfp1/t51.2885-15/s320x320/e15/10954254_848450445193608_1268926421_n.jpg)
 
-Transcend the academic hierarchy
---------------------------------
+Computational Science as a Service
+----------------------------------
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/p85xwZ_OLX0" frameborder="0" allowfullscreen></iframe>
 
