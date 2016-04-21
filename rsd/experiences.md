@@ -34,21 +34,12 @@ Whodunnit code: low-template DNA
 
 ![](assets/whodunnitdna.jpg)
 
-Whodunnit code: low-template DNA
------------------------
-
-* Low-template DNA
-* Relative likelihood of defence and prosecution hypotheses
-* Optimise over relative degree of contribution from various individuals
-
 Structural work on likeLTD
 --------------------------------------------
 
 * Broken down into functions
-* Separate objective function from simulated annealing optimiser
-* Look at using different optimiser libraries
-* Documentation added
-* Ready for publication to CRAN
+* Separate objective function from home-made optimiser
+* Use standard optimiser libraries
 
 Performance Improvements in likeLTD
 -------------------------------------------
@@ -90,16 +81,12 @@ HemeLB Setup Tool
 
 ![](assets/tubes.png)
 
-Voxelisation
-------------
-
-![](assets/blockgrid.jpg)
-
 Robustness
 ----------
 
-* From ~95% to 100%.
-* Voxelisation in the loop
+* Can handle all geometries instead of 19 in 20
+* Means can model changing geometries
+* Reliability unlocks new science
 
 Good, huh?
 ==========
