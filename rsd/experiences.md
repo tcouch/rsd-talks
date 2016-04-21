@@ -15,7 +15,7 @@ The UCL Research Software Group
 * Helped UCL win over 1.5M in research income
 * Grown through grant funding from just me to a team of 8
 * Works with researchers from archaeology to astrophysics
-* Part of [UCL RITS](https://www.ucl.ac.uk/research-it-services)
+* Part of UCL Research IT Services [https://www.ucl.ac.uk/rits](https://www.ucl.ac.uk/research-it-services)
 
 Readable, reliable, and reproducible
 ---------------------------------
