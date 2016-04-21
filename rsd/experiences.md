@@ -118,7 +118,7 @@ Look beyond the usual
 
 ![Source: [ORACC](http://oracc.museum.upenn.edu) ](https://www.ucl.ac.uk/research-it-services/about/research-software-development/carousel/ORACC.jpg)
 
-Recruit flexibly, and nurture
+The Craftperson and the Scholar
 -----------------------------
 
 ![Smart and Gets Things Done ](http://www.software.ac.uk/sites/default/files/images/content/ScholarAndCraftsman.jpg)
