@@ -13,10 +13,10 @@ The UCL Research Software Group
 
 * Started 2012
 * Helped UCL win over 1.5M in research income
-* Grown from just me to a team of 8
+* Grown through grant funding from just me to a team of 8
 * Works with researchers from archaeology to astrophysics
 
-Readable, reliable, and efficient
+Readable, reliable, and reproducible
 ---------------------------------
 
 We help make code:
@@ -31,7 +31,7 @@ Good, huh?
 Well, it hasn't always been pretty.
 
 In this talk, I'll try to indicate some tips and tricks learned while
-creating a generalist scientific software group.
+creating a generalist science-as-a-service software group.
 
 Some of these we got right. Some are things I wish I'd
 known at the beginning.
@@ -59,10 +59,7 @@ Recruit flexibly, and nurture
 Organisational Judo
 -------------------
 
-Make friends and keep them
---------------------------
-
-
+![Weight](https://scontent.cdninstagram.com/hphotos-xfp1/t51.2885-15/s320x320/e15/10954254_848450445193608_1268926421_n.jpg)
 
 Transcend the academic hierarchy
 --------------------------------
@@ -79,6 +76,9 @@ Image Sources:
 * [Africa Windmill](http://africawindmill.org)
 * [The IT Crowd](http://www.channel4.com/programmes/the-it-crowd)
 * [ORACC](http://oracc.museum.upenn.edu)
+
+I've been unable to find the source of the "use his own weight against him"
+cartoon found on pinterest -- if you recognise the cartoonist please get in touch so I can give attribution.
 
 Copyright
 ---------
