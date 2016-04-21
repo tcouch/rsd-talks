@@ -103,6 +103,9 @@ Robustness
 Good, huh?
 ==========
 
+Lessons learned
+---------------
+
 Well, it hasn't always been pretty.
 
 I'll try to indicate some tips and tricks learned while
