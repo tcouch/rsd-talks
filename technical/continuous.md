@@ -242,12 +242,12 @@ that they provide the services we expect.
 * Run a test script which asserts against the provided services.
 
 Complete Example
-================
+----------------
 
 [https://github.com/jamespjh/vagrant-puppet-example/](https://github.com/jamespjh/vagrant-puppet-example/)
 
 Further thoughts
-================
+----------------
 
 * Next step would be to automatically run the vagrant VM build inside Jenkins
 * Push to puppet master and prun if the tests pass
@@ -256,7 +256,10 @@ Further thoughts
 Containers
 ==========
 
-In this example, our puppet scripts need a whole VM to work, so we use vagrant.
+Docker vs Vagrant
+-----------------
+
+In the above example, our puppet scripts need a whole VM to work, so we use vagrant.
 
 An alternative choice is to use **container** based automation, with Docker.
 
@@ -265,3 +268,8 @@ quickly build and manage isolated environments.
 
 Docker doesn't work with our puppet scripts though (e.g.
 it doesn't let you use systemd services in a container.)
+
+Docker example
+--------------
+
+[https://github.com/jamespjh/docker-example](https://github.com/jamespjh/docker-example)
