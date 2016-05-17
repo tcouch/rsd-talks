@@ -58,11 +58,16 @@ Unlike earlier version control tools,
 creating branches in Git is easy and cheap, and merges are clean and often
 completely automatic.
 
-We create a branch for *each new feature of bug-fix*.
+We create a branch for *each new feature or bug-fix*.
 
 ``` bash
-git checkout -b clever_new_feature
+git checkout -b new_feature
+# Do some Coding
+git checkout master
+git merge new_feature
 ```
+
+This is *integration*
 
 Pull Requests
 -------------
@@ -70,7 +75,7 @@ Pull Requests
 Then we open a "Pull Request", which indicates that the feature is ready
 to be tested and merged.
 
-[https://github.com/UCL-CCS/hemelb-dev/pull/645](https://github.com/UCL-CCS/hemelb-dev/pull/645)
+[https://github.com/UCL-RITS/RSD-Dashboard/pull/170](https://github.com/UCL-RITS/RSD-Dashboard/pull/170)
 
 Automated Testing
 -----------------
@@ -123,7 +128,7 @@ non-supercomputing jobs over to Travis, instead of Jenkins.
 Travis configuration just uses .travis.yml files in the repository to configure
 builds.
 
-
+[https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests](https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests)
 
 Continuous deployment
 =====================
@@ -168,8 +173,11 @@ Github CI
 
 Jenkins will automatically test *each pull request*.
 
-When the tests pass, the branch can be merged to the master branch, and the deployment triggered. (This can be manual after a code review, or automatic
-if tests pass.)
+When the tests pass, the branch can be safely
+merged to the master branch, and the deployment triggered.
+
+(This can be manual after a code review, or *automatic
+if tests pass*.)
 
 Local Puppet Development
 ========================
@@ -193,10 +201,10 @@ But there's a better way, allowing us to treat
 virtual machines on our local laptop, just as if they were *outputs* of a
 programming exercise.
 
-We'll run a local script to provision a VM,
-with *all the information in a version controlled folder*.
-
-We will use `vagrant` to automatically provision our machine.
+* Run a local script to provision a VM,
+with *all the information in a version controlled folder*, alongside the
+code for the service.
+* (Ops-code and Dev-code in one place.)
 
 *Everything* can be version controlled together,
 with no information locked in GUIs.
@@ -234,7 +242,8 @@ Automated Testing of Servers
 Automated Tests of Servers
 --------------------------
 
-Now we can also define *automated tests* for the machines we provision, asserting
+Now we can commission local servers automatically,
+we can define *automated tests* for the machines we provision, asserting
 that they provide the services we expect.
 
 * Run the vagrantfile to trigger the same puppet manifest as we use in production
@@ -273,3 +282,8 @@ Docker example
 --------------
 
 [https://github.com/jamespjh/docker-example](https://github.com/jamespjh/docker-example)
+
+Docker on Travis
+
+[https://travis-ci.org/jamespjh/docker-example/builds](https://travis-ci.org/jamespjh/docker-example/builds)
+[https://github.com/jamespjh/docker-example/blob/master/.travis.yml](https://github.com/jamespjh/docker-example/blob/master/.travis.yml)
