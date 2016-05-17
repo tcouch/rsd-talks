@@ -1,5 +1,5 @@
 ---
-title: Continuous testing, integration, and deployment
+title: Continuous Deployment
 author: James Hetherington
 institution: University College London
 date: 18 May 2016
@@ -7,8 +7,11 @@ layout: default
 slidelink: True
 ---
 
+Systems Programming
+===================
+
 Repetition
-==========
+----------
 
 * Repetition leads to boredom
 * Boredom leads to horrifying mistakes
@@ -16,12 +19,12 @@ Repetition
 -- [Will Larson](http://lethain.com/deploying-django-with-fabric/)
 
 Doing it wrong
-==============
+--------------
 
 If you manually shell into a computer and run commands when you deploy you are doing it wrong.
 
 Systems Programming
-===================
+-------------------
 
 "Systems administration" is a programming task: we have Puppet.
 
@@ -30,21 +33,47 @@ This is systems programming. (Aka "dev ops".)
 There is no distinction between development and operations any more: all
 programmers are sysadmins, and vice-versa.
 
+Plan for the talk
+-----------------
+
 In this talk, I'll explore some of the consequences of this convergence.
+
 First, though, I'll recap some good things from modern programming
 practices, that we're going to borrow
 for systems programming.
 
-Version control recap
+Programming Practices
 =====================
+
+Version control
+---------------
 
 * All changes to the code are kept, with a log message
 * Grabbing someone else's work is just a `git clone` away
 
-Automated Testing
-=================
+Branching in Git
+---------------
 
-We all know automated testing is a core component of good development practice.
+Unlike earlier version control tools,
+creating branches in Git is easy and cheap, and merges are clean and often
+completely automatic.
+
+We create a branch for *each new feature of bug-fix*.
+
+``` bash
+git checkout -b clever_new_feature
+```
+
+Pull Requests
+-------------
+
+Then we open a "Pull Request", which indicates that the feature is ready
+to be tested and merged.
+
+[https://github.com/UCL-CCS/hemelb-dev/pull/645](https://github.com/UCL-CCS/hemelb-dev/pull/645)
+
+Automated Testing
+-----------------
 
 myprog.py:
 
@@ -66,7 +95,7 @@ py.test
 ```
 
 Continuous Testing Servers
-==========================
+--------------------------
 
 It's a faff to run your tests for every platform you might want to run on,
 for every version of your language. So we have automated testing servers to
@@ -75,7 +104,7 @@ run our tests, and email us when it goes wrong.
 [http://development.rc.ucl.ac.uk/jenkins/](http://development.rc.ucl.ac.uk/jenkins/)
 
 Version control of automated test jobs
-======================================
+--------------------------------------
 
 Jenkins expects the config for your automated tests to be specified in its GUI.
 
@@ -86,7 +115,7 @@ In RSDG, we're using a Jenkins plugin to manage our automated test configuration
 [https://github.com/UCL-RITS/jenkins-job-builder-files](https://github.com/UCL-RITS/jenkins-job-builder-files)
 
 Travis
-======
+------
 
 There's a nice cloud service that does this: we're moving our simpler
 non-supercomputing jobs over to Travis, instead of Jenkins.
@@ -94,8 +123,13 @@ non-supercomputing jobs over to Travis, instead of Jenkins.
 Travis configuration just uses .travis.yml files in the repository to configure
 builds.
 
+
+
 Continuous deployment
 =====================
+
+Automatic Deployment
+--------------------
 
 If you trust your automated tests, you can do more: you can *automatically
 deploy if the tests pass*.
@@ -108,7 +142,7 @@ I'm using that for *this talk*:
 When the tests pass, the server is updated with the content from the master branch.
 
 Safe automated deployment
-=========================
+--------------------------
 
 We experimented with puppet for this. Our experience is that it's better
 to use puppet to set the machine's overall structure up, but then for active deployments:
@@ -120,31 +154,15 @@ to use puppet to set the machine's overall structure up, but then for active dep
 This can be better scripted with [Fabric](http://www.fabfile.org) or [Capistrano](http://capistranorb.com) than bash.
 
 Continuous integration
-======================
+----------------------
 
 Simple continuous deployment from a master branch, however, breaks for multi-programmer projects.
 
 We can use the magic of Git's branches to achieve something better:
 continuous integration.
 
-Branching in Git
-================
-
-Unlike earlier version control tools,
-creating branches in Git is easy and cheap, and merges are clean and often
-completely automatic.
-
-We create a branch for *each new feature of bug-fix*.
-
-``` bash
-git checkout -b clever_new_feature
-```
-
-Pull Requests
-=============
-
-Then we open a "Pull Request", which indicates that the feature is ready
-to be tested and merged.
+Github CI
+---------
 
 [https://github.com/UCL-CCS/hemelb-dev/pull/645](https://github.com/UCL-CCS/hemelb-dev/pull/645)
 
@@ -153,8 +171,11 @@ Jenkins will automatically test *each pull request*.
 When the tests pass, the branch can be merged to the master branch, and the deployment triggered. (This can be manual after a code review, or automatic
 if tests pass.)
 
+Local Puppet Development
+========================
+
 Local development of puppet scripts
-===================================
+-----------------------------------
 
 So, how can we develop puppet scripts locally, as if they were a computer program?
 Unless we can locally run it, we can't
@@ -166,7 +187,7 @@ We could, of course, use a local VM managed in a
 hypervisor's GUI.
 
 Vagrant
-=======
+-------
 
 But there's a better way, allowing us to treat
 virtual machines on our local laptop, just as if they were *outputs* of a
@@ -181,7 +202,7 @@ We will use `vagrant` to automatically provision our machine.
 with no information locked in GUIs.
 
 Vagrant file
-===========
+------------
 
 ``` ruby
 Vagrant.configure("2") do |config|
@@ -194,7 +215,7 @@ end
 ```
 
 Vagrant usage
-============
+-------------
 
 ``` bash
 cd my_project
@@ -202,13 +223,16 @@ vagrant up
 ```
 
 Consequences
-============
+------------
 
 This already kicks ass: we can keep our puppet manifest and vagrantfile alongside any application code. We never need to worry about
 a colleague setting up dependencies for a project to get started. They can just `git clone` and then `vagrant up`
 
-Automated Testing for Puppet Scripts
-====================================
+Automated Testing of Servers
+============================
+
+Automated Tests of Servers
+--------------------------
 
 Now we can also define *automated tests* for the machines we provision, asserting
 that they provide the services we expect.
