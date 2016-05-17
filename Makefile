@@ -42,6 +42,7 @@ indigo: indigo-jekyll-master Makefile
 	touch indigo
 
 _site: rsd/scholar-reveal.html technical/fabric-reveal.html \
+			 technical/continuous-reveal.html \
 	     technical/carpentry-compressed-reveal.html rsd/zacrosEASC-reveal.html \
 			 technical/version_control-reveal.html rsd/generated/RSD_Venn.png rsd/generated/governance.png indigo \
 			 technical/generated/centralised_solo.png \
@@ -58,7 +59,7 @@ _site: rsd/scholar-reveal.html technical/fabric-reveal.html \
 			 technical/generated/distributed_principle.png \
 			 technical/generated/revisions.png \
 			 rsd/dashboard_announce-reveal.html \
-			 rsd/experiences-reveal.html 
+			 rsd/experiences-reveal.html
 	jekyll build
 
 plantuml.jar:
