@@ -183,7 +183,7 @@ with no information locked in GUIs.
 Vagrant file
 ===========
 
-``` vagrant
+``` ruby
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
   config.vm.provision "puppet" do |puppet|
@@ -196,7 +196,7 @@ end
 Vagrant usage
 ============
 
-```
+``` bash
 cd my_project
 vagrant up
 ```
