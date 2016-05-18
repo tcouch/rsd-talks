@@ -84,7 +84,7 @@ myprog.py:
 
 ``` python
 def some_clever_function(x):
-  return x*3
+  return x*2
 ```
 
 test_myprog.py
@@ -92,7 +92,7 @@ test_myprog.py
 ``` python
 def test_myprog():
   from myprog import some_clever_function
-  assert(some_clever_function(3) == 9)
+  assert(some_clever_function(3) == 6)
 ```
 
 ``` bash
@@ -287,3 +287,15 @@ Docker on Travis
 
 [https://travis-ci.org/jamespjh/docker-example/builds](https://travis-ci.org/jamespjh/docker-example/builds)
 [https://github.com/jamespjh/docker-example/blob/master/.travis.yml](https://github.com/jamespjh/docker-example/blob/master/.travis.yml)
+
+Conclusions
+===========
+
+Principles
+----------
+
+* Version control everything
+* Make it so you can do everything locally
+* Test automatically
+* Trust your tests
+* Tests + Deployed branches => Deployment
