@@ -106,7 +106,7 @@ It's a faff to run your tests for every platform you might want to run on,
 for every version of your language. So we have automated testing servers to
 run our tests, and email us when it goes wrong.
 
-[http://development.rc.ucl.ac.uk/jenkins/](jenkins.png)
+[http://development.rc.ucl.ac.uk/jenkins/](assets/jenkins.png)
 
 Version control of automated test jobs
 --------------------------------------
@@ -150,7 +150,7 @@ non-supercomputing jobs over to Travis, instead of Jenkins.
 Travis configuration just uses .travis.yml files in the repository to configure
 builds.
 
-[https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests](travis.png)
+[https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests](assets/travis.png)
 
 Continuous deployment
 =====================
