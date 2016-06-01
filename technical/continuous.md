@@ -75,7 +75,7 @@ Pull Requests
 Then we open a "Pull Request", which indicates that the feature is ready
 to be tested and merged.
 
-[https://github.com/UCL-RITS/RSD-Dashboard/pull/170](https://github.com/UCL-RITS/RSD-Dashboard/pull/170)
+[https://github.com/UCL-RITS/RSD-Dashboard/pull/170](assets/pull170.png)
 
 Automated Testing
 -----------------
@@ -106,7 +106,7 @@ It's a faff to run your tests for every platform you might want to run on,
 for every version of your language. So we have automated testing servers to
 run our tests, and email us when it goes wrong.
 
-[http://development.rc.ucl.ac.uk/jenkins/](http://development.rc.ucl.ac.uk/jenkins/)
+[http://development.rc.ucl.ac.uk/jenkins/](jenkins.png)
 
 Version control of automated test jobs
 --------------------------------------
@@ -117,7 +117,29 @@ This is obviously suboptimal: we want to version control everything.
 
 In RSDG, we're using a Jenkins plugin to manage our automated test configuration:
 
-[https://github.com/UCL-RITS/jenkins-job-builder-files](https://github.com/UCL-RITS/jenkins-job-builder-files)
+``` yaml
+name: 'nammu'
+ disabled: false
+ node: OSX
+
+ builders:
+     - shell: |
+         cd $WORKSPACE
+         mvn clean install
+ scm:
+     - git:
+         url: git@github.com:oracc/nammu
+         branches:
+             - '{mybranch}'
+
+ triggers:
+   - github
+   - timed: "@midnight"
+
+ publishers:
+     - git:
+         push-only-if-success: true
+```
 
 Travis
 ------
@@ -128,7 +150,7 @@ non-supercomputing jobs over to Travis, instead of Jenkins.
 Travis configuration just uses .travis.yml files in the repository to configure
 builds.
 
-[https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests](https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests)
+[https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests](travis.png)
 
 Continuous deployment
 =====================
@@ -142,7 +164,6 @@ deploy if the tests pass*.
 I'm using that for *this talk*:
 
 [https://github.com/UCL/rsd-talks](https://github.com/UCL/rsd-talks)
-[http://development.rc.ucl.ac.uk/jenkins/](http://development.rc.ucl.ac.uk/jenkins/)
 
 When the tests pass, the server is updated with the content from the master branch.
 
@@ -169,7 +190,7 @@ continuous integration.
 Github CI
 ---------
 
-[https://github.com/UCL-CCS/hemelb-dev/pull/645](https://github.com/UCL-CCS/hemelb-dev/pull/645)
+[https://github.com/UCL-RITS/RSD-Dashboard/pull/170](assets/pull170.png)
 
 Jenkins will automatically test *each pull request*.
 
