@@ -192,7 +192,9 @@ Github CI
 
 [https://github.com/UCL-RITS/RSD-Dashboard/pull/170](assets/pull170.png)
 
-Jenkins will automatically test *each pull request*.
+Jenkins will automatically test *each pull request*. (Look at the
+green tick on commit 96eaac8 -- this represents a passing
+Jenkins build.)
 
 When the tests pass, the branch can be safely
 merged to the master branch, and the deployment triggered.
