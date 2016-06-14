@@ -9,7 +9,7 @@ crumbs:
   - {link: 'http://www.ucl.ac.uk/research-it-services/our-work/research-software-development', text: Research Software Development}
 
 
-baseurl: /talks
+baseurl: /rsd-talks
 
 markdown: redcarpet
 redcarpet:
