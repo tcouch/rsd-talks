@@ -58,6 +58,9 @@ slidelink: True
 ![Python](assets/logos/python.png)
 ![Jupyter](assets/logos/jupyter.png)
 
+Logos are used here to represent the *kind* of thing I'm talking about,
+not at all exhaustive of all the cool things you need to know.
+
 ## Computational collaboration methods
 
 * Collaborative authoring
