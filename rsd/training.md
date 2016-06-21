@@ -11,13 +11,13 @@ slidelink: True
 
 * "Data Scientist" - "Food Chef?"
 * *Reproducible* data-driven research *is* programming.
-  * Come for the labour savings, but stay for the audit trail
+    * Come for the labour savings, but stay for the audit trail
 
 ## Modelling and Inference
 
 * Convergence between the third and fourth paradigms:
-  * We need big-data methods to understand the outputs of models
-  * Inferential methods require high performance techniques to model the data
+    * We need big-data methods to understand the outputs of models
+    * Inferential methods require high performance techniques to model the data
 * Statistical, algorithmic, computational literacies relevant across the board
 
 ## The syllabus is full.
@@ -31,8 +31,8 @@ slidelink: True
 * Methods and algorithms researchers
 * Data-literate domain researchers
 * Translational e-Research collaborators
-  * Research Software Engineers
-  * Data Scientists
+    * Research Software Engineers
+    * Data Scientists
 
 ## Careers must be fluid
 
@@ -49,24 +49,49 @@ slidelink: True
 
 ## Reproducible research methods
 
-![Python](python.png)
-![Jupyter](jupyter.png)
+* Scripting and data programming
+* Automated testing
+* Workflow building and "glueware"
 
-## Software collaboration tools
+## Reproducible research methods
 
-![Github](Octocat.png)
+![Python](assets/logos/python.png)
+![Jupyter](assets/logos/jupyter.png)
+
+## Computational collaboration methods
+
+* Collaborative authoring
+* Version control
+* Code review
+
+## Computational collaboration methods
+
+![Github](assets/logos/Octocat.png)
 
 ## Open science literacies
 
-![Open science](opensci.jpg)
-![Open data](odi.png)
+* Working with linked open data
+* Data and software publication
+* Licensing and copyleft
+
+## Open science literacies
+
+![Open science](assets/logos/opensci.jpg)
+![Open data](assets/logos/odi.png)
 
 ## Data wrangling and presentation
 
-![Databases](postgres.png)
-![R](Rlogo.png)
-![Matplotlib](Matplotlib.png)
-![Open Refine](refine.png)
+* Data cleaning
+* Databases
+* Visual display of quantitative information
+* Applied statistical inference
+
+## Data wrangling and presentation
+
+![Databases](assets/logos/postgres.png)
+![R](assets/logos/Rlogo.png)
+![Matplotlib](assets/logos/Matplotlib.png)
+![Open Refine](assets/logos/refine.png)
 
 # What do methods and algorithms researchers need to know?
 
@@ -76,19 +101,34 @@ slidelink: True
 
 ## The same things domain scientists do
 
-![Jupyter](jupyter.png)
-![Github](Octocat.png)
-![Open science](opensci.jpg)
+![Jupyter](assets/logos/jupyter.png)
+![Github](assets/logos/Octocat.png)
+![Open science](assets/logos/opensci.jpg)
 
 ## High performance computing and optimisation
 
-![HPC](MPIlogo2.gif) ![Mapreduce](spark.png)
-![CUDA](nvidia.png) ![iRods](irods.png)
+* Schedulers, both traditional (qsub) and "cloudy" (hadoop etc)
+* Parallel programming (MPI, OpenMP, CUDA, Map/Reduce...)
+* Storage and IO performance
+
+## High performance computing and optimisation
+
+![HPC](assets/logos/MPIlogo2.gif)
+![Mapreduce](assets/logos/spark.png)
+
+![CUDA](assets/logos/nvidia.png)
+![iRods](assets/logos/irods.png)
 
 ## Expressive mathematical programming
 
-![DRY](fenics.png)
-![Haskell](haskell.svg)
+* Functional programming
+* Domain specific languages
+* Code generation and templating
+
+## Expressive mathematical programming
+
+![DRY](assets/logos/fenics.png)
+![Haskell](assets/logos/haskell.svg)
 
 # What do translational collaborators need to know?
 
@@ -96,59 +136,77 @@ slidelink: True
 
 * Read a paper, see the code
 * Mathematical literacies
-  * algorithms, statistics, calculus, geometry...
+    * algorithms, statistics, calculus, geometry...
 * Deep research background in something to understand the culture of research
 * Fundamental core understanding across the domains they work with
 
-## The same things as domain scientists and algorithms researchers
+## The same things as domain scientists
 
-![Jupyter](jupyter.png)
-![Github](Octocat.png)
-![Open science](opensci.jpg)
-![CUDA](nvidia.png)
-![Mapreduce](spark.png)
-![DRY](fenics.png)
+![Jupyter](assets/logos/jupyter.png)
+![Github](assets/logos/Octocat.png)
+![Open science](assets/logos/opensci.jpg)
 
-## Software Engineering
+## The same things as algorithms researchers
 
-![Deployability](docker.png)
-![CI](jenkins-logo.png)
-![Documentation](sphinx-logo.png)
-![Scrum](scrum.png)
-![Legacy](fortran.jpg)
+![CUDA](assets/logos/nvidia.png)
+![Mapreduce](assets/logos/spark.png)
+![DRY](assets/logos/haskell.svg)
 
-## Generating impact from research software
+## Deployability
 
-![Impact](UCLB.gif)
-![REF](ref.png)
+![Deployability](assets/logos/docker.png)
+
+## Continuous Integration
+
+![CI](assets/logos/jenkins-logo.png)
+
+## Documentation
+
+![Documentation](assets/logos/sphinx-logo.png)
+
+## Software Project Management
+
+![Scrum](assets/logos/scrum.png)
+
+## Working effectively with legacy code
+
+![Legacy](assets/logos/fortran.jpg)
+
+## Business models for open science
+
+![Impact](assets/logos/UCLB.gif)
+
+## Community building and engagement (citation generator)
+
+![REF](assets/logos/ref-logo.png)
 
 ## The application of the algorithmic toolbox
 
-![Algorithms](scikitl.png)
+![Algorithms](assets/logos/scikitl.png)&nbsp;
 
-## Effective selection of research platforms
+## Selection and optimisation of available compute and data platforms
 
-![Cloud](azure.png)
-![HPC](archer.png)
+![Cloud](assets/logos/azure.png)
+![HPC](assets/logos/archer.png)
 
 # How do we teach this?
 
 ## Intensive introductions
 
 * Researchers are clever!
-  * Rumsfeld's law: unknown unknowns
-  * Drawing people's attention to new ways of working is critical
-  * Software Carpentry and Data Carpentry
+    * Rumsfeld's law: unknown unknowns
+    * Drawing people's attention to new ways of working is critical
+    * Software Carpentry and Data Carpentry
 
 ## Digitally native learning tools
 
 * Web-first but classroom- and kindle-ready
-  * Single source, multiple formats
+    * Single source, multiple formats
 * Examples which *work*:
-  * Generated lecture notes from code that is *executed* and *complete*
+    * Generated lecture notes from code that is *executed* and *complete*
 * Open and collaborative
-  * CC-BY license on notes
-  * Massive cross-institutional co-creation
+    * CC-BY license on notes
+    * Massive cross-institutional co-creation
 
 ## Active classrooms
 
@@ -161,9 +219,9 @@ slidelink: True
 ## Research Software Engineers and Data Scientists as Teachers
 
 * The collaborator role is perfectly placed to teach these skills
-  * Broad perspective
-  * Continuing practical experience
-  * Generates opportunities for collaboration
+    * Broad perspective
+    * Continuing practical experience
+    * Generates opportunities for collaboration
 
 ## RITS's training programme
 

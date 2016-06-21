@@ -27,3 +27,7 @@ img[src*="governance.png"] {
 img[src*="zacrosESCE"] {
   background-color: black;
 }
+
+img[src*="logos/"] {
+	max-width: 200px;
+}

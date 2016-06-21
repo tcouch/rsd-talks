@@ -26,3 +26,8 @@ img[src*="assets/twitter.png"], img[src*="assets/rss.png"], img[src*="assets/ema
 img[src*="assets/twitter.png"] {
   background-color: blue;
 }
+
+.reveal section img[src*="logos/"] {
+	max-width: 200px;
+  background-color: white;
+}
