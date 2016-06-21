@@ -15,9 +15,9 @@ slidelink: True
 
 ## Modelling and Inference
 
-* We need big-data methods to understand the outputs of models
-* Inferential methods require high performance techniques to model the data
-* Convergence between the third and fourth paradigms
+* Convergence between the third and fourth paradigms:
+  * We need big-data methods to understand the outputs of models
+  * Inferential methods require high performance techniques to model the data
 * Statistical, algorithmic, computational literacies relevant across the board
 
 ## The syllabus is full.
@@ -28,7 +28,7 @@ slidelink: True
 
 ## The three Roles
 
-* Computational and Data Analysis methods researchers
+* Methods and algorithms researchers
 * Data-literate domain researchers
 * Translational e-Research collaborators
   * Research Software Engineers
@@ -47,96 +47,89 @@ slidelink: True
 
 * Their research domain!
 
-## Data-literate domain researchers need to know:
+## Reproducible research methods
 
-* Reproducible research methods:
-    * Scripting and data programming
-    * Automated testing
-    * Workflow building and "glueware"
-* Computational collaboration methods
-    * Collaborative authoring
-    * Version control
-    * Code review
+![Python](python.png)
+![Jupyter](jupyter.png)
 
-## Data-literate domain researchers need to know:
+## Software collaboration tools
 
-* Open science literacies
-    * Working with linked open data
-    * Data and software publication
-    * Licensing and copyleft
-* Data wrangling
-    * Data cleaning
-    * Databases
-    * Visual display of quantitative information
-    * Applied statistical inference
+![Github](Octocat.png)
 
-## Data-literate domain researchers need to know:
+## Open science literacies
 
-![Software Carpentry](assets/carpentry.jpg)
-![Data Carpentry](assets/carpentry.jpg)
+![Open science](opensci.jpg)
+![Open data](odi.png)
+
+## Data wrangling and presentation
+
+![Databases](postgres.png)
+![R](Rlogo.png)
+![Matplotlib](Matplotlib.png)
+![Open Refine](refine.png)
 
 # What do methods and algorithms researchers need to know?
 
 ## Methods and algorithms researchers need to know:
 
-* Reproducible research methods
-* Computational collaboration methods
-* Open science literacies
-* Expressive mathematical programming: Don't Repeat Yourself
-    * Functional programming
-    * Domain specific languages
-* High performance computing
-    * Schedulers, both traditional (qsub) and "cloudy" (hadoop etc)
-    * Parallel programming (MPI, OpenMP, CUDA, Map/Reduce...)
-    * Storage and IO performance
-
-## Methods and algorithms researchers need to know:
-
 * Their mathematical domain!
+
+## The same things domain scientists do
+
+![Jupyter](jupyter.png)
+![Github](Octocat.png)
+![Open science](opensci.jpg)
+
+## High performance computing and optimisation
+
+![HPC](MPIlogo2.gif) ![Mapreduce](spark.png)
+![CUDA](nvidia.png) ![iRods](irods.png)
+
+## Expressive mathematical programming
+
+![DRY](fenics.png)
+![Haskell](haskell.svg)
 
 # What do translational collaborators need to know?
 
-## Translational collaborators need to know:
+## Enough mathematics and science to be relevant
 
-* Expressive mathematical programming
-* High performance computing
-* Open science literacies
-* Reproducible research methods
-* Data wrangling
-* High performance computing
+* Read a paper, see the code
+* Mathematical literacies
+  * algorithms, statistics, calculus, geometry...
+* Deep research background in something to understand the culture of research
+* Fundamental core understanding across the domains they work with
 
-## Translational collaborators need to know:
+## The same things as domain scientists and algorithms researchers
 
-* Software engineering
-   * Design and architecture
-   * Deployability
-   * Continuous integration
-   * Usability and HCI
-   * Security
-   * Documentation
-   * Working effectively with legacy code
+![Jupyter](jupyter.png)
+![Github](Octocat.png)
+![Open science](opensci.jpg)
+![CUDA](nvidia.png)
+![Mapreduce](spark.png)
+![DRY](fenics.png)
 
-## Avenues for software impact
+## Software Engineering
 
-* Business models for open science
-* Community building and engagement (citation generator)
+![Deployability](docker.png)
+![CI](jenkins-logo.png)
+![Documentation](sphinx-logo.png)
+![Scrum](scrum.png)
+![Legacy](fortran.jpg)
 
-## Translational collaborators need to know:
+## Generating impact from research software
 
-* The application of the algorithmic toolbox
-   * The index of the software library toolbox
-   * Performance tuning and parameter wrangling
-   * Selection and optimisation of available compute and data platforms
+![Impact](UCLB.gif)
+![REF](ref.png)
 
-## Translational collaborators need to know:
+## The application of the algorithmic toolbox
 
-* Enough mathematics to understand what they are coding!
-  * Read a paper, see the code.
-  * Mathematical literacies.
-    * algorithms, statistics, calculus, geometry...
-* Enough science to understand who they are coding for:
-  * Deep research background in something to understand the culture of research
-  * Fundamental core understanding across the domains they work with
+![Algorithms](scikitl.png)
+
+## Effective selection of research platforms
+
+![Cloud](azure.png)
+![HPC](archer.png)
 
 # How do we teach this?
 
