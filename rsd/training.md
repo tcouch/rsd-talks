@@ -59,7 +59,7 @@ slidelink: True
 ![Jupyter](assets/logos/jupyter.png)
 
 Logos are used here to represent the *kind* of thing I'm talking about,
-not at all exhaustive of all the cool things you need to know.
+not at all exhaustive of all the cool things you need to know
 
 ## Computational collaboration methods
 
@@ -111,7 +111,8 @@ not at all exhaustive of all the cool things you need to know.
 ## High performance computing and optimisation
 
 * Schedulers, both traditional (qsub) and "cloudy" (hadoop etc)
-* Parallel programming (MPI, OpenMP, CUDA, Map/Reduce...)
+* Parallel programming languages (MPI, OpenMP, CUDA)
+* Parallel programming patterns and approaches (Map/Reduce...)
 * Storage and IO performance
 
 ## High performance computing and optimisation
