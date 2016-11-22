@@ -131,28 +131,17 @@ UCL Staffing
 ------------
 
 * 3 Permanent Roles (Central IT funding)
-* Three grant-funded Research Software Developers
-
-Call for projects
------------------
-
-* Judged by academic panel
-* Every quarter
-* Half FTE for term
-* Worth £8k
-* Ten projects so far
+* Five grant-funded Research Software Developers
 
 Paid Projects
 -------------
 
 * Via research grants
 * Or existing college money
-* Displaces free calls
-    * Until recruit
-* Secured £0.5M (Roughly 33% success rate)
-* Total income to UCL ~£1.5M
+* Secured £0.9M (Roughly 33% success rate)
+* Total income to UCL ~£2M
 
-Sample free projects
+Sample projects
 ====================
 
 Low-Template DNA
@@ -198,16 +187,17 @@ DCProgs
 Old State of the Code
 -----------------
 
-* Very old-style Fortran
+* Old-style Fortran
 * Hasn't compiled since 2006
 * Underpins Nature-published research
 
-New State
----------
+New state
+-------------
 
 * Reimplemented in C++ and Python
 * Use linear algebra and root finding libraries
 * Just as performant as the Fortran
+* Parallelised and running on the national supercomputer (ARCHER)
 
 HemeLB Setup Tool
 =================
@@ -379,17 +369,8 @@ Levels of Testing
 Continuous Testing Infrastructure
 ---------------------------------
 
-![](assets/jenkins-logo.png)
+![](https://travis-ci.org/UCL)
 
-Jenkins
--------
-
-![](assets/jenkins-front.png)
-
-Cross-platform Testing
-----------------------
-
-![](assets/systems.png)
 
 Automation
 ==========
@@ -421,23 +402,6 @@ Automation is Reproducibility
 * Currently it is less; how often do we replicate computational experiments?
 * Automated research is Auditable Research
 
-This talk's Makefile
---------------------
-
-``` make
-%-reveal.html: %.md
-	$(PANDOC) $(PANDOCARGS) $< -o $@
-
-%.png: %.py
-	python $< $@
-
-%.png: %.nto
-	neato $< -T png -o $@
-
-%.png: %.dot
-	dot $< -T png -o $@
-```
-
 This Talk On Jenkins
 --------------------
 
@@ -450,25 +414,6 @@ jobs:
 ```
 
 This talk on [GitHub](https://github.com/UCL/rsd-talks): https://github.com/UCL/rsd-talks
-
-Publishing from Jenkins with Puppet
------------------------------------
-
-``` puppet
-define jenkins_config::web_publish (
-  $job="${title}-publisher",
-  $from="output",
-  $to=$title,
-  ) {
-
-  file {"${name}_${job}_${from}":
-    path => "/etc/httpd/conf.d/${name}.conf",
-    content => template('jenkins_config/web_publish.erb'),
-      owner   => 'apache',
-      notify  => Service['httpd']
-  }
-}
-```
 
 Training
 ========
@@ -508,8 +453,7 @@ Software Carpentry
 A syllabus for research computing
 ---------------------------------
 
-* [Research Software Engineering With Python](http://development.rc.ucl.ac.uk/training/engineering)
-* [Research Computing with C++](http://development.rc.ucl.ac.uk/training/rcwithcpp)
+* [RITS training programme](http://development.rc.ucl.ac.uk/training/)
 
 Coda
 ====
