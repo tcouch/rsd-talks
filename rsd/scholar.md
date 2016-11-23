@@ -364,7 +364,7 @@ Levels of Testing
 Continuous Testing Infrastructure
 ---------------------------------
 
-![](https://travis-ci.org/UCL)
+[TravisCI](https://travis-ci.org/UCL)
 
 
 Automation
