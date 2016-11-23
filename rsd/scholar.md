@@ -108,11 +108,6 @@ Why it works
 UCL Research Software Development
 =================================
 
-Governance
-----------
-
-![](generated/governance.png)
-
 Activities
 ----------
 
