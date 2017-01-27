@@ -25,15 +25,17 @@ UCL researchers make loads of awesome software
 
 [Even just the projects we support in RSD group is a long list](https://www.ucl.ac.uk/research-it-services/about/research-software-development/projects)
 
-Knowing all about the software being made in UCL would be useful for research
----------------------------------------------
+Knowing about the software made in UCL would be useful
+------------------------------------------------------
 
 * Finding other people using similar tools and languages
 * Finding software written in UCL which you can use
 * Promoting your software to UCL users
 
-Software, Data and Publications: The Trinity of Reproducible Open Science
--------------------------------------------------------------------------
+Software, Data and Publications
+------------------------------------------------------------------------
+
+* "The Trinity of Reproducible Open Science"
 
 By associating a persistent public page for UCL-written research software, we move towards true reproducibility for computationally based research, linking the code that analysed data, the data that it processed, and the resulting research findings.
 
