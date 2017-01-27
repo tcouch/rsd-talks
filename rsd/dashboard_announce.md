@@ -23,7 +23,7 @@ UCL does a great job of promoting its traditional research outputs
 UCL researchers make loads of awesome software
 ----------------------------------------------
 
-[Even just the projects we support in RSD group is a long list](https://www.ucl.ac.uk/research-it-services/about/research-software-development/projects)
+[Even just the projects we support in RSD group is a long list](https://www.ucl.ac.uk/research-it-services/research-software-development/projects)
 
 Knowing about the software made in UCL would be useful
 ------------------------------------------------------
