@@ -5,6 +5,119 @@ layout: default
 slidelink: True
 ---
 
+Me
+==
+
+James Hetherington
+------------------
+
+* PhD, Theoretical Physics
+    * High-Energy Physics, Cavendish Laboratory
+* Post-doc, systems biology, UCL CoMPLEx
+    * Glucose homeostasis
+* The MathWorks
+    * Senior Developer, Model Management Group
+* Senior Scientific Innovator, AMEE UK Ltd
+    * Environmental impact modeling
+* Scientific Programmer, UCL CCS
+    * Brain blood flow CFD
+* Head of Research Software Development, UCL
+
+The State of Research Software
+================================
+
+The SIRO Problem
+----------------
+
+~~Garbage in Garbage Out~~
+
+Sensible In, Reasonable Out.
+
+PhDWare
+-------
+
+* Don't look if anyone's done it before
+* Code till it works
+* Generate a figure
+* Throw it away
+
+Labware
+-------
+
+* Understood by one genius
+* Implements great science, now
+* FORTRAN in any language
+* Code not engineered for readability
+* Can't add new science
+
+HPCWare
+-------
+
+* Get a 5% improvement in performance
+* On a particular architecture
+* Publish a scaling graph
+* Selection against:
+      * Readability
+      * Maintainability
+      * Adaptability
+
+ConsultantWare
+--------
+
+* Little understanding of the science
+* Overengineered
+* Unmaintainable by the research group
+
+Research Software Developers
+============================
+
+The Craftsperson And The Scholar
+----------------------------
+
+![](assets/scholar.jpg)
+
+Research Software Engineers
+----------------------------
+
+![](generated/RSD_Venn.png)
+
+Research Software Engineers
+----------------------------
+
+* Not independent researchers
+    * No personal research agenda
+* Facilitative, supportive, and collaborative
+    * Part of the academic community
+    * Deep engagement with research groups
+    * Understand, study, and be part of group research activities
+    * Can read and understand the papers
+* Sustainable and long term
+    * Institutional memory
+    * Continuity, stability, maintainance
+
+Why it works
+------------
+
+* People *want* to be RSEs
+* We have been hiding as:
+    * RAs who program too much
+    * HPC or research group sysadmins
+* We need a name, and some status
+* The research system needs to
+    * Measure and incentivise RSEs correctly
+    * Integrate RSEs within HEIs
+    * Support institutional innovation
+    
+The story of RSEs
+-----------------
+
+* April 2012: Idea and name at SSI Collaborations Workshop
+* September 2012: UCL Group Founded
+* 2014: Manchester group
+* 2015: Sheffield, Southampton and Cambridge Groups
+* Jan 2016: EPSRC awards first Research Software Engineering Fellowships
+* September 2016: First RSE conference, 202 attendees, 14 countries
+
 Experiences from UCL
 ====================
 
@@ -13,9 +126,8 @@ The UCL Research Software Group
 
 * Started 2012
 * Helped UCL win over 1.5M in research income
-* Grown through grant funding from just me to a team of 8
-* Works with researchers from archaeology to astrophysics
-* Part of UCL Research IT Services [https://www.ucl.ac.uk/rits](https://www.ucl.ac.uk/research-it-services)
+* Grown through grant funding from just me to a team of 10
+* Working with researchers from archaeology to astrophysics
 
 Readable, reliable, and reproducible
 ---------------------------------
@@ -88,6 +200,64 @@ Robustness
 * Means can model changing geometries
 * Reliability unlocks new science
 
+RSEs and Teaching
+=====================================================
+
+Software Carpentry
+------------------
+
+* Intensive "bootcamp"
+* Automation
+* Version control
+* Unit testing
+* Databases
+
+> I found the command line intimidating at first, but after a while it felt
+> like I was inside my computer.
+
+-- A student at a UCL software carpentry event
+
+## Program or be Programmed
+
+* Everyone scientist is a software engineer and data scientist now
+* "Data Scientist" - "Food Chef?"
+* *Reproducible* data-driven research *is* programming.
+    * Come for the labour savings, but stay for the audit trail
+
+## But the syllabus is full.
+
+* Ideally, *everyone* would know *everything*!
+* This is clearly impossible
+* So we need *division of labour*
+* and enough training to work together
+
+## RITS's training programme
+
+* Software carpentry
+* Data carpentry
+* Introductory Python for Data Analysis
+* Research Software Engineering with Python
+* Research Computing with C++
+* High Performance and High Throughput Computing
+
+* See the [materials](https://www.ucl.ac.uk/isd/services/research-it/training)
+
+## Digitally native learning tools
+
+* Web-first but classroom- and kindle-ready
+    * Single source, multiple formats
+* Examples which *work*:
+    * Generated lecture notes from code that is *executed* and *complete*
+* Open and collaborative
+    * CC-BY license on notes
+    * Massive cross-institutional co-creation
+
+## Active classrooms
+
+* Practicals and concepts together
+* Bring your own device
+* Post-it-notes and etherpads
+
 Good, huh?
 ==========
 
@@ -116,7 +286,7 @@ Use appropriate technology
 Look beyond the usual
 ---------------------
 
-![Source: [ORACC](http://oracc.museum.upenn.edu) ](https://www.ucl.ac.uk/research-it-services/about/research-software-development/carousel/ORACC.jpg)
+![Source: [ORACC](http://oracc.museum.upenn.edu)](http://github-pages.ucl.ac.uk/rsd-talks/rsd/assets/oracc.jpg)
 
 The Craftperson and the Scholar
 -----------------------------
