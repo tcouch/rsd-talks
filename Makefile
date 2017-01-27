@@ -3,8 +3,9 @@ PANDOC=pandoc
 ROOT="/rsd-talks"
 
 PANDOCARGS=-t revealjs -s \
-					 --css=$(ROOT)/css/ucl_reveal.css --css=$(ROOT)/site-styles/reveal.css \
-           --default-image-extension=png --highlight-style=zenburn --mathjax -V revealjs-url=http://lab.hakim.se/reveal-js \
+     --css=http://lab.hakim.se/reveal-js/css/theme/solarized.css \
+     --css=$(ROOT)/css/ucl_reveal.css --css=$(ROOT)/site-styles/reveal.css \
+     --default-image-extension=png --highlight-style=zenburn --mathjax -V revealjs-url=http://lab.hakim.se/reveal-js \
 	   -V transition=slide -V theme=solarized
 
 default: _site
