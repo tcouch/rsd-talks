@@ -124,7 +124,6 @@ Experiences from UCL
 The UCL Research Software Group
 -------------------------------
 
-* Started 2012
 * Helped UCL win over 1.5M in research income
 * Grown through grant funding from just me to a team of 10
 * Working with researchers from archaeology to astrophysics
