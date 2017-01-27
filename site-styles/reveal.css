@@ -31,3 +31,8 @@ img[src*="assets/twitter.png"] {
 	max-width: 200px;
   background-color: white;
 }
+
+.reveal h1 {
+	text-transform: none;
+	font-size: 3em;
+}

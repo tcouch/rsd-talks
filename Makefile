@@ -62,7 +62,8 @@ _site: rsd/scholar-reveal.html technical/fabric-reveal.html \
 			 technical/generated/revisions.png \
 			 rsd/dashboard_announce-reveal.html \
 			 rsd/experiences-reveal.html \
-			 rsd/training-reveal.html
+			 rsd/training-reveal.html \
+			 site-styles/reveal.css
 	jekyll build
 
 plantuml.jar:
