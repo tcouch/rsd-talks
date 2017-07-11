@@ -1,5 +1,5 @@
 ---
-title: Modelling and Inference: the détente.
+title: "Modelling and Inference: the détente"
 author: James Hetherington
 institution: University College London
 date: 2017-07-11
@@ -13,17 +13,17 @@ Jim Grey and the Fourth Paradigm
 Experimental Science
 ----------
 
-![../images/hevelius_telescope.gif](Caption)
+![ ](assets/hevelius_telescope.gif)
 
 Theoretical Science
 --------------
 
-![../images/principia.png](Caption)
+![ ](assets/pricipia.png)
 
 Computational Science
 -------------------
 
-![../images/galaxy.png](Caption)
+![ ](assets/galaxy.png)
 
 The Fourth Paradigm
 -------------------
@@ -46,7 +46,7 @@ Weaknesses of the Third Paradigm
 --------------------------------
 
 * Huge parameter spaces
-  * Glorified curve fitting
+ * Glorified curve fitting
   * Without statistical rigour
   * Labour intensive parameter management
 * Computational expense

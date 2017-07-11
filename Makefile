@@ -46,7 +46,7 @@ indigo: indigo-jekyll-master Makefile
 _site: rsd/scholar-reveal.html technical/fabric-reveal.html \
 			 technical/continuous-reveal.html \
 	     technical/carpentry-compressed-reveal.html rsd/zacrosEASC-reveal.html \
-			 technical/detente-reveal.html \
+			 technical/paradigms-reveal.html \
 			 technical/version_control-reveal.html rsd/generated/RSD_Venn.png rsd/generated/governance.png indigo \
 			 technical/generated/centralised_solo.png \
 			 technical/generated/centralised_team.png \
