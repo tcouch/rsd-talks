@@ -32,6 +32,8 @@ The Fourth Paradigm
     * "Machine learning" - nonlinear curve fitting
     * Optimise fit for training data
 
+[Read the book](https://www.amazon.co.uk/Fourth-Paradigm-Data-Intensive-Scientific-Discovery/dp/0982544200/ref=tmm_pap_swatch_0?_encoding=UTF8&qid=&sr=)
+
 Why it works
 -----------------
 
