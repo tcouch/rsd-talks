@@ -50,8 +50,8 @@ Weaknesses of the Third Paradigm
     * Without statistical rigour
     * Labour intensive parameter management
 
-  Weaknesses of the Third Paradigm
-  --------------------------------
+Weaknesses of the Third Paradigm
+--------------------------------
 
 * Computational expense
 * Large result sets
