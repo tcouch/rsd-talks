@@ -31,3 +31,7 @@ img[src*="zacrosESCE"] {
 img[src*="logos/"] {
 	max-width: 200px;
 }
+
+reveal section img[src*="assets/"] {
+	max-height: 300px;
+}

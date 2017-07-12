@@ -32,6 +32,10 @@ img[src*="assets/twitter.png"] {
   background-color: white;
 }
 
+.reveal section img[src*="assets/"] {
+	max-height: 400px;
+}
+
 .reveal h1 {
 	text-transform: none;
 	font-size: 3em;
