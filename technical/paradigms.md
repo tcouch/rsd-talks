@@ -29,8 +29,8 @@ The Fourth Paradigm
 -------------------
 
 * Computer infers the model from the data
-  * "Machine learning" - nonlinear curve fitting
-  * Optimise fit for training data
+    * "Machine learning" - nonlinear curve fitting
+    * Optimise fit for training data
 
 Why it works
 -----------------
@@ -46,13 +46,17 @@ Weaknesses of the Third Paradigm
 --------------------------------
 
 * Huge parameter spaces
- * Glorified curve fitting
-  * Without statistical rigour
-  * Labour intensive parameter management
+    * Glorified curve fitting
+    * Without statistical rigour
+    * Labour intensive parameter management
+
+  Weaknesses of the Third Paradigm
+  --------------------------------
+
 * Computational expense
 * Large result sets
-  * Unwieldy meta-analysis
-  * In-situ data reduction
+    * Unwieldy meta-analysis
+    * In-situ data reduction
 
 Weaknesses of the Fourth Paradigm
 ---------------------------------
@@ -71,7 +75,7 @@ Use what you know
 -----------------
 
 * Machine learned models with physically informed structure
-  * Biological systems and the soft-switch
+    * Biological systems and the soft-switch
 
 * Physical understanding as a prior in function space?
 
@@ -88,5 +92,9 @@ Do inference with your models
 * Statistically rigorous approaches to parameter fitting and model selection
 * Modelling with uncertainty
   * Stochastic programming
+
+Do inference with your models
+-----------------------------
+
 * Fit simpler structures to your mechanistic models to save time
   * Need a rigorous approach to model run management
