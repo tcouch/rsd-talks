@@ -1,27 +1,9 @@
 ---
-title: Computational Science as a Service
+title: The Craftsperson and The Scholar
 author: James Hetherington
 layout: default
 slidelink: True
 ---
-
-Me
-==
-
-James Hetherington
-------------------
-
-* PhD, Theoretical Physics
-    * High-Energy Physics, Cavendish Laboratory
-* Post-doc, systems biology, UCL CoMPLEx
-    * Glucose homeostasis
-* The MathWorks
-    * Senior Developer, Model Management Group
-* Senior Scientific Innovator, AMEE UK Ltd
-    * Environmental impact modeling
-* Scientific Programmer, UCL CCS
-    * Brain blood flow CFD
-* Head of Research Software Development, UCL
 
 The State of Research Software
 ================================
@@ -79,7 +61,7 @@ The Craftsperson And The Scholar
 Research Software Engineers
 ----------------------------
 
-![](generated/RSD_Venn.png)
+![](assets/dilstein.png)
 
 Research Software Engineers
 ----------------------------
@@ -89,11 +71,6 @@ Research Software Engineers
 * Facilitative, supportive, and collaborative
     * Part of the academic community
     * Deep engagement with research groups
-    * Understand, study, and be part of group research activities
-    * Can read and understand the papers
-* Sustainable and long term
-    * Institutional memory
-    * Continuity, stability, maintainance
 
 Why it works
 ------------
@@ -102,29 +79,64 @@ Why it works
 * We have been hiding as:
     * RAs who program too much
     * HPC or research group sysadmins
+
+The movement
+------------
+
 * We need a name, and some status
 * The research system needs to
     * Measure and incentivise RSEs correctly
     * Integrate RSEs within HEIs
     * Support institutional innovation
-    
-The story of RSEs
------------------
+
+UKRSE
+-----
 
 * April 2012: Idea and name at SSI Collaborations Workshop
 * September 2012: UCL Group Founded
 * 2014: Manchester group
-* 2015: Sheffield, Southampton and Cambridge Groups
+* 2015: Southampton and Cambridge Groups
 * Jan 2016: EPSRC awards first Research Software Engineering Fellowships
+* 2016: Bristol, Sheffield Groups
 * September 2016: First RSE conference, 202 attendees, 14 countries
+* 2017: Leicester, Imperial College groups.
+* September 2017: Second conference, 224 attendees, 12 countries
+* Jan 2018: Second RSE fellows appointed
 
-Experiences from UCL
-====================
+RSE Groups
+==========
+
+RSE Group
+---------
+
+* Shared home for RSEs in an institution
+* Both academic and Support
+* "Science as a Service"
+
+Activities
+----------
+
+* Projects
+* Consulting
+* Training
+* Infrastructure
+
+Domain
+------
+
+* From HPC codes to simple scripts
+* From theoretical physics to digital humanities
+
+UCL Model
+------------
+
+* All roles "permanent"
+* But funded from research grant income on a pooled basis
 
 The UCL Research Software Group
 -------------------------------
 
-* Helped UCL win over 1.5M in research income
+* Helped UCL win over 2M in research income
 * Grown through grant funding from just me to a team of 10
 * Working with researchers from archaeology to astrophysics
 
@@ -178,11 +190,10 @@ The response
 * Use linear algebra and root finding libraries
 * Not slower
 
-Current work
+Later work
 ------------
 
 * ARCHER parallelisation
-* MCMC inferential algorithm
 
 Reliability unlocks science
 ===========================
@@ -196,7 +207,7 @@ Robustness
 ----------
 
 * Can handle all geometries instead of 19 in 20
-* Means can model changing geometries
+* Can model changing geometries
 * Reliability unlocks new science
 
 RSEs and Teaching
@@ -215,20 +226,6 @@ Software Carpentry
 > like I was inside my computer.
 
 -- A student at a UCL software carpentry event
-
-## Program or be Programmed
-
-* Everyone scientist is a software engineer and data scientist now
-* "Data Scientist" - "Food Chef?"
-* *Reproducible* data-driven research *is* programming.
-    * Come for the labour savings, but stay for the audit trail
-
-## But the syllabus is full.
-
-* Ideally, *everyone* would know *everything*!
-* This is clearly impossible
-* So we need *division of labour*
-* and enough training to work together
 
 ## RITS's training programme
 
@@ -256,6 +253,13 @@ Software Carpentry
 * Practicals and concepts together
 * Bring your own device
 * Post-it-notes and etherpads
+
+## The syllabus is full.
+
+* Ideally, *everyone* would know *everything*!
+* This is clearly impossible
+* So we need *division of labour*
+* and enough training to work together
 
 Good, huh?
 ==========
@@ -287,7 +291,7 @@ Look beyond the usual
 
 ![Source: [ORACC](http://oracc.museum.upenn.edu)](http://github-pages.ucl.ac.uk/rsd-talks/rsd/assets/oracc.jpg)
 
-The Craftperson and the Scholar
+Make space to learn
 -----------------------------
 
 ![Smart and Gets Things Done ](http://www.software.ac.uk/sites/default/files/images/content/ScholarAndCraftsman.jpg)
@@ -301,6 +305,60 @@ Computational Science as a Service
 ----------------------------------
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/p85xwZ_OLX0" frameborder="0" allowfullscreen></iframe>
+
+Multiprofessionalism
+====================
+
+Multiprofessional
+-----------------
+
+RSE combines:
+
+* Researcher
+* Coder
+
+Team Research
+-----------------
+
+* RSE
+* Data Scientist
+* Visualisation
+* Interaction
+* ...
+
+The Turing Institute
+--------------------
+
+* UK's national institute for data science
+* Joint venture of 5 UK universities
+* Shared Faculty
+
+Research Engineering at the Turing Institute
+--------------------------------------------
+
+* Shared research staff pool
+  * RSEs
+  * Data Scientists
+
+Beyond the Postdoc
+------------------
+
+> Always Two There are
+> A Master and an Apprentice
+
+Why you should have one
+-----------------------
+
+* More and more research uses software
+* General programmers can't understand research
+* Postdocs and PhD students don't have time to make reliable code
+
+Why you should be one
+---------------------
+
+* Write papers
+* Make code
+
 
 Copyright
 ---------

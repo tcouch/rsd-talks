@@ -43,7 +43,7 @@ indigo: indigo-jekyll-master Makefile
 	cp -r indigo-jekyll-master/indigo/favicon* .
 	touch indigo
 
-_site: rsd/scholar-reveal.html technical/fabric-reveal.html \
+_site: technical/fabric-reveal.html \
 			 technical/continuous-reveal.html \
 	     technical/carpentry-compressed-reveal.html rsd/zacrosEASC-reveal.html \
 			 technical/paradigms-reveal.html \
