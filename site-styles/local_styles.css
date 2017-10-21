@@ -39,3 +39,7 @@ reveal section img[src*="assets/"] {
 reveal #dilstein img {
 	border: 0px;
 }
+
+.poster h1 {
+  display: none;
+}

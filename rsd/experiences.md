@@ -333,30 +333,38 @@ Sell performance, deliver reproducibility {#flymac .poster}
 -----------------------------------------
 
 ![](flying-machine.png)
+<h4>Sell performance</h4>
+<h4>Deliver reproducibility</h4>
 
 Use appropriate technology {#windvane .poster}
 --------------------------
 
 ![](windvane.png)
+<h4>Use appropriate technology</h4>
 
 Look beyond the usual {#ancient .poster}
 ---------------------
 
+<h4>Look beyond the usual</h4>
 ![](ancient-tech.png)
 
 Make space to learn {#crafty .poster}
 -----------------------------
 
+<h4>Make space to learn</h4>
 ![Smart and Gets Things Done ](assets/craftsperson-scholar.png)
 
 Organisational Judo {#judo .poster}
 -------------------
 
+<h4>Organisational</h4>
+<h4>Judo</h4>
 ![](assets/org-judo.png)
 
-Computational Science as a Service {#it-crowd}
+Computational Science as a Service {#it-crowd .poster}
 ----------------------------------
 
+<h4>Computational Science as a Service</h4>
 ![](https://media.giphy.com/media/F7yLXA5fJ5sLC/giphy.gif)
 
 Multiprofessionalism
@@ -399,6 +407,8 @@ Research Engineering at the Turing Institute
 Beyond the Postdoc {.poster}
 ------------------
 
+<h4>The Sith approach</h4>
+<h4>to professional continuity</h4>
 ![](assets/sith.png)
 
 Why you should have one
