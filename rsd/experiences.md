@@ -96,6 +96,7 @@ The movement
 
 * We need a name and some status!
 <img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
+
 <div style="width:50%;float:left;margin-left:20px;">
 * The research system needs to
     * Measure and incentivise RSEs correctly
@@ -395,11 +396,10 @@ Research Engineering at the Turing Institute
   * RSEs
   * Data Scientists
 
-Beyond the Postdoc
+Beyond the Postdoc {.poster}
 ------------------
 
-> Always Two There are
-> A Master and an Apprentice
+![](assets/sith.png)
 
 Why you should have one
 -----------------------
