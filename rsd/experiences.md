@@ -201,8 +201,6 @@ Performance improvements:
 * 300 times total
 
 </div>			    
-</section>
-
 
 Engineering helps legacy code live
 ----------------------------------
@@ -229,14 +227,13 @@ Our solution:
 * Use linear algebra and root finding libraries
 * Not slower
 </div>
-<div style="width:49%; float:left;">
+<div style="width:49%; float:right;">
 
 Since then:
 
 * ARCHER parallelisation
 * MCMC inference
 </div>
-<img src="assets/dcprogs-img1.jpg" style="width:40%;float:right;">
 
 Reliability unlocks science
 ---------------------------
@@ -275,7 +272,7 @@ Software Carpentry
 * Databases
 </div>
 
-<div style="width:50%;float: right">
+<div style="width:50%;float: right; font-size:0.75em">
 > I found the command line intimidating at first, but after a while it felt
 > like I was inside my computer.
 > -- A student at a UCL software carpentry event
@@ -331,21 +328,21 @@ known at the beginning.
 Sell performance, deliver reproducibility {#flymac .poster}
 -----------------------------------------
 
-![](flying-machine.png)
+![](assets/flying-machine.png)
 <h4>Sell performance</h4>
 <h4>Deliver reproducibility</h4>
 
 Use appropriate technology {#windvane .poster}
 --------------------------
 
-![](windvane.png)
+![](assets/windvane.png)
 <h4>Use appropriate technology</h4>
 
 Look beyond the usual {#ancient .poster}
 ---------------------
 
 <h4>Look beyond the usual</h4>
-![](ancient-tech.png)
+![](assets/ancient-tech.png)
 
 Make space to learn {#crafty .poster}
 -----------------------------
@@ -366,7 +363,7 @@ Computational Science as a Service {#it-crowd .poster}
 <h4>Computational Science as a Service</h4>
 ![](https://media.giphy.com/media/F7yLXA5fJ5sLC/giphy.gif)
 
-Multiprofessionalism
+Multi- professionalism
 ====================
 
 Multiprofessional
@@ -386,7 +383,7 @@ Team Research
 * Interaction
 * ...
 
-The Turing Institute
+The Turing Institute {.poster}
 --------------------
 
 <img src="assets/ATI-logo.png" style="width:33%;float:right;">
