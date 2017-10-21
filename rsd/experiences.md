@@ -24,7 +24,7 @@ The State of Research Software {.chapter-title}
 The SIRO Problem
 ----------------
 
-![](assets/siro.svg)
+![](assets/SIRO.svg)
 
 PhDWare
 -------
