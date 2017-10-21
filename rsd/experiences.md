@@ -67,9 +67,9 @@ Research Software Engineers
 The Craftsperson And The Scholar {.poster}
 ----------------------------
 
-![](assets/scholar.jpg)
+![](assets/RSD_Venn.png)
 
-Research Software Engineers {.poster}
+Research Software Engineers {.poster #dilstein}
 ----------------------------
 
 ![](assets/dilstein.png)
@@ -95,14 +95,14 @@ The movement
 ------------
 
 * We need a name and some status!
-<img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
-
 <div style="width:50%;float:right;margin-left:20px;">
 * The research system needs to
     * Measure and incentivise RSEs correctly
     * Integrate RSEs within HEIs
     * Support institutional innovation
 </div>
+<img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
+
 
 Our story
 ---------
@@ -237,7 +237,7 @@ Since then:
 * ARCHER parallelisation
 * MCMC inference
 </div>
-<img src="assets/dcprogs-img1.jpg" style="width:40%;float:left;">
+<img src="assets/dcprogs-img1.jpg" style="width:40%;float:right;">
 
 Reliability unlocks science
 ---------------------------
@@ -279,8 +279,7 @@ Software Carpentry
 <div style="width:50%;float: right">
 > I found the command line intimidating at first, but after a while it felt
 > like I was inside my computer.
-
--- A student at a UCL software carpentry event
+> -- A student at a UCL software carpentry event
 </div>
 
 ## RITS's training programme
@@ -333,32 +332,32 @@ known at the beginning.
 Sell performance, deliver reproducibility {#flymac .poster}
 -----------------------------------------
 
-![Source: [Secret Leeds](http://www.secretleeds.com/viewtopic.php?t=5498&start=30)](http://farm7.staticflickr.com/6144/6202830241_f16833fbaf_z.jpg)
+![](flying-machine.png)
 
 Use appropriate technology {#windvane .poster}
 --------------------------
 
-![Source: [African Windmill Project](http://africawindmill.org)](http://africawindmill.org/wp-content/uploads/2013/03/DSC01549-Copy-2-.jpg)
+![](windvane.png)
 
 Look beyond the usual {#ancient .poster}
 ---------------------
 
-![Source: [ORACC](http://oracc.museum.upenn.edu)](http://github-pages.ucl.ac.uk/rsd-talks/rsd/assets/oracc.jpg)
+![](ancient-tech.png)
 
 Make space to learn {#crafty .poster}
 -----------------------------
 
-![Smart and Gets Things Done ](http://www.software.ac.uk/sites/default/files/images/content/ScholarAndCraftsman.jpg)
+![Smart and Gets Things Done ](assets/craftsperson-scholar.png)
 
 Organisational Judo {#judo .poster}
 -------------------
 
-![Source: Unknown](https://scontent.cdninstagram.com/hphotos-xfp1/t51.2885-15/s320x320/e15/10954254_848450445193608_1268926421_n.jpg)
+![](assets/org-judo.png)
 
 Computational Science as a Service {#it-crowd}
 ----------------------------------
 
-<iframe width="420" height="315" src="https://www.youtube.com/embed/p85xwZ_OLX0" frameborder="0" allowfullscreen></iframe>
+![](https://media.giphy.com/media/F7yLXA5fJ5sLC/giphy.gif)
 
 Multiprofessionalism
 ====================

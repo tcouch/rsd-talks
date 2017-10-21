@@ -35,3 +35,7 @@ img[src*="logos/"] {
 reveal section img[src*="assets/"] {
 	max-height: 300px;
 }
+
+reveal #dilstein img {
+	border: 0px;
+}
