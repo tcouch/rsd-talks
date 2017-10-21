@@ -94,3 +94,11 @@ img[src*="assets/twitter.png"] {
 	text-transform: none;
 	font-size: 3em;
 }
+
+reveal #dilstein img {
+	border: 0px;
+}
+
+.poster h1 {
+  display: none;
+}
