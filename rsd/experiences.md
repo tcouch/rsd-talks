@@ -21,7 +21,7 @@ slidelink: True
 The State of Research Software {.chapter-title}
 ================================
 
-The SIRO Problem
+The SIRO Problem {.diagram2}
 ----------------
 
 ![](assets/SIRO.svg)
@@ -64,10 +64,10 @@ ConsultantWare
 Research Software Engineers
 ============================
 
-The Craftsperson And The Scholar {.poster}
+The Craftsperson And The Scholar {.diagram2}
 ----------------------------
 
-![](assets/RSD_Venn.png)
+![](assets/RSE-Venn.png)
 
 Research Software Engineers {.poster #dilstein}
 ----------------------------
