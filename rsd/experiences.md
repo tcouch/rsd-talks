@@ -6,16 +6,16 @@ slidelink: True
 ---
 
 <section class="titlepage">
-  <div style="float:left;width:42%;">
-    <h3>The Craftsperson</h3>
-    <h3><span class="bigand">&</span> The Scholar</h3>
-    <p>by James Hetherington</p>
-  </div>
-  <img src="assets/craftsperson-scholar.png" style="width:55%;float:right;">
-  <div class="logo-holder">
-    <img src="assets/ATI-logo.png" style="float:left;width:40%">
-    <img src="assets/UCL-logo.png" style="float:right;width:60%">
-  </div>
+<div style="float:left;width:42%;">
+<h3>The Craftsperson</h3>
+<h3><span class="bigand">&</span> The Scholar</h3>
+<p>by James Hetherington</p>
+</div>
+<img src="assets/craftsperson-scholar.png" style="width:55%;float:right;">
+<div class="logo-holder">
+<img src="assets/ATI-logo.png" style="float:left;width:40%">
+<img src="assets/UCL-logo.png" style="float:right;width:60%">
+</div>
 </section>
 
 The State of Research Software
