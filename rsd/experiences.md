@@ -18,7 +18,7 @@ slidelink: True
 </div>
 </section>
 
-The State of Research Software
+The State of Research Software {.chapter-title}
 ================================
 
 The SIRO Problem
@@ -61,15 +61,15 @@ ConsultantWare
 * Overengineered
 * Unmaintainable by the research group
 
-Research Software Developers
+Research Software Engineers
 ============================
 
-The Craftsperson And The Scholar
+The Craftsperson And The Scholar {.poster}
 ----------------------------
 
 ![](assets/scholar.jpg)
 
-Research Software Engineers
+Research Software Engineers {.poster}
 ----------------------------
 
 ![](assets/dilstein.png)
@@ -97,7 +97,7 @@ The movement
 * We need a name and some status!
 <img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
 
-<div style="width:50%;float:left;margin-left:20px;">
+<div style="width:50%;float:right;margin-left:20px;">
 * The research system needs to
     * Measure and incentivise RSEs correctly
     * Integrate RSEs within HEIs
@@ -237,6 +237,7 @@ Since then:
 * ARCHER parallelisation
 * MCMC inference
 </div>
+<img src="assets/dcprogs-img1.jpg" style="width:40%;float:left;">
 
 Reliability unlocks science
 ---------------------------
