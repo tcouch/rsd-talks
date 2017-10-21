@@ -5,15 +5,26 @@ layout: default
 slidelink: True
 ---
 
+<section class="titlepage">
+  <div style="float:left;width:42%;">
+    <h3>The Craftsperson</h3>
+    <h3><span class="bigand">&</span> The Scholar</h3>
+    <p>by James Hetherington</p>
+  </div>
+  <img src="assets/craftsperson-scholar.png" style="width:55%;float:right;">
+  <div class="logo-holder">
+    <img src="assets/ATI-logo.png" style="float:left;width:40%">
+    <img src="assets/UCL-logo.png" style="float:right;width:60%">
+  </div>
+</section>
+
 The State of Research Software
 ================================
 
 The SIRO Problem
 ----------------
 
-~~Garbage in Garbage Out~~
-
-Sensible In, Reasonable Out.
+![](assets/siro.svg)
 
 PhDWare
 -------
@@ -83,14 +94,17 @@ Why it works
 The movement
 ------------
 
-* We need a name, and some status
+* We need a name and some status!
+<img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
+<div style="width:50%;float:left;margin-left:20px;">
 * The research system needs to
     * Measure and incentivise RSEs correctly
     * Integrate RSEs within HEIs
     * Support institutional innovation
+</div>
 
-UKRSE
------
+Our story
+---------
 
 * April 2012: Idea and name at SSI Collaborations Workshop
 * September 2012: UCL Group Founded
@@ -98,9 +112,14 @@ UKRSE
 * 2015: Southampton and Cambridge Groups
 * Jan 2016: EPSRC awards first Research Software Engineering Fellowships
 * 2016: Bristol, Sheffield Groups
+
+Our story
+---------
+
 * September 2016: First RSE conference, 202 attendees, 14 countries
 * 2017: Leicester, Imperial College groups.
 * September 2017: Second conference, 224 attendees, 12 countries
+* Formally incorporated as a charity
 * Jan 2018: Second RSE fellows appointed
 
 RSE Groups
@@ -136,9 +155,12 @@ UCL Model
 The UCL Research Software Group
 -------------------------------
 
-* Helped UCL win over 2M in research income
-* Grown through grant funding from just me to a team of 10
-* Working with researchers from archaeology to astrophysics
+<img src="assets/team.jpg" style="width:33%;float:right;">
+<div style="width:65%;float:left">
+* Helped UCL researchers win over £2M
+* Grown through grant funding
+* From archaeology to astrophysics
+</div>
 
 Readable, reliable, and reproducible
 ---------------------------------
@@ -149,66 +171,94 @@ We help make code:
 * Be usable by someone other than the PhD student who wrote it
 * Have a standard of correctness better than "the graph looks about right"
 
-Clean code makes performance possible
+Why work with RSEs?
 =====================================
 
-Whodunnit code: low-template DNA
+Clean code makes performance possible
 --------------------------------
 
-![](assets/whodunnitdna.jpg)
-
-Structural work on likeLTD
---------------------------------------------
+<h5>LikeLTD</h5>
+<img src="assets/whodunnitdna.jpg" style="width:33%;float:right;">
+<div style="width:65%;float:left">
+Structural work:
 
 * Broken down into functions
 * Separate objective function from home-made optimiser
 * Use standard optimiser libraries
+</div>
 
-Performance Improvements in likeLTD
--------------------------------------------
+Clean code makes performance possible
+-------------------------------------
+
+<h5>LikeLTD</h5>
+<img src="assets/whodunnitdna.jpg" style="width:33%;float:right;">
+<div style="width:65%;float:left">
+Performance improvements:
 
 * 4 times from moving to C
 * 8 times from parallelisation
 * 10 times from change of optimisation algorithm
 * 300 times total
 
+</div>			    
+</section>
+
+
 Engineering helps legacy code live
-==================================
+----------------------------------
 
-Old State of the Code
------------------
+<h5>DCProgs</h5>
+<div style="width:50%; float:right;">
+Before:
 
-* DCProgs: Venerable Fortran
+* Venerable Fortran
 * Hasn't compiled since 2006
-* Underpins Nature-published research
+* Underpins Nature published research
+</div>
+<img src="assets/dcprogs-img1.jpg" style="width:40%;float:left;">
 
-The response
----------
+Engineering helps legacy code live
+----------------------------------
 
-* Old code as a "test Oracle"
+<h5>DCProgs</h5>
+<div style="width:49%; float:left;">
+Our solution:
+
+* Old code as "test oracle"
 * Reimplemented in C++ and Python
 * Use linear algebra and root finding libraries
 * Not slower
+</div>
+<div style="width:49%; float:left;">
 
-Later work
-------------
+Since then:
 
 * ARCHER parallelisation
+* MCMC inference
+</div>
 
 Reliability unlocks science
-===========================
+---------------------------
 
-HemeLB Setup Tool
------------------
+<h5>HemeLB Setup Tool</h5>
+<div style="width:64%;float:left;">
 
-![](assets/tubes.png)
+* Voxelisation for Lattice Boltzman
+* Crashed 1 time in 20
+  * So tweak the origin!
+</div>
+<img src="assets/hemelb1.png" style="width:33%;float:right;">
 
-Robustness
-----------
+Reliability unlocks science
+---------------------------
 
-* Can handle all geometries instead of 19 in 20
-* Can model changing geometries
-* Reliability unlocks new science
+<h5>HemeLB Setup Tool</h5>
+<div style="width:64%;float:left;">
+* Replace with standard comp geometry library
+* Can handle all geometries instead of 19 in 20</li>
+* Means can model changing geometries</li>
+</div>
+<img src="assets/hemelb1.png" style="width:33%;float:right;">
 
 RSEs and Teaching
 =====================================================
@@ -216,16 +266,20 @@ RSEs and Teaching
 Software Carpentry
 ------------------
 
+<div style="width:50%;float:left">
 * Intensive "bootcamp"
 * Automation
 * Version control
 * Unit testing
 * Databases
+</div>
 
+<div style="width:50%;float: right">
 > I found the command line intimidating at first, but after a while it felt
 > like I was inside my computer.
 
 -- A student at a UCL software carpentry event
+</div>
 
 ## RITS's training programme
 
@@ -235,8 +289,6 @@ Software Carpentry
 * Research Software Engineering with Python
 * Research Computing with C++
 * High Performance and High Throughput Computing
-
-* See the [materials](https://www.ucl.ac.uk/isd/services/research-it/training)
 
 ## Digitally native learning tools
 
@@ -276,32 +328,32 @@ Some of these we got right. Some are things I wish I'd
 known at the beginning.
 
 
-Sell performance, deliver reproducibility
+Sell performance, deliver reproducibility {#flymac .poster}
 -----------------------------------------
 
 ![Source: [Secret Leeds](http://www.secretleeds.com/viewtopic.php?t=5498&start=30)](http://farm7.staticflickr.com/6144/6202830241_f16833fbaf_z.jpg)
 
-Use appropriate technology
+Use appropriate technology {#windvane .poster}
 --------------------------
 
 ![Source: [African Windmill Project](http://africawindmill.org)](http://africawindmill.org/wp-content/uploads/2013/03/DSC01549-Copy-2-.jpg)
 
-Look beyond the usual
+Look beyond the usual {#ancient .poster}
 ---------------------
 
 ![Source: [ORACC](http://oracc.museum.upenn.edu)](http://github-pages.ucl.ac.uk/rsd-talks/rsd/assets/oracc.jpg)
 
-Make space to learn
+Make space to learn {#crafty .poster}
 -----------------------------
 
 ![Smart and Gets Things Done ](http://www.software.ac.uk/sites/default/files/images/content/ScholarAndCraftsman.jpg)
 
-Organisational Judo
+Organisational Judo {#judo .poster}
 -------------------
 
 ![Source: Unknown](https://scontent.cdninstagram.com/hphotos-xfp1/t51.2885-15/s320x320/e15/10954254_848450445193608_1268926421_n.jpg)
 
-Computational Science as a Service
+Computational Science as a Service {#it-crowd}
 ----------------------------------
 
 <iframe width="420" height="315" src="https://www.youtube.com/embed/p85xwZ_OLX0" frameborder="0" allowfullscreen></iframe>
@@ -329,9 +381,12 @@ Team Research
 The Turing Institute
 --------------------
 
+<img src="assets/ATI-logo.png" style="width:33%;float:right;">
+<div style="width:65%;float:left">
 * UK's national institute for data science
 * Joint venture of 5 UK universities
 * Shared Faculty
+</div>
 
 Research Engineering at the Turing Institute
 --------------------------------------------
@@ -356,18 +411,8 @@ Why you should have one
 Why you should be one
 ---------------------
 
+<img src="assets/dilstein.png" style="width:33%;float:right;">
+<div style="width:65%;float:left">
 * Write papers
 * Make code
-
-
-Copyright
----------
-
-The sourcecode of this talk is available under a CC-BY license:
-
-* [https://github.com/UCL/rsd-talks/tree/master](https://github.com/UCL/rsd-talks/tree/master)
-
-The images in this talk are not copied. They are embedded or "transcluded".
-
-* [Transclusion](https://en.wikipedia.org/wiki/Transclusion)
-* [Transclusion and copyright](http://www.create.ac.uk/blog/2014/11/28/eu-ruling-embedding-does-not-equal-copyright-infringement/)
+</div>

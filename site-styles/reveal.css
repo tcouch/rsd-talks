@@ -1,22 +1,76 @@
-#performance-improvements-in-likeltd-1 img {
-        max-width: 400px;
-}
 
-.reveal section#robustness img {
-        background-color: rgb(143, 153, 62);
-}
+#windvane h4 {
+  position: absolute;
+  top: 75px;
+  right: 30px;
+  color: #FFD135;
+  font-size: 35px; }
 
+#flymac h4:nth-of-type(1) {
+  position: absolute;
+  top: 45px;
+  left: 20px;
+  color: #003D4C;
+  font-size: 35px; }
 
-.reveal section#contact img {
-        max-width: 50px;
-        vertical-align: middle;
-}
+#flymac h4:nth-of-type(2) {
+  position: absolute;
+  bottom: 35px;
+  right: 30px;
+  color: #003D4C;
+  font-size: 35px; }
 
-.reveal section#automated-deployment img {
-        max-width: 100px;
-        vertical-align: middle;
-        background-color: rgb(143, 153, 62);
-}
+#ancient h4 {
+  width: 100%;
+  text-align: right;
+  color: #AC145A;
+  background-color: #D6D2C4; }
+
+#judo img {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+#judo h4:nth-of-type(1) {
+  position: absolute;
+  bottom: 155px;
+  right: 185px;
+  color: #8F993E; }
+
+#judo h4:nth-of-type(2) {
+  position: absolute;
+  bottom: 105px;
+  right: 185px;
+  color: white; }
+
+#crafty img {
+  width: 70%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+#crafty h4:nth-of-type(1) {
+  position: absolute;
+  top: 45px;
+  left: 155px;
+  color: #D6D2C4;
+  font-size: 35px; }
+
+#crafty h4:nth-of-type(2) {
+  color: #003D4C;
+  font-size: 25px;
+  text-align: center; }
+
+#it-crowd img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto; }
+
+#it-crowd h4 {
+  color: #AC145A;
+  text-align: center; }
+
 
 img[src*="assets/twitter.png"], img[src*="assets/rss.png"], img[src*="assets/email.png"] {
 	max-width: 50px;
