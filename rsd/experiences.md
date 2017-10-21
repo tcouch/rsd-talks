@@ -95,14 +95,14 @@ The movement
 ------------
 
 * We need a name and some status!
+
+<img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
 <div style="width:50%;float:right;margin-left:20px;">
 * The research system needs to
     * Measure and incentivise RSEs correctly
     * Integrate RSEs within HEIs
     * Support institutional innovation
 </div>
-<img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
-
 
 Our story
 ---------
