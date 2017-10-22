@@ -61,7 +61,7 @@ ConsultantWare
 * Overengineered
 * Unmaintainable by the research group
 
-Research Software Engineers
+Research Software Engineers {.chapter-title}
 ============================
 
 The Craftsperson And The Scholar {.diagram2}
@@ -122,7 +122,7 @@ Our story
 * Formally incorporated as a charity
 * Jan 2018: Second RSE fellows appointed
 
-RSE Groups
+RSE Groups {.chapter-title}
 ==========
 
 RSE Group
@@ -171,7 +171,7 @@ We help make code:
 * Be usable by someone other than the PhD student who wrote it
 * Have a standard of correctness better than "the graph looks about right"
 
-Why work with RSEs?
+Why work with RSEs? {.chapter-title}
 =====================================
 
 Clean code makes performance possible
@@ -258,7 +258,7 @@ Reliability unlocks science
 </div>
 <img src="assets/hemelb1.png" style="width:33%;float:right;">
 
-RSEs and Teaching
+RSEs and Teaching {.chapter-title}
 =====================================================
 
 Software Carpentry
@@ -310,7 +310,7 @@ Software Carpentry
 * So we need *division of labour*
 * and enough training to work together
 
-Good, huh?
+Good, huh? {.chapter-title}
 ==========
 
 Lessons learned
@@ -363,7 +363,7 @@ Computational Science as a Service {#it-crowd .poster}
 <h4>Computational Science as a Service</h4>
 ![](https://media.giphy.com/media/F7yLXA5fJ5sLC/giphy.gif)
 
-Multi- professionalism
+Multi- professionalism {.chapter-title}
 ====================
 
 Multiprofessional
@@ -400,7 +400,7 @@ Research Engineering at the Turing Institute
   * RSEs
   * Data Scientists
 
-To finish
+To finish {.chapter-title}
 =========
 
 Beyond the Postdoc {.poster}
