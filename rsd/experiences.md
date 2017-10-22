@@ -225,7 +225,6 @@ Our solution:
 * Old code as "test oracle"
 * Reimplemented in C++ and Python
 * Use algorithm libraries
-* Not slower
 </div>
 <div style="width:49%; float:right;">
 
