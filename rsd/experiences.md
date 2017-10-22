@@ -98,9 +98,11 @@ The movement
 
 <img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
 <div style="width:50%;float:right;margin-left:20px;">
+
 * Measure and incentivise RSEs correctly
 * Integrate RSEs within HEIs
 * Support institutional innovation
+
 </div>
 
 Our story
@@ -157,9 +159,11 @@ The UCL Research Software Group
 
 <img src="assets/team.jpg" style="width:33%;float:right;">
 <div style="width:65%;float:left">
+
 * Helped UCL researchers win over £2M
 * Grown through grant funding
 * From archaeology to astrophysics
+
 </div>
 
 Readable, reliable, and reproducible
@@ -185,6 +189,7 @@ Structural work:
 * Broken down into functions
 * Separate objective function from home-made optimiser
 * Use standard optimiser libraries
+
 </div>
 
 Clean code makes performance possible
@@ -193,6 +198,7 @@ Clean code makes performance possible
 <h5>LikeLTD</h5>
 <img src="assets/whodunnitdna.jpg" style="width:33%;float:right;">
 <div style="width:65%;float:left">
+
 Performance improvements:
 
 * 4 times from moving to C
@@ -207,11 +213,13 @@ Engineering helps legacy code live
 
 <h5>DCProgs</h5>
 <div style="width:50%; float:right;">
+
 Before:
 
 * Venerable Fortran
 * Hasn't compiled since 2006
 * Underpins Nature published research
+
 </div>
 <img src="assets/dcprogs-img1.jpg" style="width:40%;float:left;">
 
@@ -225,6 +233,7 @@ Our solution:
 * Old code as "test oracle"
 * Reimplemented in C++ and Python
 * Use algorithm libraries
+
 </div>
 <div style="width:49%; float:right;">
 
@@ -232,6 +241,7 @@ Since then:
 
 * ARCHER parallelisation
 * MCMC inference
+
 </div>
 
 Reliability unlocks science
@@ -243,6 +253,7 @@ Reliability unlocks science
 * Voxelisation for Lattice Boltzman
 * Crashed 1 time in 20
   * So tweak the origin!
+
 </div>
 <img src="assets/hemelb1.png" style="width:33%;float:right;">
 
@@ -251,9 +262,11 @@ Reliability unlocks science
 
 <h5>HemeLB Setup Tool</h5>
 <div style="width:64%;float:left;">
+
 * Replace with standard comp geometry library
 * Can handle all geometries instead of 19 in 20</li>
 * Means can model changing geometries</li>
+
 </div>
 <img src="assets/hemelb1.png" style="width:33%;float:right;">
 
@@ -264,17 +277,21 @@ Software Carpentry
 ------------------
 
 <div style="width:50%;float:left">
+
 * Intensive "bootcamp"
 * Automation
 * Version control
 * Unit testing
 * Databases
+
 </div>
 
 <div style="width:50%;float: right; font-size:0.75em">
+
 > I found the command line intimidating at first, but after a while it felt
 > like I was inside my computer.
 > -- A student at a UCL software carpentry event
+
 </div>
 
 ## RITS's training programme
@@ -387,9 +404,11 @@ The Turing Institute {.poster}
 
 <img src="assets/ATI-logo.png" style="width:33%;float:right;">
 <div style="width:65%;float:left">
+
 * UK's national institute for data science
 * Joint venture of 5 UK universities
 * Shared Faculty
+
 </div>
 
 Research Engineering at the Turing Institute
