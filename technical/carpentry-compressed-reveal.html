@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="James Hetherington" />
+  <title>Software Carpentry: Compressed Edition</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; }
+code > span.dt { color: #dfdfbf; }
+code > span.dv { color: #dcdccc; }
+code > span.bn { color: #dca3a3; }
+code > span.fl { color: #c0bed1; }
+code > span.ch { color: #dca3a3; }
+code > span.st { color: #cc9393; }
+code > span.co { color: #7f9f7f; }
+code > span.ot { color: #efef8f; }
+code > span.al { color: #ffcfaf; }
+code > span.fu { color: #efef8f; }
+code > span.er { color: #c3bf9f; }
+    </style>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/rits17.css"/>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/reveal.css"/>
+  <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Software Carpentry: Compressed Edition</h1>
+    <h2 class="author">James Hetherington</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section><section id="the-state-of-research-software" class="titleslide slide level1"><h1>The State of Research Software</h1></section><section id="the-siro-problem" class="slide level2">
+<h1>The SIRO Problem</h1>
+<p><del>Garbage in Garbage Out</del></p>
+<p>Sensible In, Reasonable Out.</p>
+</section><section id="phdware" class="slide level2">
+<h1>PhDWare</h1>
+<ul>
+<li>Don't look if anyone's done it before</li>
+<li>Code till it works</li>
+<li>Generate a figure</li>
+<li>Throw it away</li>
+</ul>
+</section><section id="labware" class="slide level2">
+<h1>Labware</h1>
+<ul>
+<li>Understood by one genius</li>
+<li>Implements great science, now</li>
+<li>FORTRAN in any language</li>
+<li>Code not engineered for readability</li>
+<li>Can't add new science</li>
+</ul>
+</section><section id="hpcware" class="slide level2">
+<h1>HPCWare</h1>
+<ul>
+<li>Get a 5% improvement in performance</li>
+<li>On a particular architecture</li>
+<li>Publish a scaling graph</li>
+<li>Selection against:
+<ul>
+<li>Readability</li>
+<li>Maintainability</li>
+<li>Adaptability</li>
+</ul></li>
+</ul>
+</section><section id="consultantware" class="slide level2">
+<h1>ConsultantWare</h1>
+<ul>
+<li>Little understanding of the science</li>
+<li>Overengineered</li>
+<li>Unmaintainable by the research group</li>
+</ul>
+</section><section id="software-carpentry" class="slide level2">
+<h1>Software Carpentry</h1>
+<figure>
+<img src="https://raw.githubusercontent.com/swcarpentry/bc/master/img/software-carpentry-banner.png" />
+</figure>
+<ul>
+<li>Founded by <a href="http://www.third-bit.com/about.html">Greg Wilson</a></li>
+<li>Volunteer organization
+<ul>
+<li><a href="http://www.sloan.org/">Alfred P. Sloan Foundation</a></li>
+<li><a href="http://www.mozilla.org/en-US/foundation/">Mozilla Foundation</a>.</li>
+</ul></li>
+<li>Provides online training materials on which UCL course is based.</li>
+</ul>
+</section><section id="software-carpentry-1" class="slide level2">
+<h1>Software Carpentry</h1>
+<ul>
+<li>Intensive &quot;bootcamp&quot;</li>
+<li>Teaches the tools needed to do computational science the Right Way
+<ul>
+<li>Readable</li>
+<li>Reliable</li>
+<li>Repeatable</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="version-control" class="titleslide slide level1"><h1>Version Control</h1></section><section id="what-version-control-is-for" class="slide level2">
+<h1>What Version Control is For</h1>
+<ul>
+<li>Managing Code Inventory
+<ul>
+<li>&quot;When did I introduce this bug&quot;?</li>
+<li>Undoing Mistakes</li>
+</ul></li>
+<li>Working with other programmers
+<ul>
+<li>&quot;How can I merge my work with Jim's&quot;</li>
+</ul></li>
+</ul>
+</section><section id="what-is-version-control" class="slide level2">
+<h1>What is version control?</h1>
+<p>Do some programming</p>
+<p><code>my_vcs commit</code></p>
+<p>Program some more</p>
+<p>Realise mistake</p>
+<p><code>my_vcs rollback</code></p>
+<p>Mistake is undone</p>
+</section><section id="what-is-version-control-team-version" class="slide level2">
+<h1>What is version control? (Team version)</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sue</th>
+<th style="text-align: right;">James</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>my_vcs commit</code></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">Join the team</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"><code>my_vcs checkout</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;">Do some programming</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"><code>my_vcs commit</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>my_vcs update</code></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Do some programming</td>
+<td style="text-align: right;">Do some programming</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"></td>
+<td style="text-align: right;"><code>my_vcs commit</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>my_vcs update</code></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>my_vcs merge</code></td>
+<td style="text-align: right;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>my_vcs commit</code></td>
+<td style="text-align: right;"></td>
+</tr>
+</tbody>
+</table>
+</section><section id="version-control-examples" class="slide level2">
+<h1>Version Control Examples</h1>
+<ul>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_solo.png">Working alone with git</a></li>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_solo_publishing.png">Publishing with git</a></li>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_shared_noconflict.png">Teamworking in git</a></li>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_shared_conflicted.png">Teamworking in git with conflicts</a></li>
+</ul>
+</section><section id="more-than-great-backup" class="slide level2">
+<h1>More than great backup</h1>
+<ul>
+<li>Logging</li>
+<li>Collaboration</li>
+<li>Labels for code versions</li>
+<li>Branches for production vs play</li>
+</ul>
+</section></section>
+<section><section id="automation" class="titleslide slide level1"><h1>Automation</h1></section><section id="how-things-should-be" class="slide level2">
+<h1>How Things Should Be</h1>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">fetch_dataset</span> 53b6
+<span class="kw">run_model</span> dataset_53b6
+<span class="kw">Examine_results</span> results_28_02_13_1_53b6_98d2
+<span class="kw">archive_results</span> latest
+<span class="kw">create_graphs</span> results_28_02_13_1_53b6_98d2</code></pre>
+</section><section id="program-or-be-programmed" class="slide level2">
+<h1>Program or Be Programmed</h1>
+<ul>
+<li>Repetition leads to Boredom</li>
+<li>Boredom leads to Horrifying Mistakes</li>
+<li>Horrifying Mistakes lead to God-I-Wish-I-Was-Still-Bored</li>
+</ul>
+</section><section id="automation-for-reproducibility" class="slide level2">
+<h1>Automation for reproducibility</h1>
+<ul>
+<li>More than saving time</li>
+<li>Provide a rigorous description of what was done</li>
+</ul>
+</section><section id="python" class="slide level2">
+<h1>Python</h1>
+<p><a href="http://nbviewer.ipython.org/github/swcarpentry/bc/blob/master/novice/python/01-numpy.ipynb">IPython Notebooks</a></p>
+</section><section id="this-talk" class="slide level2">
+<h1>This talk</h1>
+<p><a href="https://github.com/UCL/rsd-talks/blob/master/carpentry-compressed/lecture.md">This talk</a></p>
+</section><section id="this-talks-sconscript" class="slide level2">
+<h1>This talk's SConscript</h1>
+<pre class="sourceCode python"><code class="sourceCode python">pandoc_slides=Builder(action=<span class="st">&#39;pandoc -t revealjs -s -V theme=night&#39;</span>+
+    <span class="co">&#39; --css=night.css&#39;</span>+
+    <span class="co">&#39; --css=slidetheme.css&#39;</span>+
+    <span class="co">&#39; --mathjax &#39;</span>+
+    <span class="co">&#39; -V revealjs-url=http://lab.hakim.se/reveal-js/&#39;</span>+
+    <span class="co">&#39; $SOURCES -o $TARGET&#39;</span>)
+
+...
+dot_figure_builder=Builder(action=<span class="st">&#39;dot -Tpng $SOURCE -o $TARGET&#39;</span>,
+    suffix=<span class="st">&#39;.png&#39;</span>,
+    src_suffix=<span class="st">&#39;.dot&#39;</span>)</code></pre>
+</section><section id="this-talks-puppet-manifest" class="slide level2">
+<h1>This talk's puppet manifest</h1>
+<pre class="puppet"><code># Checkout the repository from GitHub
+  vcsrepo {&quot;repo-$title&quot;:
+      path =&gt; &quot;/opt/gitrepos/$checkout_location&quot;,
+      ensure =&gt; &#39;latest&#39;,
+      owner =&gt; &#39;apache&#39;,
+      user =&gt; &#39;apache&#39;,
+      identity =&gt; &#39;/home/ccsprsd/.ssh/id_rsa&#39;,
+      group =&gt; &#39;apache&#39;,
+      provider =&gt; &#39;git&#39;,
+      require =&gt; [ Package[&quot;git&quot;], File[&quot;$service_home/.ssh/id_rsa&quot;], ],
+      source =&gt; &quot;$source&quot;,
+      revision =&gt; $branch,
+    }
+
+#Run Pandoc via scons to produce the Reveal.js presentations
+
+    exec { &quot;build-$title&quot;:
+      command =&gt; $command,
+      cwd =&gt; &quot;/opt/gitrepos/$checkout_location/$workdir&quot;,
+      require =&gt; [Exec[&quot;install-pandoc&quot;],
+        Package[&quot;scons&quot;],
+        Vcsrepo[&quot;repo-$title&quot;]]
+    }
+
+# Copy the C++ course directory into the web folder
+    file {&quot;install-$title&quot;:
+      path =&gt; &quot;$install/$target&quot;,
+      source =&gt; &quot;/opt/gitrepos/$checkout_location/$sitedir&quot;,
+      recurse =&gt; true,
+      require =&gt; Exec[&quot;build-$title&quot;],
+      notify =&gt; Service[&quot;httpd&quot;],
+      owner =&gt; &#39;ccsprsd&#39;,
+      group =&gt; &#39;ccspx0&#39;,
+    }</code></pre>
+</section></section>
+<section><section id="testing" class="titleslide slide level1"><h1>Testing</h1></section><section id="you-dont-need-to-test-if" class="slide level2">
+<h1>You don't need to test if:</h1>
+<ul>
+<li class="fragment">Your programs always work correctly, or</li>
+<li class="fragment">You don't care if they're correct or not, so long as their output looks plausible, and</li>
+<li class="fragment">You like being inefficient: the more you invest in quality, the less total time it takes to build working software</li>
+</ul>
+</section><section id="levels-of-testing" class="slide level2">
+<h1>Levels of Testing</h1>
+<ul>
+<li class="fragment">Regression testing: Does my code work the same as yesterday</li>
+<li class="fragment">Functional testing: Does my code match an analytic solution</li>
+<li class="fragment">Unit testing: Does this subroutine work as expected</li>
+</ul>
+</section><section id="test-driven-development" class="slide level2">
+<h1>Test-driven development</h1>
+<p>Know what you want:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_range_overlap():
+    <span class="kw">assert</span> range_overlap([ (<span class="fl">0.0</span>, <span class="fl">1.0</span>), (<span class="fl">5.0</span>, <span class="fl">6.0</span>) ]) == <span class="ot">None</span>
+    <span class="kw">assert</span> range_overlap([ (<span class="fl">0.0</span>, <span class="fl">1.0</span>) ]) == (<span class="fl">0.0</span>, <span class="fl">1.0</span>)
+    <span class="kw">assert</span> range_overlap([ (<span class="fl">2.0</span>, <span class="fl">3.0</span>), (<span class="fl">2.0</span>, <span class="fl">4.0</span>) ]) == (<span class="fl">2.0</span>, <span class="fl">3.0</span>)
+    <span class="kw">assert</span> range_overlap([ (<span class="fl">0.0</span>, <span class="fl">1.0</span>), (<span class="fl">0.0</span>, <span class="fl">2.0</span>), (-<span class="fl">1.0</span>, <span class="fl">1.0</span>) ]) == (<span class="fl">0.0</span>, <span class="fl">1.0</span>)</code></pre>
+</section><section id="test-driven-development-1" class="slide level2">
+<h1>Test-driven development</h1>
+<p>Then make it happen:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> range_overlap(ranges):
+    <span class="co">&#39;&#39;&#39;Return common overlap among a set of [low, high] ranges.&#39;&#39;&#39;</span>
+    highest_min=<span class="dt">max</span>([<span class="dt">range</span>[<span class="dv">0</span>] <span class="kw">for</span> <span class="dt">range</span> in ranges])
+    lowest_max=<span class="dt">min</span>([<span class="dt">range</span>[<span class="dv">1</span>] <span class="kw">for</span> <span class="dt">range</span> in ranges])
+    <span class="kw">if</span> (lowest_max &lt;= highest_min): <span class="kw">return</span> <span class="ot">None</span> <span class="co"># Note equality</span>
+    <span class="kw">return</span> (highest_min, lowest_max)</code></pre>
+</section><section id="tests-define-behaviour" class="slide level2">
+<h1>Tests Define Behaviour</h1>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">assert</span> range_overlap([ (<span class="fl">0.0</span>, <span class="fl">1.0</span>), (<span class="fl">1.0</span>, <span class="fl">2.0</span>) ]) == <span class="ot">None</span></code></pre>
+<p>Tests are <em>Executable Documentation</em></p>
+</section><section id="tests-as-specifications" class="slide level2">
+<h1>Tests As Specifications</h1>
+<p>Testing tells you:</p>
+<ul>
+<li class="fragment">If the program is doing what it's supposed to</li>
+<li class="fragment">What the program actually is supposed to do</li>
+<li class="fragment">Tests are runnable specifications:</li>
+<li class="fragment">Less likely to fall out of sync with the program than documentation</li>
+</ul>
+</section><section id="continuous-testing-infrastructure" class="slide level2">
+<h1>Continuous Testing Infrastructure</h1>
+<p><a href="http://development.rc.ucl.ac.uk/jenkins/">Jenkins</a></p>
+</section></section>
+<section><section id="coda" class="titleslide slide level1"><h1>Coda</h1></section><section id="contact" class="slide level2">
+<h1>Contact</h1>
+<p><img src="../assets/twitter.png" /> <span class="citation" data-cites="uclrcsoftdev">@uclrcsoftdev</span> <span class="citation" data-cites="jamespjh">@jamespjh</span> <span class="citation" data-cites="uclrits">@uclrits</span></p>
+<p><img src="../assets/rss.png" /> blogs.ucl.ac.uk/research-software-development</p>
+<p><img src="../assets/email.png" /> j.hetherington@ucl.ac.uk</p>
+<p>And <a href="https://www.mailinglists.ucl.ac.uk/mailman/listinfo/research-programming">sign up</a> to be notified of the date of the next bootcamp.</p>
+<blockquote>
+<p>``I found the command line intimidating at first, but after a while it felt like I was inside my computer.''</p>
+</blockquote>
+<p>-- A student at the UCL software carpentry event</p>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="James Hetherington" />
+  <meta name="dcterms.date" content="2017-07-11" />
+  <title>Modelling and Inference: the détente</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/rits17.css"/>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/reveal.css"/>
+  <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Modelling and Inference: the détente</h1>
+    <h2 class="author">James Hetherington</h2>
+    <h3 class="date">2017-07-11</h3>
+</section>
+
+<section><section id="jim-grey-and-the-fourth-paradigm" class="titleslide slide level1"><h1>Jim Grey and the Fourth Paradigm</h1></section><section id="experimental-science" class="slide level2">
+<h1>Experimental Science</h1>
+<figure>
+<img src="assets/hevelius_telescope.gif" />
+</figure>
+</section><section id="theoretical-science" class="slide level2">
+<h1>Theoretical Science</h1>
+<figure>
+<img src="assets/pricipia.png" />
+</figure>
+</section><section id="computational-science" class="slide level2">
+<h1>Computational Science</h1>
+<figure>
+<img src="assets/galaxy.png" />
+</figure>
+</section><section id="the-fourth-paradigm" class="slide level2">
+<h1>The Fourth Paradigm</h1>
+<ul>
+<li>Computer infers the model from the data
+<ul>
+<li>&quot;Machine learning&quot; - nonlinear curve fitting</li>
+<li>Optimise fit for training data</li>
+</ul></li>
+</ul>
+<p><a href="https://www.amazon.co.uk/Fourth-Paradigm-Data-Intensive-Scientific-Discovery/dp/0982544200/ref=tmm_pap_swatch_0?_encoding=UTF8&amp;qid=&amp;sr=">Read the book</a></p>
+</section><section id="why-it-works" class="slide level2">
+<h1>Why it works</h1>
+<ul>
+<li>Theoretical advances in the mathematics of classification and regression</li>
+<li>Computers that are good at global optimisation in large spaces (GPUs)</li>
+<li>Disproportionate effectiveness of machine learning with huge datasets</li>
+</ul>
+</section></section>
+<section><section id="data-fundamentalism-and-the-problems-of-big-modelling" class="titleslide slide level1"><h1>Data Fundamentalism and the problems of Big Modelling</h1></section><section id="weaknesses-of-the-third-paradigm" class="slide level2">
+<h1>Weaknesses of the Third Paradigm</h1>
+<ul>
+<li>Huge parameter spaces
+<ul>
+<li>Glorified curve fitting</li>
+<li>Without statistical rigour</li>
+<li>Labour intensive parameter management</li>
+</ul></li>
+</ul>
+</section><section id="weaknesses-of-the-third-paradigm-1" class="slide level2">
+<h1>Weaknesses of the Third Paradigm</h1>
+<ul>
+<li>Computational expense</li>
+<li>Large result sets
+<ul>
+<li>Unwieldy meta-analysis</li>
+<li>In-situ data reduction</li>
+</ul></li>
+</ul>
+</section><section id="weaknesses-of-the-fourth-paradigm" class="slide level2">
+<h1>Weaknesses of the Fourth Paradigm</h1>
+<ul>
+<li>Does not produce insight
+<ul>
+<li>Lack of traceability</li>
+<li>Need for defensible and auditable machine decisions</li>
+</ul></li>
+<li>Problems with extrapolation: 'what if'.</li>
+<li>Prefers labelled examples (supervision)
+<ul>
+<li>Crowd sourcing?</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="the-détente" class="titleslide slide level1"><h1>The Détente</h1></section><section id="use-what-you-know" class="slide level2">
+<h1>Use what you know</h1>
+<ul>
+<li>Machine learned models with physically informed structure
+<ul>
+<li>Biological systems and the soft-switch</li>
+</ul></li>
+<li>Physical understanding as a prior in function space?</li>
+</ul>
+</section><section id="machine-assisted-parameterisation" class="slide level2">
+<h1>Machine assisted parameterisation</h1>
+<ul>
+<li>Use machine assistance to explore:</li>
+<li>Parameterisation literature</li>
+<li>DBs</li>
+</ul>
+</section><section id="do-inference-with-your-models" class="slide level2">
+<h1>Do inference with your models</h1>
+<ul>
+<li>Statistically rigorous approaches to parameter fitting and model selection</li>
+<li>Modelling with uncertainty</li>
+<li>Stochastic programming</li>
+</ul>
+</section><section id="do-inference-with-your-models-1" class="slide level2">
+<h1>Do inference with your models</h1>
+<ul>
+<li>Fit simpler structures to your mechanistic models to save time</li>
+<li>Need a rigorous approach to model run management</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

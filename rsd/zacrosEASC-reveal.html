@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="Jens H Nielsen, Mayeul D'Avezac, James Hetherington &amp; Michail Stamatakis" />
+  <title>Zacros ARCHER eCSE Project</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/rits17.css"/>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/reveal.css"/>
+  <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+    <script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML" type="text/javascript"></script>
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Zacros ARCHER eCSE Project</h1>
+  <h1 class="subtitle">Software Package Development: Pushing the Frontiers of Kinetic Monte Carlo Simulation in Catalysis</h1>
+    <h2 class="author">Jens H Nielsen, Mayeul D'Avezac, James Hetherington &amp; Michail Stamatakis</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section><section id="introduction-to-zacros" class="titleslide slide level1"><h1>Introduction to Zacros</h1></section><section id="zacros" class="slide level2">
+<h1>Zacros:</h1>
+<figure>
+<img src="assets/zacrosESCE/ZacrosLogo.svg" />
+</figure>
+<ul>
+<li>Kinetic Monte Carlo (KMC) simulation of surface chemistry</li>
+<li>Graph theoretical framework
+<ul>
+<li>Handle complex surface patterns</li>
+</ul></li>
+</ul>
+<p>For more info visit: zacros.org</p>
+</section><section id="reaction-patterns" class="slide level2">
+<h1>Reaction patterns</h1>
+<ul>
+<li>Possible reactions get a time assigned based on:
+<ul>
+<li>kinetic rate constants (Propensities)</li>
+<li>A random number</li>
+</ul></li>
+</ul>
+<figure>
+<img src="assets/zacrosESCE/reactionCOOCO2.svg" alt="Example of simple reaction pattern" /><figcaption>Example of simple reaction pattern</figcaption>
+</figure>
+<p>See Stamatakis and Vlachos. 2011. J. Chem. Phys. 134(21): 214115 and Nielsen et. al. 2013. J. Chem. Phys. 139(22): 224706</p>
+</section><section id="surface-energy" class="slide level2">
+<h1>Surface energy</h1>
+<p>To calculate rates, the surface energy is needed:</p>
+<ul>
+<li>Surface energy is given as a cluster expansion</li>
+<li>I.e. an expansion in simple surface patterns</li>
+</ul>
+<figure>
+<img src="assets/zacrosESCE/clusterexpansion.svg" alt="Example of cluster expansions" /><figcaption>Example of cluster expansions</figcaption>
+</figure>
+</section><section id="pseudo-code" class="slide level2">
+<h1>Pseudo code</h1>
+<ul>
+<li>Select most imminent process</li>
+<li>Remove adsorbates from lattice</li>
+<li>Remove clusters with reactants</li>
+<li>Remove reactions involving the reactants</li>
+<li>Add product adsorbates</li>
+<li>Find new energy clusters</li>
+<li>Find existing processes that need update</li>
+<li>Update rates of existing processes</li>
+<li>Add new processes</li>
+</ul>
+</section><section id="technical" class="slide level2">
+<h1>Technical</h1>
+<ul>
+<li>Fortran 95/2003 code</li>
+<li>Originally fully serial</li>
+<li>Two performance issues with serial code identified</li>
+</ul>
+</section><section id="cluster-expansion" class="slide level2">
+<h1>Cluster Expansion</h1>
+<ul>
+<li>Long range interactions requires large cluster expansions</li>
+<li>Larger cluster expansions =&gt; More processes to update</li>
+<li>This is the first performance issue</li>
+</ul>
+<figure>
+<img src="assets/zacrosESCE/clusterlayout.svg" alt="Interaction length affected by reaction" /><figcaption>Interaction length affected by reaction</figcaption>
+</figure>
+</section><section id="lattice-size" class="slide level2">
+<h1>Lattice size</h1>
+<p>Large lattice for accurate simulations</p>
+<ul>
+<li>Update time is independent of lattice size</li>
+<li>But reaction rate is not</li>
+<li>KMC time / CPU time depends linearly on the number of sites</li>
+<li>Large lattices are time consuming to simulate</li>
+<li>The second performance issue</li>
+</ul>
+</section></section>
+<section><section id="reaction-updates" class="titleslide slide level1"><h1>Reaction updates:</h1></section><section id="openmp" class="slide level2">
+<h1>OpenMP:</h1>
+<ul>
+<li>Profiling shows bottleneck in update rates ...</li>
+<li>Many processes are affected
+<ul>
+<li>Especially for large cluster expansion</li>
+</ul></li>
+<li>Do loop of independent processes to update</li>
+<li>OpenMP parallization of this loop</li>
+</ul>
+<p>See Nielsen et. al. 2013. J. Chem. Phys. 139(22): 224706</p>
+</section><section id="scaled-performance-of-openmp" class="slide level2">
+<h1>Scaled performance of OpenMP</h1>
+<figure>
+<img src="assets/zacrosESCE/archer_intelO3_threds_scaling.png" alt="NO oxidation model with 4 different cluster expansions on Archer" /><figcaption>NO oxidation model with 4 different cluster expansions on Archer</figcaption>
+</figure>
+</section><section id="computational-time-per-event" class="slide level2">
+<h1>Computational time per event</h1>
+<figure>
+<img src="assets/zacrosESCE/archer_intelO3_lattice_event_scaling.png" alt="Time per KMC event is independent of lattice size." /><figcaption>Time per KMC event is independent of lattice size.</figcaption>
+</figure>
+</section><section id="computational-time-kmc-time" class="slide level2">
+<h1>Computational time / KMC time</h1>
+<figure>
+<img src="assets/zacrosESCE/archer_intelO3_lattice_scaling.png" />
+</figure>
+<ul>
+<li>But number of events per simulated second is not</li>
+<li>12 figure expansion at 7056 lattice points (12 threads):
+<ul>
+<li><span class="math">\(&gt; 10^4\)</span> seconds per simulated second</li>
+</ul></li>
+</ul>
+</section><section id="limitations" class="slide level2">
+<h1>Limitations</h1>
+<p>Decent speed up for large cluster expansions but:</p>
+<ul>
+<li>OpenMP limited to one computational node</li>
+<li>Simulations are still too slow for large lattices and clusters</li>
+</ul>
+<p>Solution: MPI Parallelization over lattice</p>
+</section></section>
+<section><section id="spatial-parallelization" class="titleslide slide level1"><h1>Spatial Parallelization</h1></section><section id="mpi-based-parallelization" class="slide level2">
+<h1>MPI based parallelization</h1>
+<ul>
+<li>Reactions on individual domains</li>
+<li>Halo for
+<ul>
+<li>Reactants</li>
+<li>Products</li>
+<li>Energetic clusters</li>
+</ul></li>
+</ul>
+<figure>
+<img src="assets/zacrosESCE/grid.svg" />
+</figure>
+</section><section id="original-plan" class="slide level2">
+<h1>Original plan:</h1>
+<p>Implement algorithm proposed by Lubachevsky</p>
+<ul>
+<li>Algorithm is developed for Ising spin model</li>
+<li>Each domain keeps track of a local time</li>
+<li>Global time is min(localTimes)</li>
+<li>Updates in a MPI domain is allowed if:
+<ul>
+<li>Local time is smaller than all neighbours</li>
+</ul></li>
+</ul>
+<p>Lubachevsky. 1988. J. Comp. Phys. 75 (1): 103</p>
+</section><section id="algorithm" class="slide level2">
+<h1>Algorithm</h1>
+<ul>
+<li>Perform spin flip if time is smallest among neighbours</li>
+<li>Select a site and either:
+<ul>
+<li>Perform spin flip</li>
+<li>Perform null event</li>
+</ul></li>
+<li>Advance local time by a random interval</li>
+<li>Repeat</li>
+</ul>
+<p>Time advancement is independent of whether a spin is flipped</p>
+<p>Energetics affect the relative probability of null events</p>
+</section><section id="algorithm-in-zacros" class="slide level2">
+<h1>Algorithm in Zacros</h1>
+<p>Same principle:</p>
+<ul>
+<li>If local time &lt; neighbours time:
+<ul>
+<li>Advance local time</li>
+<li>Perform reaction</li>
+<li>Send halo and new local time</li>
+</ul></li>
+<li>Else:
+<ul>
+<li>Wait to receive halo and time</li>
+</ul></li>
+</ul>
+</section><section id="issues-in-zacros" class="slide level2">
+<h1>Issues in Zacros</h1>
+<ul>
+<li>Future reactions have a wait time associated with them</li>
+<li>Wait time is random but determined by reaction rates</li>
+<li>Most imminent reaction is performed</li>
+<li>Reaction happen after wait time</li>
+<li>Wait time can differ by several orders of magnitude</li>
+</ul>
+</section><section id="example" class="slide level2">
+<h1>Example</h1>
+<p>Assume that we have 3 MPI nodes in a 1D array</p>
+<p>Both <span class="math">\(P_1\)</span> and <span class="math">\(P_3\)</span> are free to perform reactions</p>
+<figure>
+<img src="assets/zacrosESCE/timeline1.svg" />
+</figure>
+</section><section id="example-1" class="slide level2">
+<h1>Example</h1>
+<p>Assume that we have 3 MPI nodes in a 1D array</p>
+<p>Conflict <span class="math">\(\textrm{P}_1\)</span> should not have performed a reaction</p>
+<figure>
+<img src="assets/zacrosESCE/timeline2.svg" />
+</figure>
+</section><section id="in-summary" class="slide level2">
+<h1>In summary</h1>
+<ul>
+<li>Can't change the condition to smallest among <span class="math">\(T_{local} + T_{wait}\)</span>
+<ul>
+<li>The reactions that <span class="math">\(T_{wait}\)</span> on neighbours represent have not happened:</li>
+<li>In fact they may never happen</li>
+<li>Reactions may propagate across domains</li>
+</ul></li>
+</ul>
+</section><section id="alternative-strategies" class="slide level2">
+<h1>Alternative strategies</h1>
+<p>An alternative proposed by Jefferson</p>
+<ul>
+<li>Each node propagates its reactions without synchronization</li>
+<li>Stores a list of anti reactions to performed reactions</li>
+<li>When a reaction is performed messages are sent to relevant neighbours</li>
+</ul>
+<p>Jefferson. 1985. ACM Trans. Program. Lang. Syst. 7 (3): 404</p>
+</section><section id="alternative-strategies-1" class="slide level2">
+<h1>Alternative strategies</h1>
+<ul>
+<li>If conflicts arise neighbours will roll-back
+<ul>
+<li>Sending anti messages to their neighbours</li>
+<li>With further potential roll-back</li>
+</ul></li>
+<li>The &quot;slowest&quot; node determine a virtual time horizon (Global time)
+<ul>
+<li>No roll-backs beyond this the are needed</li>
+</ul></li>
+</ul>
+</section></section>
+<section><section id="conclusion" class="titleslide slide level1"><h1>Conclusion</h1></section><section id="conclusion-1" class="slide level2">
+<h1>Conclusion</h1>
+<ul>
+<li>Good performance improvement for long range interactions</li>
+<li>Spatial parallelization is on-going work
+<ul>
+<li>Change of algorithm</li>
+</ul></li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

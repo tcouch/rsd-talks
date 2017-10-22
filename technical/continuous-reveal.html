@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="James Hetherington" />
+  <meta name="dcterms.date" content="2016-05-18" />
+  <title>Continuous Deployment</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; }
+code > span.dt { color: #dfdfbf; }
+code > span.dv { color: #dcdccc; }
+code > span.bn { color: #dca3a3; }
+code > span.fl { color: #c0bed1; }
+code > span.ch { color: #dca3a3; }
+code > span.st { color: #cc9393; }
+code > span.co { color: #7f9f7f; }
+code > span.ot { color: #efef8f; }
+code > span.al { color: #ffcfaf; }
+code > span.fu { color: #efef8f; }
+code > span.er { color: #c3bf9f; }
+    </style>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/rits17.css"/>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/reveal.css"/>
+  <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Continuous Deployment</h1>
+    <h2 class="author">James Hetherington</h2>
+    <h3 class="date">18 May 2016</h3>
+</section>
+
+<section><section id="systems-programming" class="titleslide slide level1"><h1>Systems Programming</h1></section><section id="repetition" class="slide level2">
+<h1>Repetition</h1>
+<ul>
+<li>Repetition leads to boredom</li>
+<li>Boredom leads to horrifying mistakes</li>
+<li>Horrifying mistakes lead to God-I-wish-I-was-still-bored -- <a href="http://lethain.com/deploying-django-with-fabric/">Will Larson</a></li>
+</ul>
+</section><section id="doing-it-wrong" class="slide level2">
+<h1>Doing it wrong</h1>
+<p>If you manually shell into a computer and run commands when you deploy you are doing it wrong.</p>
+</section><section id="systems-programming-1" class="slide level2">
+<h1>Systems Programming</h1>
+<p>&quot;Systems administration&quot; is a programming task: we have Puppet.</p>
+<p>This is systems programming. (Aka &quot;dev ops&quot;.)</p>
+<p>There is no distinction between development and operations any more: all programmers are sysadmins, and vice-versa.</p>
+</section><section id="plan-for-the-talk" class="slide level2">
+<h1>Plan for the talk</h1>
+<p>In this talk, I'll explore some of the consequences of this convergence.</p>
+<p>First, though, I'll recap some good things from modern programming practices, that we're going to borrow for systems programming.</p>
+</section></section>
+<section><section id="programming-practices" class="titleslide slide level1"><h1>Programming Practices</h1></section><section id="version-control" class="slide level2">
+<h1>Version control</h1>
+<ul>
+<li>All changes to the code are kept, with a log message</li>
+<li>Grabbing someone else's work is just a <code>git clone</code> away</li>
+</ul>
+</section><section id="branching-in-git" class="slide level2">
+<h1>Branching in Git</h1>
+<p>Unlike earlier version control tools, creating branches in Git is easy and cheap, and merges are clean and often completely automatic.</p>
+<p>We create a branch for <em>each new feature or bug-fix</em>.</p>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">git</span> checkout -b new_feature
+<span class="co"># Do some Coding</span>
+<span class="kw">git</span> checkout master
+<span class="kw">git</span> merge new_feature</code></pre>
+<p>This is <em>integration</em></p>
+</section><section id="pull-requests" class="slide level2">
+<h1>Pull Requests</h1>
+<p>Then we open a &quot;Pull Request&quot;, which indicates that the feature is ready to be tested and merged.</p>
+<p><a href="assets/pull170.png">https://github.com/UCL-RITS/RSD-Dashboard/pull/170</a></p>
+</section><section id="automated-testing" class="slide level2">
+<h1>Automated Testing</h1>
+<p>myprog.py:</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> some_clever_function(x):
+  <span class="kw">return</span> x*<span class="dv">2</span></code></pre>
+<p>test_myprog.py</p>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="kw">def</span> test_myprog():
+  <span class="ch">from</span> myprog <span class="ch">import</span> some_clever_function
+  <span class="kw">assert</span>(some_clever_function(<span class="dv">3</span>) == <span class="dv">6</span>)</code></pre>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">py.test</span></code></pre>
+</section><section id="continuous-testing-servers" class="slide level2">
+<h1>Continuous Testing Servers</h1>
+<p>It's a faff to run your tests for every platform you might want to run on, for every version of your language. So we have automated testing servers to run our tests, and email us when it goes wrong.</p>
+<p><a href="assets/jenkins.png">http://development.rc.ucl.ac.uk/jenkins/</a></p>
+</section><section id="version-control-of-automated-test-jobs" class="slide level2">
+<h1>Version control of automated test jobs</h1>
+<p>Jenkins expects the config for your automated tests to be specified in its GUI.</p>
+<p>This is obviously suboptimal: we want to version control everything.</p>
+<p>In RSDG, we're using a Jenkins plugin to manage our automated test configuration:</p>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">name:</span> &#39;nammu&#39;
+ <span class="fu">disabled:</span> false
+ <span class="fu">node:</span> OSX
+
+ <span class="fu">builders:</span>
+     <span class="kw">-</span> <span class="fu">shell:</span> |
+         cd $WORKSPACE
+         mvn clean install
+ <span class="fu">scm:</span>
+     <span class="kw">-</span> <span class="fu">git:</span>
+         <span class="fu">url:</span> git@github.com:oracc/nammu
+         <span class="fu">branches:</span>
+             <span class="kw">-</span> &#39;{mybranch}&#39;
+
+ <span class="fu">triggers:</span>
+   <span class="kw">-</span> github
+   <span class="kw">-</span> <span class="fu">timed:</span> &quot;@midnight&quot;
+
+ <span class="fu">publishers:</span>
+     <span class="kw">-</span> <span class="fu">git:</span>
+         <span class="fu">push-only-if-success:</span> true</code></pre>
+</section><section id="travis" class="slide level2">
+<h1>Travis</h1>
+<p>There's a nice cloud service that does this: we're moving our simpler non-supercomputing jobs over to Travis, instead of Jenkins.</p>
+<p>Travis configuration just uses .travis.yml files in the repository to configure builds.</p>
+<p><a href="assets/travis.png">https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests</a></p>
+</section></section>
+<section><section id="continuous-deployment" class="titleslide slide level1"><h1>Continuous deployment</h1></section><section id="automatic-deployment" class="slide level2">
+<h1>Automatic Deployment</h1>
+<p>If you trust your automated tests, you can do more: you can <em>automatically deploy if the tests pass</em>.</p>
+<p>I'm using that for <em>this talk</em>:</p>
+<p><a href="https://github.com/UCL/rsd-talks">https://github.com/UCL/rsd-talks</a></p>
+<p>When the tests pass, the server is updated with the content from the master branch.</p>
+</section><section id="safe-automated-deployment" class="slide level2">
+<h1>Safe automated deployment</h1>
+<p>We experimented with puppet for this. Our experience is that it's better to use puppet to set the machine's overall structure up, but then for active deployments:</p>
+<ul>
+<li>Copy the code to the target machine with rsync (folder name based on git hash)</li>
+<li>Repoint a symlink to the new folder</li>
+<li>Service httpd restart</li>
+</ul>
+<p>This can be better scripted with <a href="http://www.fabfile.org">Fabric</a> or <a href="http://capistranorb.com">Capistrano</a> than bash.</p>
+</section><section id="continuous-integration" class="slide level2">
+<h1>Continuous integration</h1>
+<p>Simple continuous deployment from a master branch, however, breaks for multi-programmer projects.</p>
+<p>We can use the magic of Git's branches to achieve something better: continuous integration.</p>
+</section><section id="github-ci" class="slide level2">
+<h1>Github CI</h1>
+<p><a href="assets/pull170.png">https://github.com/UCL-RITS/RSD-Dashboard/pull/170</a></p>
+<p>Jenkins will automatically test <em>each pull request</em>. (Look at the green tick on commit 96eaac8 -- this represents a passing Jenkins build.)</p>
+<p>When the tests pass, the branch can be safely merged to the master branch, and the deployment triggered.</p>
+<p>(This can be manual after a code review, or <em>automatic if tests pass</em>.)</p>
+</section></section>
+<section><section id="local-puppet-development" class="titleslide slide level1"><h1>Local Puppet Development</h1></section><section id="local-development-of-puppet-scripts" class="slide level2">
+<h1>Local development of puppet scripts</h1>
+<p>So, how can we develop puppet scripts locally, as if they were a computer program? Unless we can locally run it, we can't hack on it without running it on our test VM stack.</p>
+<p>And we sure couldn't build automated tests for it.</p>
+<p>We could, of course, use a local VM managed in a hypervisor's GUI.</p>
+</section><section id="vagrant" class="slide level2">
+<h1>Vagrant</h1>
+<p>But there's a better way, allowing us to treat virtual machines on our local laptop, just as if they were <em>outputs</em> of a programming exercise.</p>
+<ul>
+<li>Run a local script to provision a VM, with <em>all the information in a version controlled folder</em>, alongside the code for the service.</li>
+<li>(Ops-code and Dev-code in one place.)</li>
+</ul>
+<p><em>Everything</em> can be version controlled together, with no information locked in GUIs.</p>
+</section><section id="vagrant-file" class="slide level2">
+<h1>Vagrant file</h1>
+<pre class="sourceCode ruby"><code class="sourceCode ruby"><span class="dt">Vagrant</span>.configure(<span class="st">&quot;2&quot;</span>) <span class="kw">do</span> |config|
+  config.vm.box = <span class="st">&quot;centos/7&quot;</span>
+  config.vm.provision <span class="st">&quot;puppet&quot;</span> <span class="kw">do</span> |puppet|
+    puppet.manifests_path = <span class="st">&quot;puppet/manifests&quot;</span>
+    puppet.manifest_file = <span class="st">&quot;server.pp&quot;</span>
+  <span class="kw">end</span>
+<span class="kw">end</span></code></pre>
+</section><section id="vagrant-usage" class="slide level2">
+<h1>Vagrant usage</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> my_project
+<span class="kw">vagrant</span> up</code></pre>
+</section><section id="consequences" class="slide level2">
+<h1>Consequences</h1>
+<p>This already kicks ass: we can keep our puppet manifest and vagrantfile alongside any application code. We never need to worry about a colleague setting up dependencies for a project to get started. They can just <code>git clone</code> and then <code>vagrant up</code></p>
+</section></section>
+<section><section id="automated-testing-of-servers" class="titleslide slide level1"><h1>Automated Testing of Servers</h1></section><section id="automated-tests-of-servers" class="slide level2">
+<h1>Automated Tests of Servers</h1>
+<p>Now we can commission local servers automatically, we can define <em>automated tests</em> for the machines we provision, asserting that they provide the services we expect.</p>
+<ul>
+<li>Run the vagrantfile to trigger the same puppet manifest as we use in production</li>
+<li>Only secrets and config info should differ</li>
+<li>Run a test script which asserts against the provided services.</li>
+</ul>
+</section><section id="complete-example" class="slide level2">
+<h1>Complete Example</h1>
+<p><a href="https://github.com/jamespjh/vagrant-puppet-example/">https://github.com/jamespjh/vagrant-puppet-example/</a></p>
+</section><section id="further-thoughts" class="slide level2">
+<h1>Further thoughts</h1>
+<ul>
+<li>Next step would be to automatically run the vagrant VM build inside Jenkins</li>
+<li>Push to puppet master and prun if the tests pass</li>
+<li>Vagrant multi-machine for an infrastructure of interacting services</li>
+</ul>
+</section></section>
+<section><section id="containers" class="titleslide slide level1"><h1>Containers</h1></section><section id="docker-vs-vagrant" class="slide level2">
+<h1>Docker vs Vagrant</h1>
+<p>In the above example, our puppet scripts need a whole VM to work, so we use vagrant.</p>
+<p>An alternative choice is to use <strong>container</strong> based automation, with Docker.</p>
+<p>Here, instead of full VMs, we use a thinner layer of separation, to more quickly build and manage isolated environments.</p>
+<p>Docker doesn't work with our puppet scripts though (e.g. it doesn't let you use systemd services in a container.)</p>
+</section><section id="docker-example" class="slide level2">
+<h1>Docker example</h1>
+<p><a href="https://github.com/jamespjh/docker-example">https://github.com/jamespjh/docker-example</a></p>
+<p>Docker on Travis</p>
+<p><a href="https://travis-ci.org/jamespjh/docker-example/builds">https://travis-ci.org/jamespjh/docker-example/builds</a> <a href="https://github.com/jamespjh/docker-example/blob/master/.travis.yml">https://github.com/jamespjh/docker-example/blob/master/.travis.yml</a></p>
+</section></section>
+<section><section id="conclusions" class="titleslide slide level1"><h1>Conclusions</h1></section><section id="principles" class="slide level2">
+<h1>Principles</h1>
+<ul>
+<li>Version control everything</li>
+<li>Make it so you can do everything locally</li>
+<li>Test automatically</li>
+<li>Trust your tests</li>
+<li>Tests + Deployed branches =&gt; Deployment</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

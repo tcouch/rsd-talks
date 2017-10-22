@@ -1,0 +1,692 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Practical Version Control and Issue Tracking</title>
+
+  <link href="/rsd-talks/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/rsd-talks/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/rsd-talks/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/rsd-talks/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/rsd-talks/favicon-144.png">
+
+  <script src="/rsd-talks/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/rsd-talks/js/lib/html5shiv-printshiv.min.js', '/rsd-talks/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/rsd-talks/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/rsd-talks/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/rsd-talks/js/lib/require.min.js"></script>
+    <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/rsd-talks/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">UCL Research Software Development Talks</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+ <li class="active"> <a href="/rsd-talks/rsd/">Talks about Research Software Development in UCL</a><ul><li class="inactive"> <a href="/rsd-talks/rsd/dashboard_announce.html">The UCL Research Software Dashboard</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/experiences.html">The Craftsperson and The Scholar</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/training.html">Researcher Training for the data-dominated age</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/zacrosEASC.html">Zacros ARCHER eCSE Project</a> </li></ul> </li><li class="active"> <a href="/rsd-talks/technical/">Technical talks</a><ul> <li class="active"> <a href="/rsd-talks/technical/carpentry-compressed.html">Software Carpentry: Compressed Edition</a> </li> <li class="active"> <a href="/rsd-talks/technical/continuous.html">Continuous Deployment</a> </li> <li class="active"> <a href="/rsd-talks/technical/fabric.html">Using fabric to deploy to HPC</a> </li> <li class="active"> <a href="/rsd-talks/technical/paradigms.html">Modelling and Inference: the détente</a> </li> <li class="active"> <a href="/rsd-talks/technical/version_control.html">Practical Version Control and Issue Tracking</a> </li></ul> </li> 
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/rsd-talks/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/rits">Research IT Services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/research-it-services/our-work/research-software-development">Research Software Development</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/rsd-talks/">Programming Talks</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/rsd-talks/technical/version_control-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>Practical Version Control and Issue Tracking</h1>
+
+<h2>What Version Control is For</h2>
+
+<ul>
+<li>Managing Code Inventory
+
+<ul>
+<li>&quot;When did I introduce this bug&quot;?</li>
+<li>Undoing Mistakes</li>
+</ul></li>
+<li>Working with other programmers
+
+<ul>
+<li>&quot;How can I merge my work with Jim&#39;s&quot;</li>
+</ul></li>
+</ul>
+
+<h2>What is version control?</h2>
+
+<p>Do some programming</p>
+
+<p><code>my_vcs commit</code></p>
+
+<p>Program some more</p>
+
+<p>Realise mistake</p>
+
+<p><code>my_vcs rollback</code></p>
+
+<p>Mistake is undone</p>
+
+<h2>What is version control?</h2>
+
+<table><thead>
+<tr>
+<th>Sue</th>
+<th>James</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>my_vcs commit</code></td>
+<td>...</td>
+</tr>
+<tr>
+<td>...</td>
+<td><code>my_vcs checkout</code></td>
+</tr>
+<tr>
+<td>...</td>
+<td>do some programming</td>
+</tr>
+<tr>
+<td>...</td>
+<td><code>my_vcs commit</code></td>
+</tr>
+<tr>
+<td><code>my_vcs update</code></td>
+<td>more programming</td>
+</tr>
+<tr>
+<td>Do some programming</td>
+<td>...</td>
+</tr>
+<tr>
+<td>...</td>
+<td><code>my_vcs commit</code></td>
+</tr>
+<tr>
+<td><code>my_vcs commit</code></td>
+<td>...</td>
+</tr>
+<tr>
+<td>Oh Noes! Error!</td>
+<td>...</td>
+</tr>
+</tbody></table>
+
+<h2>Resolving conflicts</h2>
+
+<p><code>my_vcs commit</code>    |...
+Oh Noes! Error!    |...
+<code>my_vcs update</code>    |...
+<code>my_vcs merge</code>     |...
+<code>my_vcs commit</code>    |...
+ ...               |<code>my_vcs commit</code>
+ ...               |Error again...</p>
+
+<h1>Centralised Version Control</h1>
+
+<h2>Centralised VCS concepts</h2>
+
+<ul>
+<li>There is one, linear history of changes on the server or <strong>repository</strong></li>
+<li>Each revision has a unique, sequential identifier (1,2,3,4...)</li>
+<li>You have a <strong>working copy</strong></li>
+<li>You <strong>update</strong> the working copy to match the state of the repository</li>
+<li>If someone else has changed the repository while you were working:
+
+<ul>
+<li>You update to get their changes</li>
+<li>You have to <strong>resolve conflicts</strong></li>
+<li>Then you commit</li>
+</ul></li>
+</ul>
+
+<h2>Centralised VCS diagram</h2>
+
+<p><img src="generated/centralised.png" alt="A centralised server with three clients"></p>
+
+<h2>Centralised VCS solo workflow</h2>
+
+<p><img src="generated/centralised_solo.png" alt="Solo workflow for SVN"></p>
+
+<h2>Centralised VCS team workflow</h2>
+
+<p><img src="generated/centralised_team_noconflict.png" alt="Team workflow for SVN"></p>
+
+<h2>Centralised VCS conflicted workflow</h2>
+
+<p><img src="generated/centralised_team.png" alt="Conflicted workflow for SVN"></p>
+
+<h2>Resolving conflicts</h2>
+
+<p>On update, you get a prompt like:</p>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">svn update
+&gt; Conflict discovered in ’sharedfile.py'. 
+&gt; Select: (p) postpone, (e) edit, (mc) mine-conflict ...
+</code></pre></div>
+<p>If you choose <code>(e)</code> the conflicted file will look something like:</p>
+<div class="highlight"><pre><code class="language-Diff" data-lang="Diff">Whatever was in the file before the conflicted bit
+&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine
+Sue’s content
+======= 
+Jim’s content
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r4
+Content after the conflicted bit
+</code></pre></div>
+<p>It is your duty to edit this to fix conflicts, then save.</p>
+
+<h2>Revisiting history</h2>
+
+<p>Update to a particular revision:
+<code>Bash
+svn up -r 3
+</code></p>
+
+<p>See the differences between your working area and a revision
+<code>Bash
+svn diff #To most recent version
+svn diff -r 3
+</code></p>
+
+<p>See what you&#39;ve changed:</p>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">svn status
+</code></pre></div>
+<p>Get rid of changes to a file:</p>
+<div class="highlight"><pre><code class="language-" data-lang="">svn revert myfile.py
+</code></pre></div>
+<h1>Distributed Version Control</h1>
+
+<h2>Distributed versus centralised</h2>
+
+<table><thead>
+<tr>
+<th>Centralised</th>
+<th>Distributed</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>Server has history</td>
+<td>Every user has full history</td>
+</tr>
+<tr>
+<td>Your computer has one snapshot</td>
+<td>Many local branches</td>
+</tr>
+<tr>
+<td>To access history, need internet</td>
+<td>History always available</td>
+</tr>
+<tr>
+<td>You commit to remote server</td>
+<td>Users synchronise histories</td>
+</tr>
+<tr>
+<td>cvs, subversion(svn)</td>
+<td>git, mercurial (hg), bazaar (bzr)</td>
+</tr>
+</tbody></table>
+
+<h2>Distributed VCS in principle</h2>
+
+<p><img src="generated/distributed_principle.png" alt="How distributed VCS works in principle"></p>
+
+<h2>Distributed VCS in practice</h2>
+
+<p><img src="generated/distributed_practice.png" alt="How distributed VCS works in practice"></p>
+
+<h2>Pragmatic Distributed VCS</h2>
+
+<table><thead>
+<tr>
+<th>Subversion</th>
+<th>Git</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><code>svn checkout &lt;URL&gt;</code></td>
+<td><code>git clone &lt;URL&gt;</code></td>
+</tr>
+<tr>
+<td><code>svn commit</code></td>
+<td><code>git commit -a; git push</code></td>
+</tr>
+<tr>
+<td><code>svn up</code></td>
+<td><code>git pull</code></td>
+</tr>
+<tr>
+<td><code>svn status</code></td>
+<td><code>git status</code></td>
+</tr>
+<tr>
+<td><code>svn diff</code></td>
+<td><code>git diff</code></td>
+</tr>
+</tbody></table>
+
+<h2>Why Go Distributed?</h2>
+
+<ul>
+<li>Easy to start a repository (no server needed)</li>
+<li>Easy to start a server</li>
+<li>Can work without internets</li>
+<li>Better merges</li>
+<li>Easy branching</li>
+<li>More widespread support</li>
+</ul>
+
+<h2>Why Not Go Distributed?</h2>
+
+<ul>
+<li>More complex commands</li>
+<li>More confusing</li>
+</ul>
+
+<h2>Distributed VCS concepts</h2>
+
+<ul>
+<li>Each revision has a parent that it is based on</li>
+<li>These revisions form a graph</li>
+<li>The most recent revision in each copy is the HEAD</li>
+<li>Each revision has a unique hash code
+
+<ul>
+<li>In Sue&#39;s copy, revision 43 is ab3578d6</li>
+<li>Jim thinks that is revision 38</li>
+</ul></li>
+<li>When you <em>pull</em> from a <em>remote</em> the histories might conflict
+
+<ul>
+<li>Histories are <em>merged</em> together</li>
+</ul></li>
+</ul>
+
+<h2>A revision graph</h2>
+
+<p><img src="generated/revisions.png" alt="Revisions form a graph"></p>
+
+<h2>Distributed VCS concepts (2)</h2>
+
+<ul>
+<li>You have a <em>working copy</em></li>
+<li>You pick a subset of the changes in your working copy
+to add to the next commit</li>
+<li>Changes to be included in the next commit are kept in a
+<strong>staging area</strong> (a.k.a. <strong>index</strong>)</li>
+<li>When you commit you commit:
+
+<ul>
+<li>From the staging area</li>
+<li>To the local repository</li>
+</ul></li>
+<li>You <strong>push</strong> to <strong>remote</strong> repositories to share or publish</li>
+<li>You <strong>pull</strong> (or fetch) to bring in changes from a remote</li>
+</ul>
+
+<h2>The Levels of Git</h2>
+
+<p><img src="generated/distributed_concepts.png" alt="The relationship between the staging area, working directory, and
+repositories in git."></p>
+
+<h1>Using Git</h1>
+
+<h2>Distributed VCS Solo Workflow</h2>
+
+<p><img src="generated/distributed_solo.png" alt="Working alone with git"></p>
+
+<h2>Distributed VCS With Publishing</h2>
+
+<p><img src="generated/distributed_solo_publishing.png" alt="Publishing with git"></p>
+
+<h2>Distributed VCS in teams without conflicts</h2>
+
+<p><img src="generated/distributed_shared_noconflict.png" alt="Teamworking in git"></p>
+
+<h2>Distributed VCS in teams with conflicts</h2>
+
+<p><img src="generated/distributed_shared_conflicted.png" alt="Teamworking in git with conflicts"></p>
+
+<h2>Working with multiple remotes</h2>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">git remote add sue ssh://sue.ucl.ac.uk/somerepo
+   # Add a second remote
+git remote
+   # List available remotes
+git push sue
+   # Push to a specific remote
+   # Default is origin
+</code></pre></div>
+<h1>Branches</h1>
+
+<h2>Working with branches</h2>
+
+<p><img src="generated/branching.png" alt="Using branches"></p>
+
+<h2>Working with branches in git</h2>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">git branch # Tell me what branches exist
+</code></pre></div><div class="highlight"><pre><code class="language-" data-lang="">   * master # Asterisk tells me which one
+     experiment # I am currently on
+</code></pre></div><div class="highlight"><pre><code class="language-Bash" data-lang="Bash">git checkout -b somebranch # Make a new branch
+git checkout master # Switch to an existing branch
+</code></pre></div>
+<h2>Sharing branches</h2>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">git push -u origin experiment # Share a recently
+                              # made branch
+git push origin experiment #Republish a branch
+git branch -r #Discover remote branches
+git checkout origin/some_branch #Get a branch
+                                #from a remote
+</code></pre></div>
+<h2>Merging branches</h2>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">git checkout master # Switch to master branch
+git merge experiment # Merge the branch in
+git branch -d experiment # Delete branch locally
+git push --delete experiment # Delete published branch
+</code></pre></div>
+<h2>A good branch strategy</h2>
+
+<ul>
+<li>A <code>production</code> branch: code used for active work</li>
+<li>A <code>develop</code> branch: for general new code</li>
+<li><code>feature</code> branches: for specific new ideas</li>
+<li><code>release</code> branches: when you share code with others
+
+<ul>
+<li>Useful for isolated bug fixes</li>
+</ul></li>
+</ul>
+
+<h2>Tagging</h2>
+
+<p>Easy to read labels for revisions
+Produce real results <em>only</em> with tagged revisions</p>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">git tag -a v1.3
+git push --tags
+</code></pre></div>
+<h2>Branching and tagging in subversion</h2>
+
+<ul>
+<li>Subversion doesn&#39;t have real branches and tags</li>
+<li>Instead, each is a separate whole copy</li>
+<li>But you can still merge between copies</li>
+</ul>
+
+<h1>Hosting Servers</h1>
+
+<h2>Hosting a server</h2>
+
+<ul>
+<li>Any repository can be a remote for pulls</li>
+<li>Can pull/push over shared folders or ssh</li>
+<li>Pushing to someone&#39;s working copy is dangerous</li>
+<li>Use <code>git init --bare</code> to make a copy for pushing</li>
+<li>You don&#39;t need to create a &quot;server&quot;</li>
+</ul>
+
+<h2>Hosting a server in the cloud</h2>
+
+<ul>
+<li>Many online services</li>
+<li>Github, bitbucket, sourceforge...</li>
+<li>I recommend GitHub</li>
+</ul>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2017-10-22 00:26:24 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/rsd-talks/js/lib/require.min.js"></script>
+  <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

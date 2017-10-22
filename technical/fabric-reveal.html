@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="James Hetherington and Derek Groen" />
+  <meta name="dcterms.date" content="2013-11-19" />
+  <title>Using fabric to deploy to HPC</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; }
+code > span.dt { color: #dfdfbf; }
+code > span.dv { color: #dcdccc; }
+code > span.bn { color: #dca3a3; }
+code > span.fl { color: #c0bed1; }
+code > span.ch { color: #dca3a3; }
+code > span.st { color: #cc9393; }
+code > span.co { color: #7f9f7f; }
+code > span.ot { color: #efef8f; }
+code > span.al { color: #ffcfaf; }
+code > span.fu { color: #efef8f; }
+code > span.er { color: #c3bf9f; }
+    </style>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/rits17.css"/>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/reveal.css"/>
+  <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Using fabric to deploy to HPC</h1>
+    <h2 class="author">James Hetherington and Derek Groen</h2>
+    <h3 class="date">19 November 2013</h3>
+</section>
+
+<section id="repetition" class="slide level1">
+<h1>Repetition</h1>
+<ul>
+<li>Repetition leads to boredom</li>
+<li>Boredom leads to horrifying mistakes</li>
+<li>Horrifying mistakes lead to God-I-wish-I-was- still-bored -- <a href="http://lethain.com/deploying-django-with-fabric/">Will Larson</a></li>
+</ul>
+</section>
+<section id="doing-it-wrong" class="slide level1">
+<h1>Doing it wrong</h1>
+<p>If you manually shell into a remote supercomputer when you deploy into production you are doing it wrong.</p>
+<p>Tools exist to help you manage deployment.</p>
+</section>
+<section id="devops" class="slide level1">
+<h1>DevOps</h1>
+<p>&quot;Systems administration&quot; should be treated with the same respect as development.</p>
+<p>This is systems programming. (Aka dev ops.)</p>
+</section>
+<section id="fabric" class="slide level1">
+<h1>Fabric</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> ~/devel/myproject/fabfile.py
+<span class="kw">fab</span> deploy</code></pre>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ch">from</span> fabric.api <span class="ch">import</span> local
+env.host = <span class="st">&#39;gauss.chem.ucl.ac.uk&#39;</span>
+env.repo = <span class="st">&#39;ssh://hg@myserver/myrepo&#39;</span>
+
+env.remote_path=<span class="st">&#39;/var/www/www.myapp.com/&#39;</span>
+<span class="ot">@task</span>
+<span class="kw">def</span> deploy():
+  <span class="kw">with</span> cd(env.remote_path)
+    run(<span class="st">&#39;git clone </span><span class="ot">{repo}</span><span class="st">&#39;</span>.<span class="dt">format</span>(**env))</code></pre>
+</section>
+<section id="fabric-with-supercomputers" class="slide level1">
+<h1>Fabric with supercomputers</h1>
+<ul>
+<li>Maintain list of different remotes</li>
+<li>Maintain templates for jobscripts</li>
+<li>Define modules to load in fabfile, not in remote bashrc.</li>
+</ul>
+</section>
+<section id="fabric-with-supercomputers-1" class="slide level1">
+<h1>Fabric with supercomputers</h1>
+<pre class="sourceCode python"><code class="sourceCode python"><span class="ot">@task</span>
+<span class="kw">def</span> configure(*configurations,**extras):
+    <span class="co">&quot;&quot;&quot;CMake configure step for HemeLB and dependencies.&quot;&quot;&quot;</span>
+    configure_cmake(configurations,extras)
+
+    <span class="kw">with</span> cd(env.build_path):
+        <span class="kw">with</span> prefix(env.build_prefix):
+            run(template(<span class="st">&quot;rm -f $build_path/CMakeCache.txt&quot;</span>))
+            run(template(<span class="st">&quot;cmake $repository_path $cmake_flags&quot;</span>))</code></pre>
+</section>
+<section id="using-fabric-with-multiple-remotes" class="slide level1">
+<h1>Using fabric with multiple remotes</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cd</span> devel/projects/hemelb
+<span class="kw">fab</span> hector cold
+<span class="kw">fab</span> tianhe send_geometry:cylinder
+<span class="kw">fab</span> archer hemelb:cylinder
+<span class="kw">fab</span> dirac wait_on_run
+<span class="kw">fab</span> legion steer
+<span class="kw">fab</span> stampede fetch_results</code></pre>
+</section>
+<section id="describe-machines" class="slide level1">
+<h1>Describe machines</h1>
+<pre class="sourceCode bash"><code class="sourceCode bash"><span class="kw">cat</span> ~/devel/hemelb/deploy/machines.yml</code></pre>
+<pre class="sourceCode yaml"><code class="sourceCode yaml"><span class="fu">hector:</span>
+  <span class="fu">remote:</span> &quot;login.hector.ac.uk&quot;
+  <span class="fu">username:</span> jamespjh
+  <span class="fu">job_dispatch:</span> &quot;qsub&quot;
+  <span class="fu">run_command:</span> &quot;aprun -n $cores -N
+            $coresusedpernode&quot;
+  <span class="fu">batch_header:</span> pbs
+  <span class="fu">max_job_name_chars:</span> 15
+  <span class="fu">make_jobs:</span> 4
+<span class="fu">legion:</span>
+  ...</code></pre>
+</section>
+<section id="our-use-of-fabric" class="slide level1">
+<h1>Our use of Fabric</h1>
+<p>We use it to:</p>
+<ul>
+<li>compile, deploy and manage runs of HemeLB (a bloodflow simulation environment),</li>
+<li>create and manage automated workflows to iteratively optimize potentials for coarse-grained molecular dynamics systems.</li>
+</ul>
+</section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

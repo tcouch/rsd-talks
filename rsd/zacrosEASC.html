@@ -1,0 +1,585 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Zacros ARCHER eCSE Project</title>
+
+  <link href="/rsd-talks/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/rsd-talks/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/rsd-talks/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/rsd-talks/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/rsd-talks/favicon-144.png">
+
+  <script src="/rsd-talks/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/rsd-talks/js/lib/html5shiv-printshiv.min.js', '/rsd-talks/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/rsd-talks/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/rsd-talks/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/rsd-talks/js/lib/require.min.js"></script>
+    <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/rsd-talks/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">UCL Research Software Development Talks</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+ <li class="active"> <a href="/rsd-talks/rsd/">Talks about Research Software Development in UCL</a><ul><li class="active"> <a href="/rsd-talks/rsd/dashboard_announce.html">The UCL Research Software Dashboard</a> </li> <li class="active"> <a href="/rsd-talks/rsd/experiences.html">The Craftsperson and The Scholar</a> </li> <li class="active"> <a href="/rsd-talks/rsd/training.html">Researcher Training for the data-dominated age</a> </li> <li class="active"> <a href="/rsd-talks/rsd/zacrosEASC.html">Zacros ARCHER eCSE Project</a> </li></ul> </li><li class="active"> <a href="/rsd-talks/technical/">Technical talks</a><ul> <li class="inactive"> <a href="/rsd-talks/technical/carpentry-compressed.html">Software Carpentry: Compressed Edition</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/continuous.html">Continuous Deployment</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/fabric.html">Using fabric to deploy to HPC</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/paradigms.html">Modelling and Inference: the détente</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/version_control.html">Practical Version Control and Issue Tracking</a> </li></ul> </li> 
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/rsd-talks/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/rits">Research IT Services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/research-it-services/our-work/research-software-development">Research Software Development</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/rsd-talks/">Programming Talks</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/rsd-talks/rsd/zacrosEASC-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>Introduction to Zacros</h1>
+
+<h2>Zacros:</h2>
+
+<p><img src="assets/zacrosESCE/ZacrosLogo.svg" alt=""></p>
+
+<ul>
+<li>Kinetic Monte Carlo (KMC) simulation of surface chemistry</li>
+<li>Graph theoretical framework
+
+<ul>
+<li>Handle complex surface patterns</li>
+</ul></li>
+</ul>
+
+<p>For more info visit: zacros.org </p>
+
+<h2>Reaction patterns</h2>
+
+<ul>
+<li>Possible reactions get a time assigned based on:
+
+<ul>
+<li>kinetic rate constants (Propensities)</li>
+<li>A random number</li>
+</ul></li>
+</ul>
+
+<p><img src="assets/zacrosESCE/reactionCOOCO2.svg" alt="Example of simple reaction pattern"></p>
+
+<p>See Stamatakis and Vlachos. 2011. J. Chem. Phys. 134(21): 214115
+and
+Nielsen et. al. 2013. J. Chem. Phys. 139(22): 224706</p>
+
+<h2>Surface energy</h2>
+
+<p>To calculate rates, the surface energy is needed:</p>
+
+<ul>
+<li>Surface energy is given as a cluster expansion</li>
+<li>I.e. an expansion in simple surface patterns </li>
+</ul>
+
+<p><img src="assets/zacrosESCE/clusterexpansion.svg" alt="Example of cluster expansions"></p>
+
+<h2>Pseudo code</h2>
+
+<ul>
+<li>Select most imminent process</li>
+<li>Remove adsorbates from lattice</li>
+<li>Remove clusters with reactants</li>
+<li>Remove reactions involving the reactants</li>
+<li>Add product adsorbates</li>
+<li>Find new energy clusters</li>
+<li>Find existing processes that need update</li>
+<li>Update rates of existing processes</li>
+<li>Add new processes</li>
+</ul>
+
+<h2>Technical</h2>
+
+<ul>
+<li>Fortran 95/2003 code</li>
+<li>Originally fully serial</li>
+<li>Two performance issues with serial code identified</li>
+</ul>
+
+<h2>Cluster Expansion</h2>
+
+<ul>
+<li>Long range interactions requires large cluster expansions</li>
+<li>Larger cluster expansions =&gt;  More processes to update</li>
+<li>This is the first performance issue</li>
+</ul>
+
+<p><img src="assets/zacrosESCE/clusterlayout.svg" alt="Interaction length affected by reaction"></p>
+
+<h2>Lattice size</h2>
+
+<p>Large lattice for accurate simulations</p>
+
+<ul>
+<li>Update time is independent of lattice size</li>
+<li>But reaction rate is not</li>
+<li>KMC time / CPU time depends linearly on the number of sites</li>
+<li>Large lattices are time consuming to simulate</li>
+<li>The second performance issue</li>
+</ul>
+
+<h1>Reaction updates:</h1>
+
+<h2>OpenMP:</h2>
+
+<ul>
+<li>Profiling shows bottleneck in update rates ...</li>
+<li>Many processes are affected
+
+<ul>
+<li>Especially for large cluster expansion</li>
+</ul></li>
+<li>Do loop of independent processes to update</li>
+<li>OpenMP parallization of this loop</li>
+</ul>
+
+<p>See Nielsen et. al. 2013. J. Chem. Phys. 139(22): 224706</p>
+
+<h2>Scaled performance of OpenMP</h2>
+
+<p><img src="assets/zacrosESCE/archer_intelO3_threds_scaling.png" alt="NO oxidation model with 4 different cluster expansions on Archer"></p>
+
+<h2>Computational time per event</h2>
+
+<p><img src="assets/zacrosESCE/archer_intelO3_lattice_event_scaling.png" alt="Time per KMC event is independent of lattice size."></p>
+
+<h2>Computational time / KMC time</h2>
+
+<p><img src="assets/zacrosESCE/archer_intelO3_lattice_scaling.png" alt=""></p>
+
+<ul>
+<li>But number of events per simulated second is not</li>
+<li>12 figure expansion at 7056 lattice points (12 threads):
+
+<ul>
+<li>$&gt; 10^4$ seconds per simulated second</li>
+</ul></li>
+</ul>
+
+<h2>Limitations</h2>
+
+<p>Decent speed up for large cluster expansions but:</p>
+
+<ul>
+<li>OpenMP limited to one computational node</li>
+<li>Simulations are still too slow for large lattices and clusters</li>
+</ul>
+
+<p>Solution: MPI Parallelization over lattice</p>
+
+<h1>Spatial Parallelization</h1>
+
+<h2>MPI based parallelization</h2>
+
+<ul>
+<li>Reactions on individual domains</li>
+<li>Halo for
+
+<ul>
+<li>Reactants</li>
+<li>Products</li>
+<li>Energetic clusters</li>
+</ul></li>
+</ul>
+
+<p><img src="assets/zacrosESCE/grid.svg" alt=""></p>
+
+<h2>Original plan:</h2>
+
+<p>Implement algorithm proposed by Lubachevsky</p>
+
+<ul>
+<li>Algorithm is developed for Ising spin model</li>
+<li>Each domain keeps track of a local time</li>
+<li>Global time is min(localTimes)</li>
+<li>Updates in a MPI domain is allowed if:
+
+<ul>
+<li>Local time is smaller than all neighbours</li>
+</ul></li>
+</ul>
+
+<p>Lubachevsky. 1988. J. Comp. Phys. 75 (1): 103</p>
+
+<h2>Algorithm</h2>
+
+<ul>
+<li>Perform spin flip if time is smallest among neighbours</li>
+<li>Select a site and either:
+
+<ul>
+<li>Perform spin flip</li>
+<li>Perform null event</li>
+</ul></li>
+<li>Advance local time by a random interval</li>
+<li>Repeat</li>
+</ul>
+
+<p>Time advancement is independent of whether a spin is flipped</p>
+
+<p>Energetics affect the relative probability of null events</p>
+
+<h2>Algorithm in Zacros</h2>
+
+<p>Same principle:</p>
+
+<ul>
+<li>If local time &lt; neighbours time:
+
+<ul>
+<li>Advance local time</li>
+<li>Perform reaction</li>
+<li>Send halo and new local time</li>
+</ul></li>
+<li>Else:
+
+<ul>
+<li>Wait to receive halo and time</li>
+</ul></li>
+</ul>
+
+<h2>Issues in Zacros</h2>
+
+<ul>
+<li>Future reactions have a wait time associated with them</li>
+<li>Wait time is random but determined by reaction rates</li>
+<li>Most imminent reaction is performed</li>
+<li>Reaction happen after wait time</li>
+<li>Wait time can differ by several orders of magnitude</li>
+</ul>
+
+<h2>Example</h2>
+
+<p>Assume that we have 3 MPI nodes in a 1D array</p>
+
+<p>Both $P<em>1$ and $P</em>3$ are free to perform reactions</p>
+
+<p><img src="assets/zacrosESCE/timeline1.svg" alt=""></p>
+
+<h2>Example</h2>
+
+<p>Assume that we have 3 MPI nodes in a 1D array</p>
+
+<p>Conflict $\textrm{P}_1$  should not have performed a reaction</p>
+
+<p><img src="assets/zacrosESCE/timeline2.svg" alt=""></p>
+
+<h2>In summary</h2>
+
+<ul>
+<li>Can&#39;t change the condition to smallest among $T<em>{local} + T</em>{wait}$
+
+<ul>
+<li>The reactions that $T_{wait}$ on neighbours represent have not happened:</li>
+<li>In fact they may never happen</li>
+<li>Reactions may propagate across domains</li>
+</ul></li>
+</ul>
+
+<h2>Alternative strategies</h2>
+
+<p>An alternative proposed by Jefferson</p>
+
+<ul>
+<li>Each node propagates its reactions without synchronization</li>
+<li>Stores a list of anti reactions to performed reactions</li>
+<li>When a reaction is performed messages are sent to relevant neighbours</li>
+</ul>
+
+<p>Jefferson. 1985. ACM Trans. Program. Lang. Syst. 7 (3): 404</p>
+
+<h2>Alternative strategies</h2>
+
+<ul>
+<li>If conflicts arise neighbours will roll-back 
+
+<ul>
+<li>Sending anti messages to their neighbours</li>
+<li>With further potential roll-back</li>
+</ul></li>
+<li>The &quot;slowest&quot; node determine a virtual time horizon (Global time)
+
+<ul>
+<li>No roll-backs beyond this the are needed </li>
+</ul></li>
+</ul>
+
+<h1>Conclusion</h1>
+
+<h2>Conclusion</h2>
+
+<ul>
+<li>Good performance improvement for long range interactions</li>
+<li>Spatial parallelization is on-going work
+
+<ul>
+<li>Change of algorithm</li>
+</ul></li>
+</ul>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2017-10-22 00:26:24 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/rsd-talks/js/lib/require.min.js"></script>
+  <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

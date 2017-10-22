@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="James Hetherington" />
+  <title>Practical Version Control and Issue Tracking</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <style type="text/css">
+table.sourceCode, tr.sourceCode, td.lineNumbers, td.sourceCode {
+  margin: 0; padding: 0; vertical-align: baseline; border: none; }
+table.sourceCode { width: 100%; line-height: 100%; background-color: #303030; color: #cccccc; }
+td.lineNumbers { text-align: right; padding-right: 4px; padding-left: 4px; }
+td.sourceCode { padding-left: 5px; }
+pre, code { color: #cccccc; background-color: #303030; }
+code > span.kw { color: #f0dfaf; }
+code > span.dt { color: #dfdfbf; }
+code > span.dv { color: #dcdccc; }
+code > span.bn { color: #dca3a3; }
+code > span.fl { color: #c0bed1; }
+code > span.ch { color: #dca3a3; }
+code > span.st { color: #cc9393; }
+code > span.co { color: #7f9f7f; }
+code > span.ot { color: #efef8f; }
+code > span.al { color: #ffcfaf; }
+code > span.fu { color: #efef8f; }
+code > span.er { color: #c3bf9f; }
+    </style>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/rits17.css"/>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/reveal.css"/>
+  <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">Practical Version Control and Issue Tracking</h1>
+    <h2 class="author">James Hetherington</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section><section id="practical-version-control-and-issue-tracking" class="titleslide slide level1"><h1>Practical Version Control and Issue Tracking</h1></section><section id="what-version-control-is-for" class="slide level2">
+<h1>What Version Control is For</h1>
+<ul>
+<li>Managing Code Inventory
+<ul>
+<li>&quot;When did I introduce this bug&quot;?</li>
+<li>Undoing Mistakes</li>
+</ul></li>
+<li>Working with other programmers
+<ul>
+<li>&quot;How can I merge my work with Jim's&quot;</li>
+</ul></li>
+</ul>
+</section><section id="what-is-version-control" class="slide level2">
+<h1>What is version control?</h1>
+<p>Do some programming</p>
+<p><code>my_vcs commit</code></p>
+<p>Program some more</p>
+<p>Realise mistake</p>
+<p><code>my_vcs rollback</code></p>
+<p>Mistake is undone</p>
+</section><section id="what-is-version-control-1" class="slide level2">
+<h1>What is version control?</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Sue</th>
+<th style="text-align: left;">James</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>my_vcs commit</code></td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;"><code>my_vcs checkout</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">do some programming</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;"><code>my_vcs commit</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>my_vcs update</code></td>
+<td style="text-align: left;">more programming</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Do some programming</td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;"><code>my_vcs commit</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>my_vcs commit</code></td>
+<td style="text-align: left;">...</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Oh Noes! Error!</td>
+<td style="text-align: left;">...</td>
+</tr>
+</tbody>
+</table>
+</section><section id="resolving-conflicts" class="slide level2">
+<h1>Resolving conflicts</h1>
+<p><code>my_vcs commit</code> |... Oh Noes! Error! |... <code>my_vcs update</code> |... <code>my_vcs merge</code> |... <code>my_vcs commit</code> |... ... |<code>my_vcs commit</code> ... |Error again...</p>
+</section></section>
+<section><section id="centralised-version-control" class="titleslide slide level1"><h1>Centralised Version Control</h1></section><section id="centralised-vcs-concepts" class="slide level2">
+<h1>Centralised VCS concepts</h1>
+<ul>
+<li>There is one, linear history of changes on the server or <strong>repository</strong></li>
+<li>Each revision has a unique, sequential identifier (1,2,3,4...)</li>
+<li>You have a <strong>working copy</strong></li>
+<li>You <strong>update</strong> the working copy to match the state of the repository</li>
+<li>If someone else has changed the repository while you were working:</li>
+<li>You update to get their changes</li>
+<li>You have to <strong>resolve conflicts</strong></li>
+<li>Then you commit</li>
+</ul>
+</section><section id="centralised-vcs-diagram" class="slide level2">
+<h1>Centralised VCS diagram</h1>
+<figure>
+<img src="generated/centralised.png" alt="A centralised server with three clients" /><figcaption>A centralised server with three clients</figcaption>
+</figure>
+</section><section id="centralised-vcs-solo-workflow" class="slide level2">
+<h1>Centralised VCS solo workflow</h1>
+<figure>
+<img src="generated/centralised_solo.png" alt="Solo workflow for SVN" /><figcaption>Solo workflow for SVN</figcaption>
+</figure>
+</section><section id="centralised-vcs-team-workflow" class="slide level2">
+<h1>Centralised VCS team workflow</h1>
+<figure>
+<img src="generated/centralised_team_noconflict.png" alt="Team workflow for SVN" /><figcaption>Team workflow for SVN</figcaption>
+</figure>
+</section><section id="centralised-vcs-conflicted-workflow" class="slide level2">
+<h1>Centralised VCS conflicted workflow</h1>
+<figure>
+<img src="generated/centralised_team.png" alt="Conflicted workflow for SVN" /><figcaption>Conflicted workflow for SVN</figcaption>
+</figure>
+</section><section id="resolving-conflicts-1" class="slide level2">
+<h1>Resolving conflicts</h1>
+<p>On update, you get a prompt like:</p>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">svn</span> update
+<span class="kw">&gt;</span> <span class="kw">Conflict</span> discovered in ’sharedfile.py<span class="st">&#39;. </span>
+<span class="st">&gt; Select: (p) postpone, (e) edit, (mc) mine-conflict ...</span></code></pre>
+<p>If you choose <code>(e)</code> the conflicted file will look something like:</p>
+<pre class="sourceCode Diff"><code class="sourceCode diff">Whatever was in the file before the conflicted bit
+<span class="st">&lt;&lt;&lt;&lt;&lt;&lt;&lt; .mine</span>
+Sue’s content
+<span class="kw">======= </span>
+Jim’s content
+<span class="ot">&gt;&gt;&gt;&gt;&gt;&gt;&gt; .r4</span>
+Content after the conflicted bit</code></pre>
+<p>It is your duty to edit this to fix conflicts, then save.</p>
+</section><section id="revisiting-history" class="slide level2">
+<h1>Revisiting history</h1>
+<p>Update to a particular revision:</p>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">svn</span> up -r 3</code></pre>
+<p>See the differences between your working area and a revision</p>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">svn</span> diff <span class="co">#To most recent version</span>
+<span class="kw">svn</span> diff -r 3</code></pre>
+<p>See what you've changed:</p>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">svn</span> status</code></pre>
+<p>Get rid of changes to a file:</p>
+<pre><code>svn revert myfile.py</code></pre>
+</section></section>
+<section><section id="distributed-version-control" class="titleslide slide level1"><h1>Distributed Version Control</h1></section><section id="distributed-versus-centralised" class="slide level2">
+<h1>Distributed versus centralised</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Centralised</th>
+<th style="text-align: left;">Distributed</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Server has history</td>
+<td style="text-align: left;">Every user has full history</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Your computer has one snapshot</td>
+<td style="text-align: left;">Many local branches</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">To access history, need internet</td>
+<td style="text-align: left;">History always available</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">You commit to remote server</td>
+<td style="text-align: left;">Users synchronise histories</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">cvs, subversion(svn)</td>
+<td style="text-align: left;">git, mercurial (hg), bazaar (bzr)</td>
+</tr>
+</tbody>
+</table>
+</section><section id="distributed-vcs-in-principle" class="slide level2">
+<h1>Distributed VCS in principle</h1>
+<figure>
+<img src="generated/distributed_principle.png" alt="How distributed VCS works in principle" /><figcaption>How distributed VCS works in principle</figcaption>
+</figure>
+</section><section id="distributed-vcs-in-practice" class="slide level2">
+<h1>Distributed VCS in practice</h1>
+<figure>
+<img src="generated/distributed_practice.png" alt="How distributed VCS works in practice" /><figcaption>How distributed VCS works in practice</figcaption>
+</figure>
+</section><section id="pragmatic-distributed-vcs" class="slide level2">
+<h1>Pragmatic Distributed VCS</h1>
+<table>
+<thead>
+<tr class="header">
+<th style="text-align: left;">Subversion</th>
+<th style="text-align: left;">Git</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;"><code>svn checkout &lt;URL&gt;</code></td>
+<td style="text-align: left;"><code>git clone &lt;URL&gt;</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>svn commit</code></td>
+<td style="text-align: left;"><code>git commit -a; git push</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>svn up</code></td>
+<td style="text-align: left;"><code>git pull</code></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;"><code>svn status</code></td>
+<td style="text-align: left;"><code>git status</code></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"><code>svn diff</code></td>
+<td style="text-align: left;"><code>git diff</code></td>
+</tr>
+</tbody>
+</table>
+</section><section id="why-go-distributed" class="slide level2">
+<h1>Why Go Distributed?</h1>
+<ul>
+<li>Easy to start a repository (no server needed)</li>
+<li>Easy to start a server</li>
+<li>Can work without internets</li>
+<li>Better merges</li>
+<li>Easy branching</li>
+<li>More widespread support</li>
+</ul>
+</section><section id="why-not-go-distributed" class="slide level2">
+<h1>Why Not Go Distributed?</h1>
+<ul>
+<li>More complex commands</li>
+<li>More confusing</li>
+</ul>
+</section><section id="distributed-vcs-concepts" class="slide level2">
+<h1>Distributed VCS concepts</h1>
+<ul>
+<li>Each revision has a parent that it is based on</li>
+<li>These revisions form a graph</li>
+<li>The most recent revision in each copy is the HEAD</li>
+<li>Each revision has a unique hash code</li>
+<li>In Sue's copy, revision 43 is ab3578d6</li>
+<li>Jim thinks that is revision 38</li>
+<li>When you <em>pull</em> from a <em>remote</em> the histories might conflict</li>
+<li>Histories are <em>merged</em> together</li>
+</ul>
+</section><section id="a-revision-graph" class="slide level2">
+<h1>A revision graph</h1>
+<figure>
+<img src="generated/revisions.png" alt="Revisions form a graph" /><figcaption>Revisions form a graph</figcaption>
+</figure>
+</section><section id="distributed-vcs-concepts-2" class="slide level2">
+<h1>Distributed VCS concepts (2)</h1>
+<ul>
+<li>You have a <em>working copy</em></li>
+<li>You pick a subset of the changes in your working copy to add to the next commit</li>
+<li>Changes to be included in the next commit are kept in a <strong>staging area</strong> (a.k.a. <strong>index</strong>)</li>
+<li>When you commit you commit:</li>
+<li>From the staging area</li>
+<li>To the local repository</li>
+<li>You <strong>push</strong> to <strong>remote</strong> repositories to share or publish</li>
+<li>You <strong>pull</strong> (or fetch) to bring in changes from a remote</li>
+</ul>
+</section><section id="the-levels-of-git" class="slide level2">
+<h1>The Levels of Git</h1>
+<figure>
+<img src="generated/distributed_concepts.png" alt="The relationship between the staging area, working directory, and repositories in git." /><figcaption>The relationship between the staging area, working directory, and repositories in git.</figcaption>
+</figure>
+</section></section>
+<section><section id="using-git" class="titleslide slide level1"><h1>Using Git</h1></section><section id="distributed-vcs-solo-workflow" class="slide level2">
+<h1>Distributed VCS Solo Workflow</h1>
+<figure>
+<img src="generated/distributed_solo.png" alt="Working alone with git" /><figcaption>Working alone with git</figcaption>
+</figure>
+</section><section id="distributed-vcs-with-publishing" class="slide level2">
+<h1>Distributed VCS With Publishing</h1>
+<figure>
+<img src="generated/distributed_solo_publishing.png" alt="Publishing with git" /><figcaption>Publishing with git</figcaption>
+</figure>
+</section><section id="distributed-vcs-in-teams-without-conflicts" class="slide level2">
+<h1>Distributed VCS in teams without conflicts</h1>
+<figure>
+<img src="generated/distributed_shared_noconflict.png" alt="Teamworking in git" /><figcaption>Teamworking in git</figcaption>
+</figure>
+</section><section id="distributed-vcs-in-teams-with-conflicts" class="slide level2">
+<h1>Distributed VCS in teams with conflicts</h1>
+<figure>
+<img src="generated/distributed_shared_conflicted.png" alt="Teamworking in git with conflicts" /><figcaption>Teamworking in git with conflicts</figcaption>
+</figure>
+</section><section id="working-with-multiple-remotes" class="slide level2">
+<h1>Working with multiple remotes</h1>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">git</span> remote add sue ssh://sue.ucl.ac.uk/somerepo
+   <span class="co"># Add a second remote</span>
+<span class="kw">git</span> remote
+   <span class="co"># List available remotes</span>
+<span class="kw">git</span> push sue
+   <span class="co"># Push to a specific remote</span>
+   <span class="co"># Default is origin</span></code></pre>
+</section></section>
+<section><section id="branches" class="titleslide slide level1"><h1>Branches</h1></section><section id="working-with-branches" class="slide level2">
+<h1>Working with branches</h1>
+<figure>
+<img src="generated/branching.png" alt="Using branches" /><figcaption>Using branches</figcaption>
+</figure>
+</section><section id="working-with-branches-in-git" class="slide level2">
+<h1>Working with branches in git</h1>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">git</span> branch <span class="co"># Tell me what branches exist</span></code></pre>
+<pre><code>   * master # Asterisk tells me which one
+     experiment # I am currently on</code></pre>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">git</span> checkout -b somebranch <span class="co"># Make a new branch</span>
+<span class="kw">git</span> checkout master <span class="co"># Switch to an existing branch</span></code></pre>
+</section><section id="sharing-branches" class="slide level2">
+<h1>Sharing branches</h1>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">git</span> push -u origin experiment <span class="co"># Share a recently</span>
+                              <span class="co"># made branch</span>
+<span class="kw">git</span> push origin experiment <span class="co">#Republish a branch</span>
+<span class="kw">git</span> branch -r <span class="co">#Discover remote branches</span>
+<span class="kw">git</span> checkout origin/some_branch <span class="co">#Get a branch</span>
+                                <span class="co">#from a remote</span></code></pre>
+</section><section id="merging-branches" class="slide level2">
+<h1>Merging branches</h1>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">git</span> checkout master <span class="co"># Switch to master branch</span>
+<span class="kw">git</span> merge experiment <span class="co"># Merge the branch in</span>
+<span class="kw">git</span> branch -d experiment <span class="co"># Delete branch locally</span>
+<span class="kw">git</span> push --delete experiment <span class="co"># Delete published branch</span></code></pre>
+</section><section id="a-good-branch-strategy" class="slide level2">
+<h1>A good branch strategy</h1>
+<ul>
+<li>A <code>production</code> branch: code used for active work</li>
+<li>A <code>develop</code> branch: for general new code</li>
+<li><code>feature</code> branches: for specific new ideas</li>
+<li><code>release</code> branches: when you share code with others</li>
+<li>Useful for isolated bug fixes</li>
+</ul>
+</section><section id="tagging" class="slide level2">
+<h1>Tagging</h1>
+<p>Easy to read labels for revisions Produce real results <em>only</em> with tagged revisions</p>
+<pre class="sourceCode Bash"><code class="sourceCode bash"><span class="kw">git</span> tag -a v1.3
+<span class="kw">git</span> push --tags</code></pre>
+</section><section id="branching-and-tagging-in-subversion" class="slide level2">
+<h1>Branching and tagging in subversion</h1>
+<ul>
+<li>Subversion doesn't have real branches and tags</li>
+<li>Instead, each is a separate whole copy</li>
+<li>But you can still merge between copies</li>
+</ul>
+</section></section>
+<section><section id="hosting-servers" class="titleslide slide level1"><h1>Hosting Servers</h1></section><section id="hosting-a-server" class="slide level2">
+<h1>Hosting a server</h1>
+<ul>
+<li>Any repository can be a remote for pulls</li>
+<li>Can pull/push over shared folders or ssh</li>
+<li>Pushing to someone's working copy is dangerous</li>
+<li>Use <code>git init --bare</code> to make a copy for pushing</li>
+<li>You don't need to create a &quot;server&quot;</li>
+</ul>
+</section><section id="hosting-a-server-in-the-cloud" class="slide level2">
+<h1>Hosting a server in the cloud</h1>
+<ul>
+<li>Many online services</li>
+<li>Github, bitbucket, sourceforge...</li>
+<li>I recommend GitHub</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>

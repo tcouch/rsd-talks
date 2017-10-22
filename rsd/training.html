@@ -1,0 +1,594 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Researcher Training for the data-dominated age</title>
+
+  <link href="/rsd-talks/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/rsd-talks/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/rsd-talks/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/rsd-talks/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/rsd-talks/favicon-144.png">
+
+  <script src="/rsd-talks/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/rsd-talks/js/lib/html5shiv-printshiv.min.js', '/rsd-talks/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/rsd-talks/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/rsd-talks/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/rsd-talks/js/lib/require.min.js"></script>
+    <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/rsd-talks/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">UCL Research Software Development Talks</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+ <li class="active"> <a href="/rsd-talks/rsd/">Talks about Research Software Development in UCL</a><ul><li class="active"> <a href="/rsd-talks/rsd/dashboard_announce.html">The UCL Research Software Dashboard</a> </li> <li class="active"> <a href="/rsd-talks/rsd/experiences.html">The Craftsperson and The Scholar</a> </li> <li class="active"> <a href="/rsd-talks/rsd/training.html">Researcher Training for the data-dominated age</a> </li> <li class="active"> <a href="/rsd-talks/rsd/zacrosEASC.html">Zacros ARCHER eCSE Project</a> </li></ul> </li><li class="active"> <a href="/rsd-talks/technical/">Technical talks</a><ul> <li class="inactive"> <a href="/rsd-talks/technical/carpentry-compressed.html">Software Carpentry: Compressed Edition</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/continuous.html">Continuous Deployment</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/fabric.html">Using fabric to deploy to HPC</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/paradigms.html">Modelling and Inference: the détente</a> </li> <li class="inactive"> <a href="/rsd-talks/technical/version_control.html">Practical Version Control and Issue Tracking</a> </li></ul> </li> 
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/rsd-talks/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/rits">Research IT Services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/research-it-services/our-work/research-software-development">Research Software Development</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/rsd-talks/">Programming Talks</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/rsd-talks/rsd/training-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>Who needs eResearch Skills?</h1>
+
+<h2>Program or be Programmed</h2>
+
+<ul>
+<li>&quot;Data Scientist&quot; - &quot;Food Chef?&quot;</li>
+<li><em>Reproducible</em> data-driven research <em>is</em> programming.
+
+<ul>
+<li>Come for the labour savings, but stay for the audit trail</li>
+</ul></li>
+</ul>
+
+<h2>Modelling and Inference</h2>
+
+<ul>
+<li>Convergence between the third and fourth paradigms:
+
+<ul>
+<li>We need big-data methods to understand the outputs of models</li>
+<li>Inferential methods require high performance techniques to model the data</li>
+</ul></li>
+<li>Statistical, algorithmic, computational literacies relevant across the board</li>
+</ul>
+
+<h2>The syllabus is full.</h2>
+
+<ul>
+<li>Ideally, <em>everyone</em> would know <em>everything</em>!</li>
+<li>This is clearly impossible</li>
+<li>So we need <em>division of labour</em>.</li>
+</ul>
+
+<h2>The three Roles</h2>
+
+<ul>
+<li>Methods and algorithms researchers</li>
+<li>Data-literate domain researchers</li>
+<li>Translational e-Research collaborators
+
+<ul>
+<li>Research Software Engineers</li>
+<li>Data Scientists</li>
+</ul></li>
+</ul>
+
+<h2>Careers must be fluid</h2>
+
+<ul>
+<li>Evolving interests, revolving doors</li>
+<li>Seniority and status in each</li>
+</ul>
+
+<h1>Who needs to know what?</h1>
+
+<h1>What do Data-literate domain researchers need to know?</h1>
+
+<h2>Data-literate domain researchers need to know:</h2>
+
+<ul>
+<li>Their research domain!</li>
+</ul>
+
+<h2>Reproducible research methods</h2>
+
+<ul>
+<li>Scripting and data programming</li>
+<li>Automated testing</li>
+<li>Workflow building and &quot;glueware&quot;</li>
+</ul>
+
+<h2>Reproducible research methods</h2>
+
+<p><img src="assets/logos/python.png" alt="Python">
+<img src="assets/logos/jupyter.png" alt="Jupyter"></p>
+
+<p>Logos are used here to represent the <em>kind</em> of thing I&#39;m talking about,
+not at all exhaustive of all the cool things you need to know</p>
+
+<h2>Computational collaboration methods</h2>
+
+<ul>
+<li>Collaborative authoring</li>
+<li>Version control</li>
+<li>Code review</li>
+</ul>
+
+<h2>Computational collaboration methods</h2>
+
+<p><img src="assets/logos/Octocat.png" alt="Github"></p>
+
+<h2>Open science literacies</h2>
+
+<ul>
+<li>Working with linked open data</li>
+<li>Data and software publication</li>
+<li>Licensing and copyleft</li>
+</ul>
+
+<h2>Open science literacies</h2>
+
+<p><img src="assets/logos/opensci.jpg" alt="Open science">
+<img src="assets/logos/odi.png" alt="Open data"></p>
+
+<h2>Data wrangling and presentation</h2>
+
+<ul>
+<li>Data cleaning</li>
+<li>Databases</li>
+<li>Visual display of quantitative information</li>
+<li>Applied statistical inference</li>
+</ul>
+
+<h2>Data wrangling and presentation</h2>
+
+<p><img src="assets/logos/postgres.png" alt="Databases">
+<img src="assets/logos/Rlogo.png" alt="R">
+<img src="assets/logos/Matplotlib.png" alt="Matplotlib">
+<img src="assets/logos/refine.png" alt="Open Refine"></p>
+
+<h1>What do methods and algorithms researchers need to know?</h1>
+
+<h2>Methods and algorithms researchers need to know:</h2>
+
+<ul>
+<li>Their mathematical domain!</li>
+</ul>
+
+<h2>The same things domain scientists do</h2>
+
+<p><img src="assets/logos/jupyter.png" alt="Jupyter">
+<img src="assets/logos/Octocat.png" alt="Github">
+<img src="assets/logos/opensci.jpg" alt="Open science"></p>
+
+<h2>High performance computing and optimisation</h2>
+
+<ul>
+<li>Schedulers, both traditional (qsub) and &quot;cloudy&quot; (hadoop etc)</li>
+<li>Parallel programming languages (MPI, OpenMP, CUDA)</li>
+<li>Parallel programming patterns and approaches (Map/Reduce...)</li>
+<li>Storage and IO performance</li>
+</ul>
+
+<h2>High performance computing and optimisation</h2>
+
+<p><img src="assets/logos/MPIlogo2.gif" alt="HPC">
+<img src="assets/logos/spark.png" alt="Mapreduce"></p>
+
+<p><img src="assets/logos/nvidia.png" alt="CUDA">
+<img src="assets/logos/irods.png" alt="iRods"></p>
+
+<h2>Expressive mathematical programming</h2>
+
+<ul>
+<li>Functional programming</li>
+<li>Domain specific languages</li>
+<li>Code generation and templating</li>
+</ul>
+
+<h2>Expressive mathematical programming</h2>
+
+<p><img src="assets/logos/fenics.png" alt="DRY">
+<img src="assets/logos/haskell.svg" alt="Haskell"></p>
+
+<h1>What do translational collaborators need to know?</h1>
+
+<h2>Enough mathematics and science to be relevant</h2>
+
+<ul>
+<li>Read a paper, see the code</li>
+<li>Mathematical literacies
+
+<ul>
+<li>algorithms, statistics, calculus, geometry...</li>
+</ul></li>
+<li>Deep research background in something to understand the culture of research</li>
+<li>Fundamental core understanding across the domains they work with</li>
+</ul>
+
+<h2>The same things as domain scientists</h2>
+
+<p><img src="assets/logos/jupyter.png" alt="Jupyter">
+<img src="assets/logos/Octocat.png" alt="Github">
+<img src="assets/logos/opensci.jpg" alt="Open science"></p>
+
+<h2>The same things as algorithms researchers</h2>
+
+<p><img src="assets/logos/nvidia.png" alt="CUDA">
+<img src="assets/logos/spark.png" alt="Mapreduce">
+<img src="assets/logos/haskell.svg" alt="DRY"></p>
+
+<h2>Deployability</h2>
+
+<p><img src="assets/logos/docker.png" alt="Deployability"></p>
+
+<h2>Continuous Integration</h2>
+
+<p><img src="assets/logos/jenkins-logo.png" alt="CI"></p>
+
+<h2>Documentation</h2>
+
+<p><img src="assets/logos/sphinx-logo.png" alt="Documentation"></p>
+
+<h2>Software Project Management</h2>
+
+<p><img src="assets/logos/scrum.png" alt="Scrum"></p>
+
+<h2>Working effectively with legacy code</h2>
+
+<p><img src="assets/logos/fortran.jpg" alt="Legacy"></p>
+
+<h2>Business models for open science</h2>
+
+<p><img src="assets/logos/UCLB.gif" alt="Impact"></p>
+
+<h2>Community building and engagement (citation generator)</h2>
+
+<p><img src="assets/logos/ref-logo.png" alt="REF"></p>
+
+<h2>The application of the algorithmic toolbox</h2>
+
+<p><img src="assets/logos/scikitl.png" alt="Algorithms">&nbsp;</p>
+
+<h2>Selection and optimisation of available compute and data platforms</h2>
+
+<p><img src="assets/logos/azure.png" alt="Cloud">
+<img src="assets/logos/archer.png" alt="HPC"></p>
+
+<h1>How do we teach this?</h1>
+
+<h2>Intensive introductions</h2>
+
+<ul>
+<li>Researchers are clever!
+
+<ul>
+<li>Rumsfeld&#39;s law: unknown unknowns</li>
+<li>Drawing people&#39;s attention to new ways of working is critical</li>
+<li>Software Carpentry and Data Carpentry</li>
+</ul></li>
+</ul>
+
+<h2>Digitally native learning tools</h2>
+
+<ul>
+<li>Web-first but classroom- and kindle-ready
+
+<ul>
+<li>Single source, multiple formats</li>
+</ul></li>
+<li>Examples which <em>work</em>:
+
+<ul>
+<li>Generated lecture notes from code that is <em>executed</em> and <em>complete</em></li>
+</ul></li>
+<li>Open and collaborative
+
+<ul>
+<li>CC-BY license on notes</li>
+<li>Massive cross-institutional co-creation</li>
+</ul></li>
+</ul>
+
+<h2>Active classrooms</h2>
+
+<ul>
+<li>Practicals and concepts together</li>
+<li>Bring your own device</li>
+<li>Post-it-notes and etherpads</li>
+</ul>
+
+<h1>Who can teach this?</h1>
+
+<h2>Research Software Engineers and Data Scientists as Teachers</h2>
+
+<ul>
+<li>The collaborator role is perfectly placed to teach these skills
+
+<ul>
+<li>Broad perspective</li>
+<li>Continuing practical experience</li>
+<li>Generates opportunities for collaboration</li>
+</ul></li>
+</ul>
+
+<h2>RITS&#39;s training programme</h2>
+
+<ul>
+<li>Software carpentry</li>
+<li>Data carpentry</li>
+<li>Introductory Python for Data Analysis</li>
+<li>Research Software Engineering with Python</li>
+<li>Research Computing with C++</li>
+<li><p>High Performance and High Throughput Computing</p></li>
+<li><p>See the <a href="https://www.ucl.ac.uk/isd/services/research-it/training">materials</a></p></li>
+</ul>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2017-10-22 00:26:24 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/rsd-talks/js/lib/require.min.js"></script>
+  <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

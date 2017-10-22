@@ -1,0 +1,611 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Software Carpentry: Compressed Edition</title>
+
+  <link href="/rsd-talks/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/rsd-talks/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/rsd-talks/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/rsd-talks/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/rsd-talks/favicon-144.png">
+
+  <script src="/rsd-talks/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/rsd-talks/js/lib/html5shiv-printshiv.min.js', '/rsd-talks/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/rsd-talks/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/rsd-talks/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/rsd-talks/js/lib/require.min.js"></script>
+    <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/rsd-talks/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">UCL Research Software Development Talks</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+ <li class="active"> <a href="/rsd-talks/rsd/">Talks about Research Software Development in UCL</a><ul><li class="inactive"> <a href="/rsd-talks/rsd/dashboard_announce.html">The UCL Research Software Dashboard</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/experiences.html">The Craftsperson and The Scholar</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/training.html">Researcher Training for the data-dominated age</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/zacrosEASC.html">Zacros ARCHER eCSE Project</a> </li></ul> </li><li class="active"> <a href="/rsd-talks/technical/">Technical talks</a><ul> <li class="active"> <a href="/rsd-talks/technical/carpentry-compressed.html">Software Carpentry: Compressed Edition</a> </li> <li class="active"> <a href="/rsd-talks/technical/continuous.html">Continuous Deployment</a> </li> <li class="active"> <a href="/rsd-talks/technical/fabric.html">Using fabric to deploy to HPC</a> </li> <li class="active"> <a href="/rsd-talks/technical/paradigms.html">Modelling and Inference: the détente</a> </li> <li class="active"> <a href="/rsd-talks/technical/version_control.html">Practical Version Control and Issue Tracking</a> </li></ul> </li> 
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/rsd-talks/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/rits">Research IT Services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/research-it-services/our-work/research-software-development">Research Software Development</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/rsd-talks/">Programming Talks</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/rsd-talks/technical/carpentry-compressed-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>The State of Research Software</h1>
+
+<h2>The SIRO Problem</h2>
+
+<p><del>Garbage in Garbage Out</del></p>
+
+<p>Sensible In, Reasonable Out.</p>
+
+<h2>PhDWare</h2>
+
+<ul>
+<li>Don&#39;t look if anyone&#39;s done it before</li>
+<li>Code till it works</li>
+<li>Generate a figure</li>
+<li>Throw it away</li>
+</ul>
+
+<h2>Labware</h2>
+
+<ul>
+<li>Understood by one genius</li>
+<li>Implements great science, now</li>
+<li>FORTRAN in any language</li>
+<li>Code not engineered for readability</li>
+<li>Can&#39;t add new science</li>
+</ul>
+
+<h2>HPCWare</h2>
+
+<ul>
+<li>Get a 5% improvement in performance</li>
+<li>On a particular architecture</li>
+<li>Publish a scaling graph</li>
+<li>Selection against:
+
+<ul>
+<li>Readability</li>
+<li>Maintainability</li>
+<li>Adaptability</li>
+</ul></li>
+</ul>
+
+<h2>ConsultantWare</h2>
+
+<ul>
+<li>Little understanding of the science</li>
+<li>Overengineered</li>
+<li>Unmaintainable by the research group</li>
+</ul>
+
+<h2>Software Carpentry</h2>
+
+<p><img src="https://raw.githubusercontent.com/swcarpentry/bc/master/img/software-carpentry-banner.png" alt=""></p>
+
+<ul>
+<li>Founded by <a href="http://www.third-bit.com/about.html">Greg Wilson</a></li>
+<li>Volunteer organization
+
+<ul>
+<li><a href="http://www.sloan.org/">Alfred P. Sloan Foundation</a></li>
+<li><a href="http://www.mozilla.org/en-US/foundation/">Mozilla Foundation</a>.</li>
+</ul></li>
+<li>Provides online training materials on which UCL course is based.</li>
+</ul>
+
+<h2>Software Carpentry</h2>
+
+<ul>
+<li>Intensive &quot;bootcamp&quot;</li>
+<li>Teaches the tools needed to do computational science the Right Way
+
+<ul>
+<li>Readable</li>
+<li>Reliable</li>
+<li>Repeatable</li>
+</ul></li>
+</ul>
+
+<h1>Version Control</h1>
+
+<h2>What Version Control is For</h2>
+
+<ul>
+<li>Managing Code Inventory
+
+<ul>
+<li>&quot;When did I introduce this bug&quot;?</li>
+<li>Undoing Mistakes</li>
+</ul></li>
+<li>Working with other programmers
+
+<ul>
+<li>&quot;How can I merge my work with Jim&#39;s&quot;</li>
+</ul></li>
+</ul>
+
+<h2>What is version control?</h2>
+
+<p>Do some programming</p>
+
+<p><code>my_vcs commit</code></p>
+
+<p>Program some more</p>
+
+<p>Realise mistake</p>
+
+<p><code>my_vcs rollback</code></p>
+
+<p>Mistake is undone</p>
+
+<h2>What is version control? (Team version)</h2>
+
+<p>Sue                 James</p>
+
+<hr>
+
+<p><code>my_vcs commit</code>
+                    Join the team
+                    <code>my_vcs checkout</code>
+                    Do some programming
+                    <code>my_vcs commit</code>
+<code>my_vcs update</code>
+Do some programming Do some programming
+                    <code>my_vcs commit</code>
+<code>my_vcs update</code>
+<code>my_vcs merge</code>
+<code>my_vcs commit</code></p>
+
+<h2>Version Control Examples</h2>
+
+<ul>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_solo.png">Working alone with git</a></li>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_solo_publishing.png">Publishing with git</a></li>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_shared_noconflict.png">Teamworking in git</a></li>
+<li><a href="http://development.rc.ucl.ac.uk/training/carpentry/assets/distributed_shared_conflicted.png">Teamworking in git with conflicts</a></li>
+</ul>
+
+<h2>More than great backup</h2>
+
+<ul>
+<li>Logging</li>
+<li>Collaboration</li>
+<li>Labels for code versions</li>
+<li>Branches for production vs play</li>
+</ul>
+
+<h1>Automation</h1>
+
+<h2>How Things Should Be</h2>
+<div class="highlight"><pre><code class="language-Bash" data-lang="Bash">fetch_dataset 53b6
+run_model dataset_53b6
+Examine_results results_28_02_13_1_53b6_98d2
+archive_results latest
+create_graphs results_28_02_13_1_53b6_98d2
+</code></pre></div>
+<h2>Program or Be Programmed</h2>
+
+<ul>
+<li>Repetition leads to Boredom</li>
+<li>Boredom leads to Horrifying Mistakes</li>
+<li>Horrifying Mistakes lead to God-I-Wish-I-Was-Still-Bored</li>
+</ul>
+
+<h2>Automation for reproducibility</h2>
+
+<ul>
+<li>More than saving time</li>
+<li>Provide a rigorous description of what was done</li>
+</ul>
+
+<h2>Python</h2>
+
+<p><a href="http://nbviewer.ipython.org/github/swcarpentry/bc/blob/master/novice/python/01-numpy.ipynb">IPython Notebooks</a></p>
+
+<h2>This talk</h2>
+
+<p><a href="https://github.com/UCL/rsd-talks/blob/master/carpentry-compressed/lecture.md">This talk</a></p>
+
+<h2>This talk&#39;s SConscript</h2>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="n">pandoc_slides</span><span class="o">=</span><span class="n">Builder</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s">'pandoc -t revealjs -s -V theme=night'</span><span class="o">+</span>
+    <span class="s">' --css=night.css'</span><span class="o">+</span>
+    <span class="s">' --css=slidetheme.css'</span><span class="o">+</span>
+    <span class="s">' --mathjax '</span><span class="o">+</span>
+    <span class="s">' -V revealjs-url=http://lab.hakim.se/reveal-js/'</span><span class="o">+</span>
+    <span class="s">' $SOURCES -o $TARGET'</span><span class="p">)</span>
+
+<span class="o">...</span>
+<span class="n">dot_figure_builder</span><span class="o">=</span><span class="n">Builder</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s">'dot -Tpng $SOURCE -o $TARGET'</span><span class="p">,</span>
+    <span class="n">suffix</span><span class="o">=</span><span class="s">'.png'</span><span class="p">,</span>
+    <span class="n">src_suffix</span><span class="o">=</span><span class="s">'.dot'</span><span class="p">)</span>
+</code></pre></div>
+<h2>This talk&#39;s puppet manifest</h2>
+<div class="highlight"><pre><code class="language-puppet" data-lang="puppet"><span class="c"># Checkout the repository from GitHub
+</span>  <span class="n">vcsrepo</span> <span class="p">{</span><span class="s2">"repo-</span><span class="nv">$title</span><span class="s2">"</span><span class="p">:</span>
+      <span class="py">path</span> <span class="p">=&gt;</span> <span class="s2">"/opt/gitrepos/</span><span class="nv">$checkout_location</span><span class="s2">"</span><span class="p">,</span>
+      <span class="py">ensure</span> <span class="p">=&gt;</span> <span class="s1">'latest'</span><span class="p">,</span>
+      <span class="py">owner</span> <span class="p">=&gt;</span> <span class="s1">'apache'</span><span class="p">,</span>
+      <span class="py">user</span> <span class="p">=&gt;</span> <span class="s1">'apache'</span><span class="p">,</span>
+      <span class="py">identity</span> <span class="p">=&gt;</span> <span class="s1">'/home/ccsprsd/.ssh/id_rsa'</span><span class="p">,</span>
+      <span class="py">group</span> <span class="p">=&gt;</span> <span class="s1">'apache'</span><span class="p">,</span>
+      <span class="py">provider</span> <span class="p">=&gt;</span> <span class="s1">'git'</span><span class="p">,</span>
+      <span class="kp">require</span> <span class="p">=&gt;</span> <span class="p">[</span> <span class="nc">Package</span><span class="p">[</span><span class="s2">"git"</span><span class="p">],</span> <span class="nc">File</span><span class="p">[</span><span class="s2">"</span><span class="nv">$service_home</span><span class="s2">/.ssh/id_rsa"</span><span class="p">],</span> <span class="p">],</span>
+      <span class="py">source</span> <span class="p">=&gt;</span> <span class="s2">"</span><span class="nv">$source</span><span class="s2">"</span><span class="p">,</span>
+      <span class="py">revision</span> <span class="p">=&gt;</span> <span class="nv">$branch</span><span class="p">,</span>
+    <span class="p">}</span>
+
+<span class="c">#Run Pandoc via scons to produce the Reveal.js presentations
+</span>
+    <span class="n">exec</span> <span class="p">{</span> <span class="s2">"build-</span><span class="nv">$title</span><span class="s2">"</span><span class="p">:</span>
+      <span class="py">command</span> <span class="p">=&gt;</span> <span class="nv">$command</span><span class="p">,</span>
+      <span class="py">cwd</span> <span class="p">=&gt;</span> <span class="s2">"/opt/gitrepos/</span><span class="nv">$checkout_location</span><span class="s2">/</span><span class="nv">$workdir</span><span class="s2">"</span><span class="p">,</span>
+      <span class="kp">require</span> <span class="p">=&gt;</span> <span class="p">[</span><span class="nc">Exec</span><span class="p">[</span><span class="s2">"install-pandoc"</span><span class="p">],</span>
+        <span class="nc">Package</span><span class="p">[</span><span class="s2">"scons"</span><span class="p">],</span>
+        <span class="nc">Vcsrepo</span><span class="p">[</span><span class="s2">"repo-</span><span class="nv">$title</span><span class="s2">"</span><span class="p">]]</span>
+    <span class="p">}</span>
+
+<span class="c"># Copy the C++ course directory into the web folder
+</span>    <span class="n">file</span> <span class="p">{</span><span class="s2">"install-</span><span class="nv">$title</span><span class="s2">"</span><span class="p">:</span>
+      <span class="py">path</span> <span class="p">=&gt;</span> <span class="s2">"</span><span class="nv">$install</span><span class="s2">/</span><span class="nv">$target</span><span class="s2">"</span><span class="p">,</span>
+      <span class="py">source</span> <span class="p">=&gt;</span> <span class="s2">"/opt/gitrepos/</span><span class="nv">$checkout_location</span><span class="s2">/</span><span class="nv">$sitedir</span><span class="s2">"</span><span class="p">,</span>
+      <span class="py">recurse</span> <span class="p">=&gt;</span> <span class="kc">true</span><span class="p">,</span>
+      <span class="kp">require</span> <span class="p">=&gt;</span> <span class="nc">Exec</span><span class="p">[</span><span class="s2">"build-</span><span class="nv">$title</span><span class="s2">"</span><span class="p">],</span>
+      <span class="kp">notify</span> <span class="p">=&gt;</span> <span class="nc">Service</span><span class="p">[</span><span class="s2">"httpd"</span><span class="p">],</span>
+      <span class="py">owner</span> <span class="p">=&gt;</span> <span class="s1">'ccsprsd'</span><span class="p">,</span>
+      <span class="py">group</span> <span class="p">=&gt;</span> <span class="s1">'ccspx0'</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre></div>
+<h1>Testing</h1>
+
+<h2>You don&#39;t need to test if:</h2>
+
+<blockquote>
+<ul>
+<li>Your programs always work correctly, or</li>
+<li>You don&#39;t care if they&#39;re correct or not, so long
+as their output looks plausible, and</li>
+<li>You like being inefficient:
+the more you invest in quality, the less total time
+it takes to build working software</li>
+</ul>
+</blockquote>
+
+<h2>Levels of Testing</h2>
+
+<blockquote>
+<ul>
+<li>Regression testing: Does my code work the same as yesterday</li>
+<li>Functional testing: Does my code match an analytic solution</li>
+<li>Unit testing: Does this subroutine work as expected</li>
+</ul>
+</blockquote>
+
+<h2>Test-driven development</h2>
+
+<p>Know what you want:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">test_range_overlap</span><span class="p">():</span>
+    <span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="bp">None</span>
+    <span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">4.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">)</span>
+    <span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">),</span> <span class="p">(</span><span class="o">-</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">)</span>
+</code></pre></div>
+<h2>Test-driven development</h2>
+
+<p>Then make it happen:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">range_overlap</span><span class="p">(</span><span class="n">ranges</span><span class="p">):</span>
+    <span class="s">'''Return common overlap among a set of [low, high] ranges.'''</span>
+    <span class="n">highest_min</span><span class="o">=</span><span class="nb">max</span><span class="p">([</span><span class="nb">range</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="nb">range</span> <span class="ow">in</span> <span class="n">ranges</span><span class="p">])</span>
+    <span class="n">lowest_max</span><span class="o">=</span><span class="nb">min</span><span class="p">([</span><span class="nb">range</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="k">for</span> <span class="nb">range</span> <span class="ow">in</span> <span class="n">ranges</span><span class="p">])</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">lowest_max</span> <span class="o">&lt;=</span> <span class="n">highest_min</span><span class="p">):</span> <span class="k">return</span> <span class="bp">None</span> <span class="c"># Note equality</span>
+    <span class="k">return</span> <span class="p">(</span><span class="n">highest_min</span><span class="p">,</span> <span class="n">lowest_max</span><span class="p">)</span>
+</code></pre></div>
+<h2>Tests Define Behaviour</h2>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">assert</span> <span class="n">range_overlap</span><span class="p">([</span> <span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span> <span class="p">])</span> <span class="o">==</span> <span class="bp">None</span>
+</code></pre></div>
+<p>Tests are <em>Executable Documentation</em></p>
+
+<h2>Tests As Specifications</h2>
+
+<p>Testing tells you:</p>
+
+<blockquote>
+<ul>
+<li>If the program is doing what it&#39;s supposed to</li>
+<li>What the program actually is supposed to do</li>
+<li>Tests are runnable specifications:</li>
+<li>Less likely to fall out of sync with the program
+than documentation</li>
+</ul>
+</blockquote>
+
+<h2>Continuous Testing Infrastructure</h2>
+
+<p><a href="http://development.rc.ucl.ac.uk/jenkins/">Jenkins</a></p>
+
+<h1>Coda</h1>
+
+<h2>Contact</h2>
+
+<p><img src="../assets/twitter.png" alt=""> @uclrcsoftdev @jamespjh @uclrits</p>
+
+<p><img src="../assets/rss.png" alt=""> blogs.ucl.ac.uk/research-software-development</p>
+
+<p><img src="../assets/email.png" alt=""> j.hetherington@ucl.ac.uk</p>
+
+<p>And <a href="https://www.mailinglists.ucl.ac.uk/mailman/listinfo/research-programming">sign up</a>
+to be notified of the date of the next bootcamp.</p>
+
+<blockquote>
+<p>``I found the command line intimidating at first, but after a while it felt
+like I was inside my computer.&#39;&#39;</p>
+</blockquote>
+
+<p>-- A student at the UCL software carpentry event</p>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2017-10-22 00:26:24 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/rsd-talks/js/lib/require.min.js"></script>
+  <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

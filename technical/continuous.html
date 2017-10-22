@@ -1,0 +1,573 @@
+
+
+
+
+
+<!DOCTYPE html>
+<!--[if IE 7]> <html lang="en" class="lt-ie9 lt-ie8 no-js"> <![endif]-->
+<!--[if IE 8]> <html lang="en" class="lt-ie9 no-js"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+<head>
+    <meta charset=utf-8 />
+    <meta name="author" content="UCL" />
+    <meta name="description" content="UCL Homepage" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- social meta -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@uclnews">
+    <meta name="twitter:title" content="UCL - London's Global University">
+    <meta name="twitter:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students.">
+    <meta name="twitter:creator" content="@UCLWAMS">
+    <meta name="twitter:image:src" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png">
+    <meta property="og:image" content="http://www.ucl.ac.uk/visual-identity/logos/standalone.png" />
+    <meta property="og:title" content="UCL - London's Global University" />
+    <meta property="og:url" content="http://www.ucl.ac.uk" />
+    <meta property="og:site_name" content="UCL" />
+    <meta property="og:description" content="UCL (University College London) is London's leading multidisciplinary university, with 8,000 staff and 25,000 students." />
+    <meta property="og:type" content="website" />
+    <meta property="og:profile_id" content="uclofficial" />
+    <!-- end social meta -->
+
+  <title>Continuous Deployment</title>
+
+  <link href="/rsd-talks/css/screen.min.css" media="screen, projection" rel="stylesheet" type="text/css" />
+  <link href="/rsd-talks/css/jekyll-styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/local_styles.css" rel="stylesheet" type="text/css">
+  <link href="/rsd-talks/site-styles/ipython.css" rel="stylesheet" type="text/css">
+
+  <link rel="shortcut icon" href="/rsd-talks/images/favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="/rsd-talks/favicon-152.png">
+    <meta name="msapplication-TileColor" content="#000000">
+    <meta name="msapplication-TileImage" content="/rsd-talks/favicon-144.png">
+
+  <script src="/rsd-talks/js/lib/modernizr-custom.js"></script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+
+    <script>
+      var cuttingTheMustard = document.querySelector && window.localStorage && window.addEventListener;
+
+      Modernizr.load({
+        //cutting the mustard as used by the BBC
+        test: cuttingTheMustard
+        //if old browser load the shiv
+        ,
+        nope: [
+          '/rsd-talks/js/lib/html5shiv-printshiv.min.js', '/rsd-talks/js/lib/respond.min.js'
+        ]
+      });
+      //set conditional assets for main.js
+      var globalSiteSpecificVars = {
+        pathToJquery: "/rsd-talks/js/lib/jquery-1.9.1.min",
+        googleAnalyticsIdsArray: [] //specify array of site specific id's NOT UCL generic UA-943297-1
+      }
+      if (cuttingTheMustard) {
+        globalSiteSpecificVars.pathToJquery = '/rsd-talks/js/lib/jquery-2.1.1.min';
+      }
+    </script>
+    <script src="/rsd-talks/js/lib/require.min.js"></script>
+    <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+</head>
+
+<body id="index" class="layout-vertical layout-vertical--nav-1col">
+
+  <header class="header header--desktop">
+
+  <a class="header__close" href="#">
+    <img src="/rsd-talks/images/close.png" class="lazy" data-src="//static.ucl.ac.uk/indigo/images/close.png" alt="X" />Close</a>
+
+  <div class="masthead">
+
+  <div class="wrapper clearfix">
+
+      <div class="masthead__search">
+					<form action="#" method="get">
+						<div class="search-form">
+							<input type="search" placeholder="Search UCL websites, people and more" class="search-form__input search-form__input--search" value="">
+						</div>
+						<input type="submit" name="sumbit" value="Go" class="btn search-form__input search-form__input--submit" />
+					</form>
+				</div>
+
+
+				<nav class="masthead__nav m-clear">
+					<ul class="masthead__list">
+						<li class="masthead__item"><a href="index.php" class="masthead__link">UCL Home</a>
+						</li>
+						<li class="masthead__item"><a href="prospective-students.php" class="masthead__link">Prospective students</a>
+						</li>
+						<li class="masthead__item"><a href="current-students.php" class="masthead__link">Current students</a>
+						</li>
+						<li class="masthead__item"><a href="staff.php" class="masthead__link">Staff</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+
+</div><!-- end .masthead -->
+
+
+  <div class="wrapper">
+
+    <div class="photograph">
+  <div class="brand">
+    <p class="brand__heading">UCL Research Software Development Talks</p>
+    <a href="/" class="brand__link"><span class="visually-hidden">Home</span></a>
+    <img src="//cdn.ucl.ac.uk/img/blank.gif" data-src="//static.ucl.ac.uk/indigo/images/ucl-logo.svg" alt="UCL logo" id="logo" class="brand__logo lazy">  
+  </div>
+</div>
+
+
+    <div class="sidebar">
+
+      <nav class="nav nav--mobile">
+        <ul>
+          
+
+
+
+
+        </ul>
+      </nav>
+
+      <nav class="nav nav--left">
+        <ul>
+          
+
+ <li class="active"> <a href="/rsd-talks/rsd/">Talks about Research Software Development in UCL</a><ul><li class="inactive"> <a href="/rsd-talks/rsd/dashboard_announce.html">The UCL Research Software Dashboard</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/experiences.html">The Craftsperson and The Scholar</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/training.html">Researcher Training for the data-dominated age</a> </li> <li class="inactive"> <a href="/rsd-talks/rsd/zacrosEASC.html">Zacros ARCHER eCSE Project</a> </li></ul> </li><li class="active"> <a href="/rsd-talks/technical/">Technical talks</a><ul> <li class="active"> <a href="/rsd-talks/technical/carpentry-compressed.html">Software Carpentry: Compressed Edition</a> </li> <li class="active"> <a href="/rsd-talks/technical/continuous.html">Continuous Deployment</a> </li> <li class="active"> <a href="/rsd-talks/technical/fabric.html">Using fabric to deploy to HPC</a> </li> <li class="active"> <a href="/rsd-talks/technical/paradigms.html">Modelling and Inference: the détente</a> </li> <li class="active"> <a href="/rsd-talks/technical/version_control.html">Practical Version Control and Issue Tracking</a> </li></ul> </li> 
+
+        </ul>
+      </nav>
+
+    </div>
+    <!-- end .sidebar -->
+
+    <nav class="nav nav--top">
+      <ul>
+        
+      </ul>
+    </nav>
+
+  </div>
+  <!-- end .wrapper -->
+
+  </header>
+  <!-- end .header -->
+
+  <div class="site-content wrapper">
+
+    <header class="header header--mobile default-header">
+      <a class="header__open" href="#">
+        <img src="/rsd-talks/images/ucl-menu.svg" alt="Menu" />
+      </a>
+    </header>
+
+    <div class="site-content__inner clearfix">
+      <div class="site-content__body">
+
+          
+            <nav class="breadcrumb clearfix">
+              <ul class="breadcrumb__list">
+                <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/">UCL</a></li>
+
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/rits">Research IT Services</a></li>
+  
+    <li class="breadcrumb__item"><a href="http://www.ucl.ac.uk/research-it-services/our-work/research-software-development">Research Software Development</a></li>
+  
+
+<li class="breadcrumb__item"><a href="/rsd-talks/">Programming Talks</a></li>
+
+
+
+              </ul>
+            </nav>
+           <div class="site-content__main">
+            
+            
+               <div id="slidelink">
+                 <a href="/rsd-talks/technical/continuous-reveal.html">Slides</a>
+               </div>
+            
+          
+          
+
+    <h1>Systems Programming</h1>
+
+<h2>Repetition</h2>
+
+<ul>
+<li>Repetition leads to boredom</li>
+<li>Boredom leads to horrifying mistakes</li>
+<li>Horrifying mistakes lead to God-I-wish-I-was-still-bored
+-- <a href="http://lethain.com/deploying-django-with-fabric/">Will Larson</a></li>
+</ul>
+
+<h2>Doing it wrong</h2>
+
+<p>If you manually shell into a computer and run commands when you deploy you are doing it wrong.</p>
+
+<h2>Systems Programming</h2>
+
+<p>&quot;Systems administration&quot; is a programming task: we have Puppet.</p>
+
+<p>This is systems programming. (Aka &quot;dev ops&quot;.)</p>
+
+<p>There is no distinction between development and operations any more: all
+programmers are sysadmins, and vice-versa.</p>
+
+<h2>Plan for the talk</h2>
+
+<p>In this talk, I&#39;ll explore some of the consequences of this convergence.</p>
+
+<p>First, though, I&#39;ll recap some good things from modern programming
+practices, that we&#39;re going to borrow
+for systems programming.</p>
+
+<h1>Programming Practices</h1>
+
+<h2>Version control</h2>
+
+<ul>
+<li>All changes to the code are kept, with a log message</li>
+<li>Grabbing someone else&#39;s work is just a <code>git clone</code> away</li>
+</ul>
+
+<h2>Branching in Git</h2>
+
+<p>Unlike earlier version control tools,
+creating branches in Git is easy and cheap, and merges are clean and often
+completely automatic.</p>
+
+<p>We create a branch for <em>each new feature or bug-fix</em>.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash">git checkout <span class="nt">-b</span> new_feature
+<span class="c"># Do some Coding</span>
+git checkout master
+git merge new_feature
+</code></pre></div>
+<p>This is <em>integration</em></p>
+
+<h2>Pull Requests</h2>
+
+<p>Then we open a &quot;Pull Request&quot;, which indicates that the feature is ready
+to be tested and merged.</p>
+
+<p><a href="assets/pull170.png">https://github.com/UCL-RITS/RSD-Dashboard/pull/170</a></p>
+
+<h2>Automated Testing</h2>
+
+<p>myprog.py:</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">some_clever_function</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+  <span class="k">return</span> <span class="n">x</span><span class="o">*</span><span class="mi">2</span>
+</code></pre></div>
+<p>test_myprog.py</p>
+<div class="highlight"><pre><code class="language-python" data-lang="python"><span class="k">def</span> <span class="nf">test_myprog</span><span class="p">():</span>
+  <span class="kn">from</span> <span class="nn">myprog</span> <span class="kn">import</span> <span class="n">some_clever_function</span>
+  <span class="k">assert</span><span class="p">(</span><span class="n">some_clever_function</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">==</span> <span class="mi">6</span><span class="p">)</span>
+</code></pre></div><div class="highlight"><pre><code class="language-bash" data-lang="bash">py.test
+</code></pre></div>
+<h2>Continuous Testing Servers</h2>
+
+<p>It&#39;s a faff to run your tests for every platform you might want to run on,
+for every version of your language. So we have automated testing servers to
+run our tests, and email us when it goes wrong.</p>
+
+<p><a href="assets/jenkins.png">http://development.rc.ucl.ac.uk/jenkins/</a></p>
+
+<h2>Version control of automated test jobs</h2>
+
+<p>Jenkins expects the config for your automated tests to be specified in its GUI.</p>
+
+<p>This is obviously suboptimal: we want to version control everything.</p>
+
+<p>In RSDG, we&#39;re using a Jenkins plugin to manage our automated test configuration:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="na">name</span><span class="pi">:</span> <span class="s1">'</span><span class="s">nammu'</span>
+ <span class="na">disabled</span><span class="pi">:</span> <span class="no">false</span>
+ <span class="na">node</span><span class="pi">:</span> <span class="s">OSX</span>
+
+ <span class="na">builders</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="na">shell</span><span class="pi">:</span> <span class="pi">|</span>
+         <span class="no">cd $WORKSPACE</span>
+         <span class="no">mvn clean install</span>
+ <span class="na">scm</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="na">git</span><span class="pi">:</span>
+         <span class="na">url</span><span class="pi">:</span> <span class="s">git@github.com:oracc/nammu</span>
+         <span class="na">branches</span><span class="pi">:</span>
+             <span class="pi">-</span> <span class="s1">'</span><span class="s">{mybranch}'</span>
+
+ <span class="na">triggers</span><span class="pi">:</span>
+   <span class="pi">-</span> <span class="s">github</span>
+   <span class="pi">-</span> <span class="na">timed</span><span class="pi">:</span> <span class="s2">"</span><span class="s">@midnight"</span>
+
+ <span class="na">publishers</span><span class="pi">:</span>
+     <span class="pi">-</span> <span class="na">git</span><span class="pi">:</span>
+         <span class="na">push-only-if-success</span><span class="pi">:</span> <span class="no">true</span>
+</code></pre></div>
+<h2>Travis</h2>
+
+<p>There&#39;s a nice cloud service that does this: we&#39;re moving our simpler
+non-supercomputing jobs over to Travis, instead of Jenkins.</p>
+
+<p>Travis configuration just uses .travis.yml files in the repository to configure
+builds.</p>
+
+<p><a href="assets/travis.png">https://travis-ci.com/UCL-RITS/RSD-Dashboard/pull_requests</a></p>
+
+<h1>Continuous deployment</h1>
+
+<h2>Automatic Deployment</h2>
+
+<p>If you trust your automated tests, you can do more: you can <em>automatically
+deploy if the tests pass</em>.</p>
+
+<p>I&#39;m using that for <em>this talk</em>:</p>
+
+<p><a href="https://github.com/UCL/rsd-talks">https://github.com/UCL/rsd-talks</a></p>
+
+<p>When the tests pass, the server is updated with the content from the master branch.</p>
+
+<h2>Safe automated deployment</h2>
+
+<p>We experimented with puppet for this. Our experience is that it&#39;s better
+to use puppet to set the machine&#39;s overall structure up, but then for active deployments:</p>
+
+<ul>
+<li>Copy the code to the target machine with rsync (folder name based on git hash)</li>
+<li>Repoint a symlink to the new folder</li>
+<li>Service httpd restart</li>
+</ul>
+
+<p>This can be better scripted with <a href="http://www.fabfile.org">Fabric</a> or <a href="http://capistranorb.com">Capistrano</a> than bash.</p>
+
+<h2>Continuous integration</h2>
+
+<p>Simple continuous deployment from a master branch, however, breaks for multi-programmer projects.</p>
+
+<p>We can use the magic of Git&#39;s branches to achieve something better:
+continuous integration.</p>
+
+<h2>Github CI</h2>
+
+<p><a href="assets/pull170.png">https://github.com/UCL-RITS/RSD-Dashboard/pull/170</a></p>
+
+<p>Jenkins will automatically test <em>each pull request</em>. (Look at the
+green tick on commit 96eaac8 -- this represents a passing
+Jenkins build.)</p>
+
+<p>When the tests pass, the branch can be safely
+merged to the master branch, and the deployment triggered.</p>
+
+<p>(This can be manual after a code review, or <em>automatic
+if tests pass</em>.)</p>
+
+<h1>Local Puppet Development</h1>
+
+<h2>Local development of puppet scripts</h2>
+
+<p>So, how can we develop puppet scripts locally, as if they were a computer program?
+Unless we can locally run it, we can&#39;t
+hack on it without running it on our test VM stack.</p>
+
+<p>And we sure couldn&#39;t build automated tests for it.</p>
+
+<p>We could, of course, use a local VM managed in a
+hypervisor&#39;s GUI.</p>
+
+<h2>Vagrant</h2>
+
+<p>But there&#39;s a better way, allowing us to treat
+virtual machines on our local laptop, just as if they were <em>outputs</em> of a
+programming exercise.</p>
+
+<ul>
+<li>Run a local script to provision a VM,
+with <em>all the information in a version controlled folder</em>, alongside the
+code for the service.</li>
+<li>(Ops-code and Dev-code in one place.)</li>
+</ul>
+
+<p><em>Everything</em> can be version controlled together,
+with no information locked in GUIs.</p>
+
+<h2>Vagrant file</h2>
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">Vagrant</span><span class="p">.</span><span class="nf">configure</span><span class="p">(</span><span class="s2">"2"</span><span class="p">)</span> <span class="k">do</span> <span class="o">|</span><span class="n">config</span><span class="o">|</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">box</span> <span class="o">=</span> <span class="s2">"centos/7"</span>
+  <span class="n">config</span><span class="p">.</span><span class="nf">vm</span><span class="p">.</span><span class="nf">provision</span> <span class="s2">"puppet"</span> <span class="k">do</span> <span class="o">|</span><span class="n">puppet</span><span class="o">|</span>
+    <span class="n">puppet</span><span class="p">.</span><span class="nf">manifests_path</span> <span class="o">=</span> <span class="s2">"puppet/manifests"</span>
+    <span class="n">puppet</span><span class="p">.</span><span class="nf">manifest_file</span> <span class="o">=</span> <span class="s2">"server.pp"</span>
+  <span class="k">end</span>
+<span class="k">end</span>
+</code></pre></div>
+<h2>Vagrant usage</h2>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nb">cd </span>my_project
+vagrant up
+</code></pre></div>
+<h2>Consequences</h2>
+
+<p>This already kicks ass: we can keep our puppet manifest and vagrantfile alongside any application code. We never need to worry about
+a colleague setting up dependencies for a project to get started. They can just <code>git clone</code> and then <code>vagrant up</code></p>
+
+<h1>Automated Testing of Servers</h1>
+
+<h2>Automated Tests of Servers</h2>
+
+<p>Now we can commission local servers automatically,
+we can define <em>automated tests</em> for the machines we provision, asserting
+that they provide the services we expect.</p>
+
+<ul>
+<li>Run the vagrantfile to trigger the same puppet manifest as we use in production</li>
+<li>Only secrets and config info should differ</li>
+<li>Run a test script which asserts against the provided services.</li>
+</ul>
+
+<h2>Complete Example</h2>
+
+<p><a href="https://github.com/jamespjh/vagrant-puppet-example/">https://github.com/jamespjh/vagrant-puppet-example/</a></p>
+
+<h2>Further thoughts</h2>
+
+<ul>
+<li>Next step would be to automatically run the vagrant VM build inside Jenkins</li>
+<li>Push to puppet master and prun if the tests pass</li>
+<li>Vagrant multi-machine for an infrastructure of interacting services</li>
+</ul>
+
+<h1>Containers</h1>
+
+<h2>Docker vs Vagrant</h2>
+
+<p>In the above example, our puppet scripts need a whole VM to work, so we use vagrant.</p>
+
+<p>An alternative choice is to use <strong>container</strong> based automation, with Docker.</p>
+
+<p>Here, instead of full VMs, we use a thinner layer of separation, to more
+quickly build and manage isolated environments.</p>
+
+<p>Docker doesn&#39;t work with our puppet scripts though (e.g.
+it doesn&#39;t let you use systemd services in a container.)</p>
+
+<h2>Docker example</h2>
+
+<p><a href="https://github.com/jamespjh/docker-example">https://github.com/jamespjh/docker-example</a></p>
+
+<p>Docker on Travis</p>
+
+<p><a href="https://travis-ci.org/jamespjh/docker-example/builds">https://travis-ci.org/jamespjh/docker-example/builds</a>
+<a href="https://github.com/jamespjh/docker-example/blob/master/.travis.yml">https://github.com/jamespjh/docker-example/blob/master/.travis.yml</a></p>
+
+<h1>Conclusions</h1>
+
+<h2>Principles</h2>
+
+<ul>
+<li>Version control everything</li>
+<li>Make it so you can do everything locally</li>
+<li>Test automatically</li>
+<li>Trust your tests</li>
+<li>Tests + Deployed branches =&gt; Deployment</li>
+</ul>
+
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+  <!-- end .site-content -->
+
+  <footer class="footer wrapper">
+  <div class="footer__inner clearfix">
+             <article class="block block--col-1">
+                <h2 class="as-h5">Facilities</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/departments/faculties">Faculties and departments</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/library/">Library</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/museums">Museums and Collections</a></li>
+					<li class="footer__item"><a href="http://www.thebloomsbury.com/">UCL Bloomsbury Theatre</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/maps">Maps and buildings</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-2">
+                <h2 class="as-h5">Locations</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/london">UCL and London</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/australia">UCL Australia</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/qatar">UCL Qatar</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/global">UCL Global</a></li>
+				</ul>
+            </article>
+            <article class="block block--col-3">
+                <h2 class="as-h5">Connect with us</h2>
+                <ul class="footer__list list-unstyled">
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/alumni">Alumni</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/enterprise">Businesses</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/media">Media Relations</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/hr/jobs/">Jobs</a></li>
+					<li class="footer__item"><a href="http://www.ucl.ac.uk/makeyourmark">Give to UCL</a></li>
+				</ul>
+
+      </article>
+  
+    <hr class="clear">
+    <ul class="footer__list list-unstyled zero-bottom">
+      <li class="footer__item text-muted small">University College London,&nbsp;Gower Street,&nbsp;London,&nbsp;WC1E 6BT&nbsp;Tel:&nbsp;+44&nbsp;(0)&nbsp;20 7679 2000</li>
+    </ul>
+    <ul class="list-inline footer__list list-unstyled list-inline--divided">
+      <li class="text-muted small">Copyright © 2017-10-22 00:26:24 +0000 UCL</li>
+      <li class="text-muted small"><a href="#">Disclaimer</a>
+      </li>
+      <li class="text-muted small"><a href="#">Freedom of Information</a>
+      </li>
+      <li class="text-muted small"><a href="#">Accessibility</a>
+      </li>
+      <li class="text-muted small"><a href="#">Privacy</a>
+      </li>
+      <li class="text-muted small"><a href="#">Cookies</a>
+      </li>
+      <li class="text-muted small"><a href="#">Contact Us</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script src="/rsd-talks/js/lib/require.min.js"></script>
+  <script src="/rsd-talks/js/main.js"></script>
+    <script>
+      require.config({
+        baseUrl: '/rsd-talks/js/lib'
+      });
+        require(["app/general", "app/searchWithAutoComplete", "app/tabs"]);//load the default stuff
+    </script>
+
+</body>
+
+</html>
+

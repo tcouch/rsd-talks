@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="pandoc">
+  <meta name="author" content="James Hetherington" />
+  <title>The Craftsperson and The Scholar</title>
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.min.css"/>
+    <style type="text/css">code{white-space: pre;}</style>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/rits17.css"/>
+    <link rel="stylesheet" href="/rsd-talks/site-styles/reveal.css"/>
+  <link rel="stylesheet" media="print" href="http://lab.hakim.se/reveal-js/css/print/pdf.css" />
+  <!--[if lt IE 9]>
+  <script src="http://lab.hakim.se/reveal-js/lib/js/html5shiv.js"></script>
+  <![endif]-->
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+
+<section>
+    <h1 class="title">The Craftsperson and The Scholar</h1>
+    <h2 class="author">James Hetherington</h2>
+    <h3 class="date"></h3>
+</section>
+
+<section class="slide level2">
+
+<section class="titlepage">
+<div style="float:left;width:42%;">
+<h3>
+The Craftsperson
+</h3>
+<h3>
+<span class="bigand">&amp;</span> The Scholar
+</h3>
+<p>
+James Hetherington
+</p>
+</div>
+<img src="assets/craftsperson-scholar.png" style="width:55%;float:right;">
+<div class="logo-holder">
+<img src="assets/ATI-logo.png" style="float:left;width:40%"> <img src="assets/UCL-logo.png" style="float:right;width:60%">
+</div>
+</section>
+
+</section>
+<section><section id="the-state-of-research-software" class="titleslide slide level1 chapter-title"><h1>The State of Research Software</h1></section><section id="the-siro-problem" class="slide level2 diagram2">
+<h1>The SIRO Problem</h1>
+<figure>
+<img src="assets/SIRO.svg" />
+</figure>
+</section><section id="phdware" class="slide level2">
+<h1>PhDWare</h1>
+<ul>
+<li>Don't look if anyone's done it before</li>
+<li>Code till it works</li>
+<li>Generate a figure</li>
+<li>Throw it away</li>
+</ul>
+</section><section id="labware" class="slide level2">
+<h1>Labware</h1>
+<ul>
+<li>Understood by one genius</li>
+<li>Implements great science, now</li>
+<li>FORTRAN in any language</li>
+<li>Code not engineered for readability</li>
+<li>Can't add new science</li>
+</ul>
+</section><section id="hpcware" class="slide level2">
+<h1>HPCWare</h1>
+<ul>
+<li>Get a 5% improvement in performance</li>
+<li>On a particular architecture</li>
+<li>Publish a scaling graph</li>
+<li>Selection against:
+<ul>
+<li>Readability</li>
+<li>Maintainability</li>
+<li>Adaptability</li>
+</ul></li>
+</ul>
+</section><section id="consultantware" class="slide level2">
+<h1>ConsultantWare</h1>
+<ul>
+<li>Little understanding of the science</li>
+<li>Overengineered</li>
+<li>Unmaintainable by the research group</li>
+</ul>
+</section></section>
+<section><section id="research-software-engineers" class="titleslide slide level1 chapter-title"><h1>Research Software Engineers</h1></section><section id="the-craftsperson-and-the-scholar" class="slide level2 diagram2">
+<h1>The Craftsperson And The Scholar</h1>
+<figure>
+<img src="assets/RSE-Venn.png" />
+</figure>
+</section><section id="dilstein" class="slide level2 poster">
+<h1>Research Software Engineers</h1>
+<figure>
+<img src="assets/dilstein.png" />
+</figure>
+</section><section id="research-software-engineers-1" class="slide level2">
+<h1>Research Software Engineers</h1>
+<ul>
+<li>Not independent researchers
+<ul>
+<li>No personal research agenda</li>
+</ul></li>
+<li>Facilitative, supportive, and collaborative
+<ul>
+<li>Part of the academic community</li>
+<li>Deep engagement with research groups</li>
+</ul></li>
+</ul>
+</section><section id="why-it-works" class="slide level2">
+<h1>Why it works</h1>
+<ul>
+<li>People <em>want</em> to be RSEs</li>
+<li>We have been hiding as:
+<ul>
+<li>RAs who program too much</li>
+<li>HPC or research group sysadmins</li>
+</ul></li>
+</ul>
+</section><section id="the-movement" class="slide level2">
+<h1>The movement</h1>
+<ul>
+<li>We need a name and some status!</li>
+</ul>
+<img src="assets/french-revolution-2.jpg" style="float:left;width:40%">
+<div style="width:50%;float:right;margin-left:20px;">
+<ul>
+<li>Measure and incentivise RSEs correctly</li>
+<li>Integrate RSEs within HEIs</li>
+<li>Support institutional innovation</li>
+</ul>
+</div>
+</section><section id="our-story" class="slide level2">
+<h1>Our story</h1>
+<ul>
+<li>April 2012: Idea and name at SSI Collaborations Workshop</li>
+<li>September 2012: UCL Group Founded</li>
+<li>2014: Manchester group</li>
+<li>2015: Southampton and Cambridge Groups</li>
+<li>Jan 2016: EPSRC awards first Research Software Engineering Fellowships</li>
+<li>2016: Bristol, Sheffield Groups</li>
+</ul>
+</section><section id="our-story-1" class="slide level2">
+<h1>Our story</h1>
+<ul>
+<li>September 2016: First RSE conference, 202 attendees, 14 countries</li>
+<li>2017: Leicester, Imperial College groups.</li>
+<li>September 2017: Second conference, 224 attendees, 12 countries</li>
+<li>Formally incorporated as a charity</li>
+<li>Jan 2018: Second RSE fellows appointed</li>
+</ul>
+</section></section>
+<section><section id="rse-groups" class="titleslide slide level1 chapter-title"><h1>RSE Groups</h1></section><section id="rse-group" class="slide level2">
+<h1>RSE Group</h1>
+<ul>
+<li>Shared home for RSEs in an institution</li>
+<li>Both academic and Support</li>
+<li>&quot;Science as a Service&quot;</li>
+</ul>
+</section><section id="activities" class="slide level2">
+<h1>Activities</h1>
+<ul>
+<li>Projects</li>
+<li>Consulting</li>
+<li>Training</li>
+<li>Infrastructure</li>
+</ul>
+</section><section id="domain" class="slide level2">
+<h1>Domain</h1>
+<ul>
+<li>From HPC codes to simple scripts</li>
+<li>From theoretical physics to digital humanities</li>
+</ul>
+</section><section id="ucl-model" class="slide level2">
+<h1>UCL Model</h1>
+<ul>
+<li>All roles &quot;permanent&quot;</li>
+<li>But funded from research grant income on a pooled basis</li>
+</ul>
+</section><section id="the-ucl-research-software-group" class="slide level2">
+<h1>The UCL Research Software Group</h1>
+<img src="assets/team.jpg" style="width:33%;float:right;">
+<div style="width:65%;float:left">
+<ul>
+<li>Helped UCL researchers win over £2M</li>
+<li>Grown through grant funding</li>
+<li>From archaeology to astrophysics</li>
+</ul>
+</div>
+</section><section id="readable-reliable-and-reproducible" class="slide level2">
+<h1>Readable, reliable, and reproducible</h1>
+<p>We help make code:</p>
+<ul>
+<li>Last beyond the end of the grant that funded it</li>
+<li>Be usable by someone other than the PhD student who wrote it</li>
+<li>Have a standard of correctness better than &quot;the graph looks about right&quot;</li>
+</ul>
+</section></section>
+<section><section id="why-work-with-rses" class="titleslide slide level1 chapter-title"><h1>Why work with RSEs?</h1></section><section id="clean-code-makes-performance-possible" class="slide level2">
+<h1>Clean code makes performance possible</h1>
+<h5>
+LikeLTD
+</h5>
+<img src="assets/whodunnitdna.jpg" style="width:33%;float:right;">
+<div style="width:65%;float:left">
+<p>Structural work:</p>
+<ul>
+<li>Broken down into functions</li>
+<li>Separate objective function from home-made optimiser</li>
+<li>Use standard optimiser libraries</li>
+</ul>
+</div>
+</section><section id="clean-code-makes-performance-possible-1" class="slide level2">
+<h1>Clean code makes performance possible</h1>
+<h5>
+LikeLTD
+</h5>
+<img src="assets/whodunnitdna.jpg" style="width:33%;float:right;">
+<div style="width:65%;float:left">
+<p>Performance improvements:</p>
+<ul>
+<li>4 times from moving to C</li>
+<li>8 times from parallelisation</li>
+<li>10 times from change of optimisation algorithm</li>
+<li>300 times total</li>
+</ul>
+</div>
+</section><section id="engineering-helps-legacy-code-live" class="slide level2">
+<h1>Engineering helps legacy code live</h1>
+<h5>
+DCProgs
+</h5>
+<div style="width:50%; float:right;">
+
+<p>Before:</p>
+<ul>
+<li>Venerable Fortran</li>
+<li>Hasn't compiled since 2006</li>
+<li>Underpins Nature published research</li>
+</ul>
+</div>
+<p><img src="assets/dcprogs-img1.jpg" style="width:40%;float:left;"></p>
+</section><section id="engineering-helps-legacy-code-live-1" class="slide level2">
+<h1>Engineering helps legacy code live</h1>
+<h5>
+DCProgs
+</h5>
+<div style="width:49%; float:left;">
+<p>Our solution:</p>
+<ul>
+<li>Old code as &quot;test oracle&quot;</li>
+<li>Reimplemented in C++ and Python</li>
+<li>Use algorithm libraries</li>
+</ul>
+</div>
+<div style="width:49%; float:right;">
+
+<p>Since then:</p>
+<ul>
+<li>ARCHER parallelisation</li>
+<li>MCMC inference</li>
+</ul>
+</div>
+
+</section><section id="reliability-unlocks-science" class="slide level2">
+<h1>Reliability unlocks science</h1>
+<h5>
+HemeLB Setup Tool
+</h5>
+<div style="width:64%;float:left;">
+
+<ul>
+<li>Voxelisation for Lattice Boltzman</li>
+<li>Crashed 1 time in 20</li>
+<li>So tweak the origin!</li>
+</ul>
+</div>
+<p><img src="assets/hemelb1.png" style="width:33%;float:right;"></p>
+</section><section id="reliability-unlocks-science-1" class="slide level2">
+<h1>Reliability unlocks science</h1>
+<h5>
+HemeLB Setup Tool
+</h5>
+<div style="width:64%;float:left;">
+
+<ul>
+<li>Replace with standard comp geometry library</li>
+<li>Can handle all geometries instead of 19 in 20
+</li></li>
+<li>Means can model changing geometries
+</li>
+</li>
+</ul>
+</div>
+<p><img src="assets/hemelb1.png" style="width:33%;float:right;"></p>
+</section></section>
+<section><section id="rses-and-teaching" class="titleslide slide level1 chapter-title"><h1>RSEs and Teaching</h1></section><section id="software-carpentry" class="slide level2">
+<h1>Software Carpentry</h1>
+<div style="width:50%;float:left">
+<ul>
+<li>Intensive &quot;bootcamp&quot;</li>
+<li>Automation</li>
+<li>Version control</li>
+<li>Unit testing</li>
+<li>Databases</li>
+</ul>
+</div>
+<div style="width:50%;float: right; font-size:0.75em">
+<blockquote>
+<p>I found the command line intimidating at first, but after a while it felt like I was inside my computer. -- A student at a UCL software carpentry event</p>
+</blockquote>
+</div>
+</section><section id="ritss-training-programme" class="slide level2">
+<h1>RITS's training programme</h1>
+<ul>
+<li>Software carpentry</li>
+<li>Data carpentry</li>
+<li>Introductory Python for Data Analysis</li>
+<li>Research Software Engineering with Python</li>
+<li>Research Computing with C++</li>
+<li>High Performance and High Throughput Computing</li>
+</ul>
+</section><section id="digitally-native-learning-tools" class="slide level2">
+<h1>Digitally native learning tools</h1>
+<ul>
+<li>Web-first but classroom- and kindle-ready
+<ul>
+<li>Single source, multiple formats</li>
+</ul></li>
+<li>Examples which <em>work</em>:
+<ul>
+<li>Generated lecture notes from code that is <em>executed</em> and <em>complete</em></li>
+</ul></li>
+<li>Open and collaborative
+<ul>
+<li>CC-BY license on notes</li>
+<li>Massive cross-institutional co-creation</li>
+</ul></li>
+</ul>
+</section><section id="active-classrooms" class="slide level2">
+<h1>Active classrooms</h1>
+<ul>
+<li>Practicals and concepts together</li>
+<li>Bring your own device</li>
+<li>Post-it-notes and etherpads</li>
+</ul>
+</section><section id="the-syllabus-is-full." class="slide level2">
+<h1>The syllabus is full.</h1>
+<ul>
+<li>Ideally, <em>everyone</em> would know <em>everything</em>!</li>
+<li>This is clearly impossible</li>
+<li>So we need <em>division of labour</em></li>
+<li>and enough training to work together</li>
+</ul>
+</section></section>
+<section><section id="good-huh" class="titleslide slide level1 chapter-title"><h1>Good, huh?</h1></section><section id="lessons-learned" class="slide level2">
+<h1>Lessons learned</h1>
+<p>Well, it hasn't always been pretty.</p>
+<p>I'll try to indicate some tips and tricks learned while creating a generalist science-as-a-service software group.</p>
+<p>Some of these we got right. Some are things I wish I'd known at the beginning.</p>
+</section><section id="flymac" class="slide level2 poster">
+<h1>Sell performance, deliver reproducibility</h1>
+<img src="assets/flying-machine.png" />
+<h4>
+Sell performance
+</h4>
+<h4>
+Deliver reproducibility
+</h4>
+
+</section><section id="windvane" class="slide level2 poster">
+<h1>Use appropriate technology</h1>
+<img src="assets/windvane.png" />
+<h4>
+Use appropriate technology
+</h4>
+
+</section><section id="ancient" class="slide level2 poster">
+<h1>Look beyond the usual</h1>
+<h4>
+Look beyond the usual
+</h4>
+<figure>
+<img src="assets/ancient-tech.png" />
+</figure>
+</section><section id="crafty" class="slide level2 poster">
+<h1>Make space to learn</h1>
+<h4>
+Make space to learn
+</h4>
+<figure>
+<img src="assets/craftsperson-scholar.png" />
+</figure>
+</section><section id="judo" class="slide level2 poster">
+<h1>Organisational Judo</h1>
+<h4>
+Organisational
+</h4>
+<h4>
+Judo
+</h4>
+<figure>
+<img src="assets/org-judo.jpg" />
+</figure>
+</section><section id="it-crowd" class="slide level2 poster">
+<h1>Computational Science as a Service</h1>
+<h4>
+Computational Science as a Service
+</h4>
+<figure>
+<img src="https://media.giphy.com/media/F7yLXA5fJ5sLC/giphy.gif" />
+</figure>
+</section></section>
+<section><section id="multi--professionalism" class="titleslide slide level1 chapter-title"><h1>Multi- professionalism</h1></section><section id="multiprofessional" class="slide level2">
+<h1>Multiprofessional</h1>
+<p>RSE combines:</p>
+<ul>
+<li>Researcher</li>
+<li>Coder</li>
+</ul>
+</section><section id="team-research" class="slide level2">
+<h1>Team Research</h1>
+<ul>
+<li>RSE</li>
+<li>Data Scientist</li>
+<li>Visualisation</li>
+<li>Interaction</li>
+<li>...</li>
+</ul>
+</section><section id="the-turing-institute" class="slide level2 poster">
+<h1>The Turing Institute</h1>
+<img src="assets/ATI-logo.png" style="width:33%;float:right;">
+<div style="width:65%;float:left">
+<ul>
+<li>UK's national institute for data science</li>
+<li>Joint venture of 5 UK universities</li>
+<li>Shared Faculty</li>
+</ul>
+</div>
+</section><section id="research-engineering-at-the-turing-institute" class="slide level2">
+<h1>Research Engineering at the Turing Institute</h1>
+<ul>
+<li>Shared research staff pool</li>
+<li>RSEs</li>
+<li>Data Scientists</li>
+</ul>
+</section></section>
+<section><section id="to-finish" class="titleslide slide level1 chapter-title"><h1>To finish</h1></section><section id="beyond-the-postdoc" class="slide level2 poster">
+<h1>Beyond the Postdoc</h1>
+<h4>
+The Sith approach
+</h4>
+<h4>
+to professional continuity
+</h4>
+<figure>
+<img src="assets/sith.png" />
+</figure>
+</section><section id="why-you-should-have-one" class="slide level2">
+<h1>Why you should have one</h1>
+<ul>
+<li>More and more research uses software</li>
+<li>General programmers can't understand research</li>
+<li>Postdocs and PhD students don't have time to make reliable code</li>
+</ul>
+</section><section id="why-you-should-be-one" class="slide level2">
+<h1>Why you should be one</h1>
+<ul>
+<li>Write papers</li>
+<li>Make code</li>
+</ul>
+</section><section id="acknowledgements" class="slide level2">
+<h1>Acknowledgements</h1>
+<ul>
+<li>Neil Chue Hong, Simon Hettrick</li>
+<li>Susan Morrell and her team</li>
+<li>Alys Brett, Chris Woods</li>
+<li>Tom Couch</li>
+<li>Mayeul d'Avezac, Jens Nielsen</li>
+<li>Raquel Alegre, Jonathan Cooper, David Perez-Suarez</li>
+<li>James Geddes, Martin O'Reilly</li>
+</ul>
+</section></section>
+    </div>
+  </div>
+
+  <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+  <script src="http://lab.hakim.se/reveal-js/js/reveal.min.js"></script>
+
+  <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+        theme: 'solarized', // available themes are in /css/theme
+        transition: 'slide', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/search/search.js', async: true, condition: function() { return !!document.body.classList; }, }
+//          { src: 'http://lab.hakim.se/reveal-js/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+]});
+    </script>
+  </body>
+</html>
