@@ -35,3 +35,8 @@ img[src*="logos/"] {
 reveal section img[src*="assets/"] {
 	max-height: 300px;
 }
+
+h1,
+h2 {
+	clear: both;
+}
