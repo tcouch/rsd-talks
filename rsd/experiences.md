@@ -224,7 +224,7 @@ Our solution:
 
 * Old code as "test oracle"
 * Reimplemented in C++ and Python
-* Use linear algebra and root finding libraries
+* Use algorithm libraries
 * Not slower
 </div>
 <div style="width:49%; float:right;">
@@ -348,14 +348,14 @@ Make space to learn {#crafty .poster}
 -----------------------------
 
 <h4>Make space to learn</h4>
-![Smart and Gets Things Done ](assets/craftsperson-scholar.png)
+![](assets/craftsperson-scholar.png)
 
 Organisational Judo {#judo .poster}
 -------------------
 
 <h4>Organisational</h4>
 <h4>Judo</h4>
-![](assets/org-judo.png)
+![](assets/org-judo.jpg)
 
 Computational Science as a Service {#it-crowd .poster}
 ----------------------------------
@@ -400,6 +400,9 @@ Research Engineering at the Turing Institute
   * RSEs
   * Data Scientists
 
+To finish
+=========
+
 Beyond the Postdoc {.poster}
 ------------------
 
@@ -417,8 +420,16 @@ Why you should have one
 Why you should be one
 ---------------------
 
-<img src="assets/dilstein.png" style="width:33%;float:right;">
-<div style="width:65%;float:left">
 * Write papers
 * Make code
-</div>
+
+Acknowledgements
+----------------
+
+* Neil Chue Hong, Simon Hettrick
+* Susan Morrell and her team
+* Alys Brett, Chris Woods
+* Tom Couch
+* Mayeul d'Avezac, Jens Nielsen
+* Raquel Alegre, Jonathan Cooper, David Perez-Suarez
+* James Geddes, Martin O'Reilly

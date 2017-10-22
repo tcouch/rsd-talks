@@ -95,7 +95,7 @@ img[src*="assets/twitter.png"] {
 	font-size: 3em;
 }
 
-reveal #dilstein img {
+.reveal #dilstein img {
 	border: 0px;
 }
 

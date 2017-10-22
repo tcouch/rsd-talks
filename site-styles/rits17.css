@@ -300,7 +300,8 @@ body {
 .reveal table {
   font-size: 0.75em; }
 
-.reveal .titlepage h3 {
+.reveal .titlepage h3,
+.reveal h1.title {
   font-size: 1em;
   margin: 0px; }
 
