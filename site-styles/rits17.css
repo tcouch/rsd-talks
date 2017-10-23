@@ -3,7 +3,7 @@
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(https://fonts.googleapis.com/css?family=Archivo+Black|Merriweather|Quicksand:400,700,400italic,700italic);
+@import url(https://fonts.googleapis.com/css?family=Archivo+Black|Merriweather|Raleway:400,700,400italic,700italic);
 /*********************************************
  * GLOBAL STYLES
  *********************************************/
@@ -12,7 +12,7 @@ body {
   background-color: #D6D2C4; }
 
 .reveal {
-  font-family: "Quicksand", Helvetica, sans-serif;
+  font-family: "Raleway", Helvetica, sans-serif;
   font-size: 42px;
   font-weight: normal;
   color: #003D4C; }
