@@ -1,7 +1,7 @@
 
 #windvane h4 {
   position: absolute;
-  top: 75px;
+  top: 50px;
   right: 30px;
   color: #FFD135;
   font-size: 35px; }
@@ -34,13 +34,13 @@
 
 #judo h4:nth-of-type(1) {
   position: absolute;
-  bottom: 155px;
+  bottom: 111px;
   right: 185px;
   color: #8F993E; }
 
 #judo h4:nth-of-type(2) {
   position: absolute;
-  bottom: 105px;
+  bottom: 66px;
   right: 185px;
   color: white; }
 
@@ -52,8 +52,8 @@
 
 #crafty h4:nth-of-type(1) {
   position: absolute;
-  top: 45px;
-  left: 155px;
+  top: 35px;
+  left: 280px;
   color: #D6D2C4;
   font-size: 35px; }
 
@@ -92,7 +92,7 @@ img[src*="assets/twitter.png"] {
 
 .reveal h1 {
 	text-transform: none;
-	font-size: 3em;
+	font-size: 2.5em;
 }
 
 .reveal #dilstein img {
@@ -102,3 +102,4 @@ img[src*="assets/twitter.png"] {
 .poster h1 {
   display: none;
 }
+

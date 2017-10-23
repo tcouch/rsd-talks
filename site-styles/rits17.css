@@ -3,8 +3,6 @@
  *
  * Copyright (C) 2011-2012 Hakim El Hattab, http://hakim.se
  */
-@import url(../../lib/font/league-gothic/league-gothic.css);
-@import url(../../lib/font/franklin-gothic/franklin-gothic.css);
 @import url(https://fonts.googleapis.com/css?family=Archivo+Black|Merriweather|Quicksand:400,700,400italic,700italic);
 /*********************************************
  * GLOBAL STYLES
@@ -45,7 +43,7 @@ body {
 .reveal h6 {
   margin: 0 0 20px 0;
   color: #003D4C;
-  font-family: "Archivo Black", sans-serif;
+  font-family: "Merriweather", sans-serif;
   font-weight: normal;
   line-height: 1.2;
   letter-spacing: normal;
@@ -63,7 +61,10 @@ body {
   font-size: 1.55em; }
 
 .reveal h4 {
-  font-size: 1em; }
+  font-size: 1em;}
+
+.reveal h5 {}
+  color:#AC145A;
 
 /*********************************************
  * OTHER
@@ -126,7 +127,7 @@ body {
   display: block;
   position: relative;
   width: 70%;
-  margin: 20px auto;
+  margin: auto;
   padding: 5px;
   font-style: italic;
   background: rgba(255, 255, 255, 0.05);
@@ -305,6 +306,10 @@ body {
   font-size: 1em;
   margin: 0px; }
 
+.reveal .titlepage h3{
+  font-family: "Archivo Black", sans-serif;
+}
+
 .reveal .titlepage p {
   font-size: 0.75em;
   font-family: "Merriweather", serif;
@@ -340,33 +345,25 @@ body {
   background: none;
   box-shadow: none; }
 
-.reveal .case-study h3,
-.reveal .case-study h4 {
+.reveal h5 {
   color: #AC145A; }
-
-.reveal .case-study h5 {
-  font-family: "Merriweather", serif;
-  font-size: 0.75em; }
-
-.reveal .case-study p {
-  font-size: 0.75em; }
-
-.reveal .case-study li {
-  list-style-image: none;
-  list-style-type: disc;
-  font-size: 0.75em; }
 
 .reveal .diagram2 {
   background-color: #8F993E; }
 
-.reveal .diagram2 h3 {
-  color: #D6D2C4; }
+.reveal .diagram2 h1 {
+  text-align: center;
+  color: #003D4C; }
 
 .reveal .diagram2 img {
   margin: 0px;
   border: none;
   background: none;
-  box-shadow: none; }
+  box-shadow: none; 
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
 
 .reveal .poster img {
   width: 100%;
@@ -374,6 +371,12 @@ body {
   max-height: 100%;
   margin: none; }
 
+.reveal .poster h4 {
+  font-family: "Archivo Black"
+}
+
+
 .reveal section.level2 h1 {
   font-size: 1.55em;
 }
+
